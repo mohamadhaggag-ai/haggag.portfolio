@@ -232,7 +232,14 @@
   .stats-col{ text-align:right; min-width:150px; }
   .views{
     font-family:'Bebas Neue',sans-serif;
-    font-size:1.9rem; color:var(--ink); line-height:1;
+    font-size:1.5rem; font-weight:500; color:var(--ink); line-height:1;
+    letter-spacing:0.02em;
+  }
+  .views-label{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:1.5rem; font-weight:500;
+    color:var(--ink);
+    margin-left:0.35rem;
   }
   .subs{
     margin-top:0.45rem;
@@ -323,7 +330,7 @@ const clips = [
   {rank:12, plat:"YouTube · Horizontal", seriesAr:"فهد البطل", seriesEn:"Fahd Elbatal 4", title:"شامل باعت حملة كاملة عشان تجيب رقبة فهد", titleEn:"Shamel sent an entire squad just to bring Fahd in", badge:"trend", trendRank:1, views:8.2, sub:"48K likes · 1K comments", type:"youtube", url:"https://youtu.be/6NTvdQRBM98", categoryAr:"مسلسل · آكشن", categoryEn:"Series · Action"},
   {rank:13, plat:"TikTok · Vertical", seriesAr:"كركر", seriesEn:"Karkar", title:"لمّا يبقى ليك فلوس عند حد وتتصدم إنه مات", titleEn:"When someone owes you money and you're shocked to hear they died", badge:"viral", views:7.2, sub:"173.8K likes · 3.2K comments · 69.7K shares", type:"tiktok", url:"https://vt.tiktok.com/ZS4hh8jjr/", categoryAr:"فيلم · كوميدي", categoryEn:"Film · Comedy"},
   {rank:14, plat:"TikTok · Vertical", seriesAr:"الوصفة السحرية", seriesEn:"Elwasfa Elsehreya", title:"فن اختيار الخلافات الزوجية", titleEn:"The art of picking your marital fights", badge:"viral", views:5.8, sub:"142.9K likes · 1.1K comments · 28.3K shares", type:"tiktok", url:"https://vt.tiktok.com/ZS4hBeGAp/", categoryAr:"مسلسل · كوميدي", categoryEn:"Series · Comedy"},
-  {rank:15, plat:"TikTok · Vertical", seriesAr:"بحبك", seriesEn:"Baheback", title:"أجيلك من شهرين كدة تخلّيني كدة؟", titleEn:"I come see you every two months — is that how you treat me?", badge:"viral", views:5.5, sub:"146.2K likes · 1.8K comments · 17.2K shares", type:"tiktok", url:"https://vt.tiktok.com/ZS4hkt6mb/", categoryAr:"فيلم · كوميدي", categoryEn:"Film · Comedy"}
+  {rank:15, plat:"TikTok · Vertical", seriesAr:"بحبك", seriesEn:"Baheback", title:"أجيلك من شهرين كدة تخلّيني كدة؟", titleEn:"I came to you in this state two months ago, and you made me into this state?", badge:"viral", views:5.5, sub:"146.2K likes · 1.8K comments · 17.2K shares", type:"tiktok", url:"https://vt.tiktok.com/ZS4hkt6mb/", categoryAr:"فيلم · كوميدي", categoryEn:"Film · Comedy"}
 ];
 
 const max = Math.max(...clips.map(c => c.views));
@@ -403,7 +410,7 @@ clips.forEach(c => {
       <div class="series-translit">${c.seriesEn} · ${c.categoryEn}</div>
     </div>
     <div class="stats-col">
-      <div class="views">${viewsLabel}</div>
+      <div class="views">${viewsLabel} <span class="views-label">Views</span></div>
       <div class="subs">${renderSub(c.sub)}</div>
     </div>
     <button class="watch-btn" type="button" aria-expanded="false" aria-controls="${panelId}"><span class="arrow">▸</span> Watch clip</button>
