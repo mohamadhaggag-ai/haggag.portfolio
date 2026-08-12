@@ -155,13 +155,24 @@
     border-top:1px dashed var(--line);
   }
   .embed-panel.open{ display:block; }
-  .embed-panel iframe{ border:none; display:block; width:100%; }
+  .embed-panel iframe{ border:none; display:block; }
+  .video-frame{
+    position:relative; width:100%; max-width:480px;
+    background:#000; border-radius:8px; overflow:hidden;
+  }
+  .video-frame.ratio-16-9{ aspect-ratio:16/9; }
+  .video-frame.ratio-9-16{ aspect-ratio:9/16; max-width:270px; }
+  .video-frame iframe{
+    position:absolute; inset:0; width:100%; height:100%; border:none;
+  }
   .embed-note{ font-size:0.7rem; color:var(--muted); margin-top:0.5rem; }
   .rank{
+    width:34px; height:34px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    background:var(--accent-soft);
     font-family:'Bebas Neue',sans-serif;
-    font-size:2.1rem;
-    color:var(--line);
-    -webkit-text-stroke:1px var(--muted);
+    font-size:1.15rem;
+    color:var(--accent);
     line-height:1;
   }
   .row:nth-child(-n+3) .rank{ display:none; }
@@ -173,6 +184,9 @@
     color:var(--muted-dark); margin-bottom:0.3rem; flex-wrap:wrap;
   }
   .plat{font-weight:700; display:inline-flex; align-items:center; gap:0.3rem;}
+  .plat.p-youtube{ color:#C0392B; }
+  .plat.p-facebook{ color:#1877F2; }
+  .plat.p-tiktok{ color:#111111; }
   .plat svg{ flex:none; }
   .badge{
     font-size:0.65rem; font-weight:700; letter-spacing:0.04em;
@@ -189,18 +203,47 @@
     color:var(--ink);
     line-height:1.5;
   }
-  .series{
-    font-size:0.78rem; color:var(--muted);
-    margin-top:0.15rem;
-    direction:rtl; text-align:right;
+  .title-en{
+    font-size:0.78rem; color:var(--muted-dark);
+    direction:ltr; text-align:right;
+    margin-top:0.15rem; font-style:italic;
+  }
+  .series-row{
+    display:flex; align-items:baseline; gap:0.5rem; justify-content:flex-end;
+    flex-wrap:wrap; direction:rtl;
+  }
+  .series-name{
+    font-family:'Cairo',sans-serif;
+    font-size:1.05rem; font-weight:600;
+    color:var(--ink);
+  }
+  .category-badge{
+    font-size:0.68rem; font-weight:700;
+    color:var(--accent); background:var(--accent-soft);
+    padding:0.12rem 0.55rem; border-radius:20px;
+    white-space:nowrap; direction:rtl;
+  }
+  .series-translit{
+    font-size:0.72rem; color:var(--muted);
+    margin-top:0.2rem;
+    direction:ltr; text-align:right;
   }
 
-  .stats-col{ text-align:right; min-width:112px; }
+  .stats-col{ text-align:right; min-width:150px; }
   .views{
     font-family:'Bebas Neue',sans-serif;
-    font-size:1.7rem; color:var(--ink); line-height:1;
+    font-size:1.9rem; color:var(--ink); line-height:1;
   }
-  .subs{ font-size:0.68rem; color:var(--muted-dark); margin-top:0.3rem; white-space:nowrap;}
+  .subs{
+    margin-top:0.45rem;
+    display:flex; flex-direction:column; align-items:flex-end; gap:0.25rem;
+  }
+  .subs .metric{
+    display:inline-flex; align-items:center; gap:0.3rem;
+    font-size:0.82rem; font-weight:600; color:var(--muted-dark);
+    white-space:nowrap;
+  }
+  .subs .metric svg{ opacity:0.7; flex:none; }
 
   .bar-track{
     grid-column:2 / 4;
@@ -211,9 +254,11 @@
 
   @media(max-width:640px){
     .row{grid-template-columns:40px 1fr; row-gap:0.6rem;}
-    .stats-col{grid-column:2; text-align:right; display:flex; justify-content:space-between; align-items:baseline;}
+    .stats-col{grid-column:2; text-align:right; display:block;}
+    .subs{ align-items:flex-end; }
     .bar-track{grid-column:1/3;}
-    .rank{font-size:1.6rem;}
+    .rank{width:28px; height:28px; font-size:1rem;}
+    .medal{width:28px; height:28px; font-size:1rem;}
   }
 
   footer{
@@ -264,21 +309,21 @@
 
 <script>
 const clips = [
-  {rank:1, plat:"Facebook · Horizontal", series:"Darbet Maallem — ضربة معلم", title:"جابر عرف إن ليلى نزلت بالمايوه، نزل لها بالجالبية", badge:"viral", views:60.0, sub:"1M likes · 11K comments · 13K shares", type:"facebook", url:"https://www.facebook.com/watch/?v=471033977251763"},
-  {rank:2, plat:"Facebook · Horizontal", series:"Gaafar Elomda — جعفر العمدة", title:"حاول يعمل نمرة على جعفر، رد له النمرة مقلب قدّام أهل المنطقة", badge:"viral", views:37.0, sub:"1M+ likes · 3.2K comments", type:"facebook", url:"https://www.facebook.com/WatchiTMENA/videos/1166536187397635/"},
-  {rank:3, plat:"YouTube · Horizontal", series:"Elprince — البرنس", title:"تحية البرنس لإخواته بمناسبة خروجه من السجن — علقة موت", badge:"trend", views:35.9, sub:"324K likes · 7K comments", type:"youtube", url:"https://youtu.be/1BVvZn3mlmc"},
-  {rank:4, plat:"Facebook · Horizontal", series:"Hala Khasa — حالة خاصة", title:"نديم حوّل الشاهدة لمتهمة بسبب غلطة صغيرة محدش انتبه ليها غيره", badge:"viral", views:26.0, sub:"649K likes · 3.2K comments", type:"facebook", url:"https://www.facebook.com/watch/?v=1119313819206656"},
-  {rank:5, plat:"TikTok · Vertical", series:"Haha w Tofaha — حاحا وتفاحة", title:"صاحبتك اللي بتخاف من الحسد زيادة عن اللازم", badge:"viral", views:23.6, approx:true, sub:"56K likes · 864 comments · 22.4K shares", type:"tiktok", url:"https://vt.tiktok.com/ZS4hDnGEF/"},
-  {rank:6, plat:"Facebook · Horizontal", series:"Haq Arab — حق عرب", title:"سميحة ورباح خدوا جزاءهم، وأنغام ربنا تعويض لعرب", badge:"viral", views:22.0, sub:"431K likes · 716 comments", type:"facebook", url:"https://www.facebook.com/WatchiTMENA/videos/759384259267999/"},
-  {rank:7, plat:"Facebook Reels · Vertical", series:"Hadath Belfel — حدث بالفعل", title:"انت كدة جامد يعني", badge:"viral", views:20.7, sub:"207K likes · 967 comments · 775 shares", type:"facebook", url:"https://www.facebook.com/reel/1132088844743862/"},
-  {rank:8, plat:"Facebook · Horizontal", series:"Sahebet Elsaada — صاحبة السعادة", title:"لما تبقى لابس وخارج وبنتك تقول رأيها في شكلك", badge:"viral", views:17.0, sub:"371K+ likes · 8.5K comments", type:"facebook", url:"https://www.facebook.com/watch/?v=306808134195281"},
-  {rank:9, plat:"TikTok · Vertical", series:"شارك تانك - Shark Tank", title:"أصغر مؤسسين شركة معملوش مقاسهم في Shark Tank فقرروا يأسسوا شركتهم بنفسهم", badge:"viral", views:9.4, sub:"530.6K likes · 6.8K comments · 93.6K shares", type:"tiktok", url:"https://vt.tiktok.com/ZS4hMAYr1/"},
-  {rank:10, plat:"Facebook · Horizontal", series:"Eigar Adeem — إيجار قديم", title:"الشارع كله بيتفرج على رمزي ومش مصدقين اللي بيعمله", badge:"viral", views:8.7, sub:"187K likes · 591 comments", type:"facebook", url:"https://www.facebook.com/WatchiTMENA/videos/3399121410332710/"},
-  {rank:11, plat:"YouTube · Horizontal", series:"Darbet Maallem — ضربة معلم", title:"جابر عمل اللي عليه ودلوقتي وقت الفراق", badge:"trend", views:8.6, sub:"77K likes · 2K comments", type:"youtube", url:"https://youtu.be/KFmapXn7Og8"},
-  {rank:12, plat:"YouTube · Horizontal", series:"Fahd Elbatal 4 — فهد البطل", title:"شامل باعت حملة كاملة عشان تجيب رقبة فهد", badge:"trend", views:8.2, sub:"48K likes · 1K comments", type:"youtube", url:"https://youtu.be/6NTvdQRBM98"},
-  {rank:13, plat:"TikTok · Vertical", series:"Karkar — كركر", title:"لمّا يبقى ليك فلوس عند حد وتتصدم إنه مات", badge:"viral", views:7.2, sub:"173.8K likes · 3.2K comments · 69.7K shares", type:"tiktok", url:"https://vt.tiktok.com/ZS4hh8jjr/"},
-  {rank:14, plat:"TikTok · Vertical", series:"Elwasfa Elsehreya — الوصفة السحرية", title:"فن اختيار الخلافات الزوجية اللي عايز يشرب قهوة", badge:"viral", views:5.8, sub:"142.9K likes · 1.1K comments · 28.3K shares", type:"tiktok", url:"https://vt.tiktok.com/ZS4hBeGAp/"},
-  {rank:15, plat:"TikTok · Vertical", series:"Baheback — بحبك", title:"أجيلك من شهرين كدة تخلّيني كدة؟", badge:"viral", views:5.5, sub:"146.2K likes · 1.8K comments · 17.2K shares", type:"tiktok", url:"https://vt.tiktok.com/ZS4hkt6mb/"}
+  {rank:1, plat:"Facebook · Horizontal", seriesAr:"ضربة معلم", seriesEn:"Darbet Maallem", title:"جابر عرف إن ليلى نزلت بالمايوه، نزل لها بالجالبية", titleEn:"Gaber finds out Laila went out in her swimsuit, shows up in his galabeya", badge:"viral", views:60.0, sub:"1M likes · 11K comments · 13K shares", type:"facebook", url:"https://www.facebook.com/watch/?v=471033977251763", categoryAr:"مسلسل · كوميدي", categoryEn:"Series · Comedy"},
+  {rank:2, plat:"Facebook · Horizontal", seriesAr:"جعفر العمدة", seriesEn:"Gaafar Elomda", title:"حاول يعمل نمرة على جعفر، رد له النمرة مقلب قدّام أهل المنطقة", titleEn:"He tried to prank Gaafar, so Gaafar pranked him back in front of the whole neighborhood", badge:"viral", views:37.0, sub:"1M+ likes · 3.2K comments", type:"facebook", url:"https://www.facebook.com/WatchiTMENA/videos/1166536187397635/", categoryAr:"مسلسل · آكشن", categoryEn:"Series · Action"},
+  {rank:3, plat:"YouTube · Horizontal", seriesAr:"البرنس", seriesEn:"Elprince", title:"تحية البرنس لإخواته بمناسبة خروجه من السجن — علقة موت", titleEn:"Elprince's tribute to his brothers on his release from prison — a solid beatdown", badge:"trend", trendRank:1, views:35.9, sub:"324K likes · 7K comments", type:"youtube", url:"https://youtu.be/1BVvZn3mlmc", categoryAr:"مسلسل · جريمة", categoryEn:"Series · Crime"},
+  {rank:4, plat:"Facebook · Horizontal", seriesAr:"حالة خاصة", seriesEn:"Hala Khasa", title:"نديم حوّل الشاهدة لمتهمة بسبب غلطة صغيرة محدش انتبه ليها غيره", titleEn:"Nadeem turns the witness into a suspect over a tiny mistake only he noticed", badge:"viral", views:26.0, sub:"649K likes · 3.2K comments", type:"facebook", url:"https://www.facebook.com/watch/?v=1119313819206656", categoryAr:"مسلسل · جريمة", categoryEn:"Series · Crime"},
+  {rank:5, plat:"TikTok · Vertical", seriesAr:"حاحا وتفاحة", seriesEn:"Haha w Tofaha", title:"صاحبتك اللي بتخاف من الحسد زيادة عن اللازم", titleEn:"That friend of yours who's way too paranoid about the evil eye", badge:"viral", views:23.6, approx:true, sub:"56K likes · 864 comments · 22.4K shares", type:"tiktok", url:"https://vt.tiktok.com/ZS4hDnGEF/", categoryAr:"فيلم · كوميدي", categoryEn:"Film · Comedy"},
+  {rank:6, plat:"Facebook · Horizontal", seriesAr:"حق عرب", seriesEn:"Haq Arab", title:"سميحة ورباح خدوا جزاءهم، وأنغام ربنا تعويض لعرب", titleEn:"Samiha and Rabah get what's coming to them, and Angham compensates Arab", badge:"viral", views:22.0, sub:"431K likes · 716 comments", type:"facebook", url:"https://www.facebook.com/WatchiTMENA/videos/759384259267999/", categoryAr:"مسلسل · آكشن", categoryEn:"Series · Action"},
+  {rank:7, plat:"Facebook Reels · Vertical", seriesAr:"حدث بالفعل", seriesEn:"Hadath Belfel", title:"انت كدة جامد يعني", titleEn:"Now that's impressive", badge:"viral", views:20.7, sub:"207K likes · 967 comments · 775 shares", type:"facebook", url:"https://www.facebook.com/reel/1132088844743862/", categoryAr:"مسلسل · جريمة", categoryEn:"Series · Crime"},
+  {rank:8, plat:"Facebook · Horizontal", seriesAr:"صاحبة السعادة", seriesEn:"Sahebet Elsaada", title:"لما تبقى لابس وخارج وبنتك تقول رأيها في شكلك", titleEn:"When you're dressed and heading out and your daughter gives her opinion on your look", badge:"viral", views:17.0, sub:"371K+ likes · 8.5K comments", type:"facebook", url:"https://www.facebook.com/watch/?v=306808134195281", categoryAr:"برنامج تلفزيوني · كوميدي", categoryEn:"TV show · Comedy"},
+  {rank:9, plat:"TikTok · Vertical", seriesAr:"شارك تانك", seriesEn:"Shark Tank", title:"أصغر مؤسسين شركة معملوش مقاسهم في Shark Tank فقرروا يأسسوا شركتهم بنفسهم", titleEn:"The youngest founders no one took seriously on Shark Tank, so they built their own company", badge:"viral", views:9.4, sub:"530.6K likes · 6.8K comments · 93.6K shares", type:"tiktok", url:"https://vt.tiktok.com/ZS4hMAYr1/", categoryAr:"برنامج تلفزيوني · ريادة أعمال", categoryEn:"TV show · Entrepreneurship"},
+  {rank:10, plat:"Facebook · Horizontal", seriesAr:"إيجار قديم", seriesEn:"Eigar Adeem", title:"الشارع كله بيتفرج على رمزي ومش مصدقين اللي بيعمله", titleEn:"The whole street is watching Ramzy, stunned by what he's doing", badge:"viral", views:8.7, sub:"187K likes · 591 comments", type:"facebook", url:"https://www.facebook.com/WatchiTMENA/videos/3399121410332710/", categoryAr:"مسلسل · كوميدي", categoryEn:"Series · Comedy"},
+  {rank:11, plat:"YouTube · Horizontal", seriesAr:"ضربة معلم", seriesEn:"Darbet Maallem", title:"جابر عمل اللي عليه ودلوقتي وقت الفراق", titleEn:"Gaber did what he had to do, and now it's time to part ways", badge:"trend", trendRank:1, views:8.6, sub:"77K likes · 2K comments", type:"youtube", url:"https://youtu.be/KFmapXn7Og8", categoryAr:"مسلسل · رومانسي", categoryEn:"Series · Romance"},
+  {rank:12, plat:"YouTube · Horizontal", seriesAr:"فهد البطل", seriesEn:"Fahd Elbatal 4", title:"شامل باعت حملة كاملة عشان تجيب رقبة فهد", titleEn:"Shamel sent an entire squad just to bring Fahd in", badge:"trend", trendRank:1, views:8.2, sub:"48K likes · 1K comments", type:"youtube", url:"https://youtu.be/6NTvdQRBM98", categoryAr:"مسلسل · آكشن", categoryEn:"Series · Action"},
+  {rank:13, plat:"TikTok · Vertical", seriesAr:"كركر", seriesEn:"Karkar", title:"لمّا يبقى ليك فلوس عند حد وتتصدم إنه مات", titleEn:"When someone owes you money and you're shocked to hear they died", badge:"viral", views:7.2, sub:"173.8K likes · 3.2K comments · 69.7K shares", type:"tiktok", url:"https://vt.tiktok.com/ZS4hh8jjr/", categoryAr:"فيلم · كوميدي", categoryEn:"Film · Comedy"},
+  {rank:14, plat:"TikTok · Vertical", seriesAr:"الوصفة السحرية", seriesEn:"Elwasfa Elsehreya", title:"فن اختيار الخلافات الزوجية", titleEn:"The art of picking your marital fights", badge:"viral", views:5.8, sub:"142.9K likes · 1.1K comments · 28.3K shares", type:"tiktok", url:"https://vt.tiktok.com/ZS4hBeGAp/", categoryAr:"مسلسل · كوميدي", categoryEn:"Series · Comedy"},
+  {rank:15, plat:"TikTok · Vertical", seriesAr:"بحبك", seriesEn:"Baheback", title:"أجيلك من شهرين كدة تخلّيني كدة؟", titleEn:"I come see you every two months — is that how you treat me?", badge:"viral", views:5.5, sub:"146.2K likes · 1.8K comments · 17.2K shares", type:"tiktok", url:"https://vt.tiktok.com/ZS4hkt6mb/", categoryAr:"فيلم · كوميدي", categoryEn:"Film · Comedy"}
 ];
 
 const max = Math.max(...clips.map(c => c.views));
@@ -287,12 +332,14 @@ const container = document.getElementById('chart');
 function buildEmbed(c){
   if(c.type === 'youtube'){
     const id = c.url.split('/').pop();
-    return `<iframe src="https://www.youtube.com/embed/${id}" height="420" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+    return `<div class="video-frame ratio-16-9"><iframe src="https://www.youtube.com/embed/${id}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="embed-note">لو الفيديو مش ظاهر، صاحب الفيديو قافل خاصية الـ Embed على يوتيوب — دوس <a href="${c.url}" target="_blank" rel="noopener" style="color:var(--accent)">هنا</a> لمشاهدته على يوتيوب مباشرة.</div>`;
   }
   if(c.type === 'facebook'){
     const href = encodeURIComponent(c.url);
     const tall = c.plat.indexOf('Reels') !== -1;
-    return `<iframe src="https://www.facebook.com/plugins/video.php?height=${tall?600:420}&href=${href}&show_text=false" width="${tall?338:100+'%'}" height="${tall?600:420}" style="${tall?'max-width:338px;':''}" scrolling="no" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+    const ratioClass = tall ? 'ratio-9-16' : 'ratio-16-9';
+    return `<div class="video-frame ${ratioClass}"><iframe src="https://www.facebook.com/plugins/video.php?href=${href}&show_text=false" scrolling="no" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
       <div class="embed-note">لو الفيديو مش ظاهر، الصفحة المصدر خلّت الـ Embed مقفول — دوس <a href="${c.url}" target="_blank" rel="noopener" style="color:var(--accent)">هنا</a> لمشاهدته على فيسبوك مباشرة.</div>`;
   }
   return `<blockquote class="tiktok-embed" cite="${c.url}" style="max-width:325px;min-width:220px;margin:0;">
@@ -314,6 +361,20 @@ const PLATFORM_ICONS = {
   tiktok: '<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 3c.4 2.3 2 4 4.4 4.3V10a6.7 6.7 0 0 1-4.4-1.6v6.9a6.5 6.5 0 1 1-6.5-6.5c.3 0 .6 0 .9.1v2.7a3.8 3.8 0 1 0 2.7 3.6V3z"/></svg>',
 };
 const MEDAL_CLASS = {1:'gold-m', 2:'silver-m', 3:'bronze-m'};
+const METRIC_ICONS = {
+  likes: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>',
+  comments: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>',
+  shares: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7M16 6l-4-4-4 4M12 2v13"/></svg>',
+};
+function renderSub(sub){
+  return sub.split('·').map(part => {
+    part = part.trim();
+    const m = part.match(/^([\d.,]+K?M?\+?)\s+(likes|comments|shares)/i);
+    if(!m) return `<span class="metric">${part}</span>`;
+    const icon = METRIC_ICONS[m[2].toLowerCase()] || '';
+    return `<span class="metric">${icon}${m[1]} ${m[2]}</span>`;
+  }).join('');
+}
 
 clips.forEach(c => {
   const row = document.createElement('div');
@@ -330,15 +391,20 @@ clips.forEach(c => {
     ${rankHtml}
     <div class="body">
       <div class="meta">
-        <span class="plat">${PLATFORM_ICONS[c.type] || ''}${c.plat}</span>
-        <span class="badge ${c.badge}">${c.badge === 'trend' ? 'Trend' : 'Viral'}</span>
+        <span class="plat p-${c.type}">${PLATFORM_ICONS[c.type] || ''}${c.plat}</span>
+        <span class="badge ${c.badge}">${c.badge === 'trend' ? ('Trend' + (c.trendRank ? ' #' + c.trendRank : '')) : 'Viral'}</span>
       </div>
       <div class="title-ar">${c.title}</div>
-      <div class="series">${c.series}</div>
+      <div class="title-en">${c.titleEn}</div>
+      <div class="series-row">
+        <span class="category-badge">${c.categoryAr}</span>
+        <span class="series-name">${c.seriesAr}</span>
+      </div>
+      <div class="series-translit">${c.seriesEn} · ${c.categoryEn}</div>
     </div>
     <div class="stats-col">
       <div class="views">${viewsLabel}</div>
-      <div class="subs">${c.sub}</div>
+      <div class="subs">${renderSub(c.sub)}</div>
     </div>
     <button class="watch-btn" type="button" aria-expanded="false" aria-controls="${panelId}"><span class="arrow">▸</span> Watch clip</button>
     <div class="embed-panel" id="${panelId}"></div>
