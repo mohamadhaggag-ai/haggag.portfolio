@@ -205,36 +205,45 @@
   .medal.gold-m{ background:#CBA14D; }
   .medal.silver-m{ background:#A8A8B0; }
   .medal.bronze-m{ background:#B87A4E; }
-  .watch-btn{
-    grid-column:2/3; justify-self:start;
-    margin-top:0.6rem;
-    display:inline-flex; align-items:center; gap:0.35rem;
-    background:none; border:1px solid var(--accent); color:var(--accent);
-    font-family:'Inter',sans-serif; font-size:0.78rem; font-weight:600;
-    padding:0.3rem 0.75rem; border-radius:20px; cursor:pointer;
+  .views-row{
+    display:flex; align-items:baseline; gap:0.6rem;
+  }
+  .play-link{
+    display:inline-flex; align-items:center; gap:0.25rem;
+    color:var(--accent); text-decoration:none;
+    font-family:'Inter',sans-serif; font-size:0.78rem; font-weight:700;
+    border:1px solid var(--accent); border-radius:20px;
+    padding:0.15rem 0.65rem;
     transition:background 0.15s, color 0.15s;
   }
-  .watch-btn:hover{ background:var(--accent); color:#fff; }
-  .watch-btn .arrow{ transition:transform 0.2s; }
-  .watch-btn.open .arrow{ transform:rotate(90deg); }
-  .embed-panel{
+  .play-link:hover{ background:var(--accent); color:#fff; }
+  .play-icon{ font-size:0.7rem; }
+  button.metric.metric-like{
+    background:none; border:none; padding:0; margin:0;
+    font-family:'Inter',sans-serif;
+    cursor:pointer;
+    color:var(--muted-dark);
+    transition:color 0.15s;
+  }
+  button.metric.metric-like:hover{ color:#8A6A26; }
+  button.metric.metric-like.liked{ color:var(--gold); }
+  button.metric.metric-like.liked svg{ fill:currentColor; }
+  button.metric.metric-comments{
+    background:none; border:none; padding:0; margin:0;
+    font-family:'Inter',sans-serif;
+    cursor:pointer;
+    color:var(--muted-dark);
+    transition:color 0.15s;
+  }
+  button.metric.metric-comments:hover, button.metric.metric-comments.open{ color:var(--accent); }
+  .comments-panel{
     grid-column:1/3;
     display:none;
     margin-top:1rem;
     padding-top:1rem;
     border-top:1px dashed var(--line);
   }
-  .embed-panel.open{ display:block; }
-  .embed-panel iframe{ border:none; display:block; }
-  .video-frame{
-    position:relative; width:100%; max-width:480px;
-    background:#000; border-radius:8px; overflow:hidden;
-  }
-  .video-frame.ratio-16-9{ aspect-ratio:16/9; }
-  .video-frame.ratio-9-16{ aspect-ratio:9/16; max-width:270px; }
-  .video-frame iframe{
-    position:absolute; inset:0; width:100%; height:100%; border:none;
-  }
+  .comments-panel.open{ display:block; }
   .embed-note{ font-size:0.78rem; color:var(--muted); margin-top:0.5rem; }
   .rank{
     width:34px; height:34px; border-radius:50%;
@@ -325,6 +334,14 @@
     color:var(--muted-dark);
     white-space:nowrap;
   }
+  button.metric.metric-share{
+    background:none; border:none; padding:0; margin:0;
+    font-family:'Inter',sans-serif;
+    cursor:pointer;
+    border-bottom:none;
+    transition:color 0.15s;
+  }
+  button.metric.metric-share:hover{ color:var(--accent); }
   .subline .subs .metric svg{ opacity:0.7; flex:none; }
 
   /* --- الهيكل الجديد: اسم العمل أقصى اليمين فوق الكابشن، بدون إزاحة --- */
@@ -513,70 +530,64 @@
 
 <script>
 const clips = [
-  {rank:1, plat:"Facebook · Horizontal", seriesAr:"ضربة معلم", seriesEn:"Darbet Maallem", title:"جابر عرف إن ليلى نزلت بالمايوه، نزل لها بالجالبية 😂", titleEn:"Gaber finds out Laila went out in her swimsuit, shows up in his galabeya", badge:"viral", views:60.0, sub:"1M likes · 11K comments · 13K shares", type:"facebook", url:"https://www.facebook.com/watch/?v=471033977251763", categoryAr:"مسلسل · كوميدي", categoryEn:"Comedy"},
+  {rank:1, plat:"Facebook · Horizontal", seriesAr:"ضربة معلم", seriesEn:"Darbet Maallem", title:"جابر عرف إن ليلى نزلت بالمايوه، نزل لها بالجالبية 😂", titleEn:"Gaber finds out Laila went out in her swimsuit, shows up in his galabeya 😂", badge:"viral", views:60.0, sub:"1M likes · 11K comments · 13K shares", type:"facebook", url:"https://www.facebook.com/watch/?v=471033977251763", categoryAr:"مسلسل · كوميدي", categoryEn:"Comedy", bitly:"https://bit.ly/darbt-maallem"},
 
-  {rank:2, plat:"Facebook · Horizontal", seriesAr:"جعفر العمدة", seriesEn:"Gaafar Elomda", title:"حاول يعمل نمرة على جعفر، رد له النمرة مقلب قدّام أهل المنطقة 😂", titleEn:"He tried to prank Gaafar, so Gaafar pranked him back in front of the whole neighborhood", badge:"viral", views:37.0, sub:"1.05M likes · 3.6K comments · 7.1K shares", type:"facebook", url:"https://www.facebook.com/WatchiTMENA/videos/1166536187397635/", categoryAr:"مسلسل · آكشن", categoryEn:"Action"},
+  {rank:2, plat:"Facebook · Horizontal", seriesAr:"جعفر العمدة", seriesEn:"Gaafar Elomda", title:"حاول يعمل نمرة على جعفر، رد له النمرة مقلب قدّام أهل المنطقة 😂", titleEn:"He tried to prank Gaafar, so Gaafar pranked him back in front of the whole neighborhood 😂", badge:"viral", views:37.0, sub:"1.05M likes · 3.6K comments · 7.1K shares", type:"facebook", url:"https://www.facebook.com/WatchiTMENA/videos/1166536187397635/", categoryAr:"مسلسل · آكشن", categoryEn:"Action", bitly:"https://bit.ly/gafar-elomda"},
 
-  {rank:3, plat:"YouTube · Horizontal", seriesAr:"البرنس", seriesEn:"Elprince", title:"تحية البرنس لإخواته بمناسبة خروجه من السجن — علقة موت 👊🔥", titleEn:"Elprince's tribute to his brothers on his release from prison — a solid beatdown", badge:"trend", trendRank:1, views:35.9, sub:"3.6K likes · 47 comments · 1.6K shares", type:"youtube", url:"https://youtu.be/1BVvZn3mlmc", categoryAr:"مسلسل · جريمة", categoryEn:"Crime"},
+  {rank:3, plat:"YouTube · Horizontal", seriesAr:"البرنس", seriesEn:"Elprince", title:"تحية البرنس لإخواته بمناسبة خروجه من السجن — علقة موت 👊🔥", titleEn:"Elprince's tribute to his brothers on his release from prison — a solid beatdown 👊🔥", badge:"trend", trendRank:1, views:35.9, sub:"3.6K likes · 47 comments · 1.6K shares", type:"youtube", url:"https://youtu.be/1BVvZn3mlmc", categoryAr:"مسلسل · جريمة", categoryEn:"Crime", bitly:"https://bit.ly/ellprince"},
 
-  {rank:4, plat:"Facebook · Horizontal", seriesAr:"حالة خاصة", seriesEn:"Hala Khasa", title:"نديم حوّل الشاهدة لمتهمة بسبب غلطة صغيرة محدش انتبه ليها غيره 😎", titleEn:"Nadeem turns the witness into a suspect over a tiny mistake only he noticed", badge:"viral", views:26.0, sub:"624.6K likes · 3.5K comments · 4.5K shares", type:"facebook", url:"https://www.facebook.com/watch/?v=1119313819206656", categoryAr:"مسلسل · جريمة", categoryEn:"Crime"},
+  {rank:4, plat:"Facebook · Horizontal", seriesAr:"حالة خاصة", seriesEn:"Hala Khasa", title:"نديم حوّل الشاهدة لمتهمة بسبب غلطة صغيرة محدش انتبه ليها غيره 😎", titleEn:"Nadeem turns the witness into a suspect over a tiny mistake only he noticed 😎", badge:"viral", views:26.0, sub:"624.6K likes · 3.5K comments · 4.5K shares", type:"facebook", url:"https://www.facebook.com/watch/?v=1119313819206656", categoryAr:"مسلسل · جريمة", categoryEn:"Crime", bitly:"https://bit.ly/hala-khassa"},
 
-  {rank:5, plat:"TikTok · Vertical", seriesAr:"حاحا وتفاحة", seriesEn:"Haha w Tofaha", title:"صاحبتك اللي بتخاف من الحسد زيادة عن اللازم 😂", titleEn:"That friend of yours who's way too paranoid about the evil eye", badge:"viral", views:23.6, approx:true, sub:"56K likes · 864 comments · 22.4K shares", type:"tiktok", url:"https://vt.tiktok.com/ZS4hDnGEF/", categoryAr:"فيلم · كوميدي", categoryEn:"Comedy"},
+  {rank:5, plat:"TikTok · Vertical", seriesAr:"حاحا وتفاحة", seriesEn:"Haha w Tofaha", title:"صاحبتك اللي بتخاف من الحسد زيادة عن اللازم 😂", titleEn:"That friend of yours who's way too paranoid about the evil eye 😂", badge:"viral", views:23.6, approx:true, sub:"56K likes · 864 comments · 22.4K shares", type:"tiktok", url:"https://vt.tiktok.com/ZS4hDnGEF/", categoryAr:"فيلم · كوميدي", categoryEn:"Comedy", bitly:"https://bit.ly/haha-w-toffaha"},
 
-  {rank:6, plat:"Facebook · Horizontal", seriesAr:"حق عرب", seriesEn:"Haq Arab", title:"سميحة ورباح خدوا جزاءهم، وأنغام ربنا تعويض لعرب 😌", titleEn:"Samiha and Rabah get what's coming to them, and Angham compensates Arab", badge:"viral", views:22.0, sub:"413K likes · 698 comments · 1.2K shares", type:"facebook", url:"https://www.facebook.com/WatchiTMENA/videos/759384259267999/", categoryAr:"مسلسل · آكشن", categoryEn:"Action"},
+  {rank:6, plat:"Facebook · Horizontal", seriesAr:"حق عرب", seriesEn:"Haq Arab", title:"سميحة ورباح خدوا جزاءهم، وأنغام تعويض ربنا لعرب 😌", titleEn:"Samiha and Rabah get what's coming to them, and Angham compensates Arab 😌", badge:"viral", views:22.0, sub:"413K likes · 698 comments · 1.2K shares", type:"facebook", url:"https://www.facebook.com/WatchiTMENA/videos/759384259267999/", categoryAr:"مسلسل · آكشن", categoryEn:"Action", bitly:"https://bit.ly/haqq-arab"},
 
-  {rank:7, plat:"Facebook Reels · Vertical", seriesAr:"حدث بالفعل", seriesEn:"Hadath Belfel", title:"انت كدة جامد يعني 👊😗", titleEn:"Now that's impressive", badge:"viral", views:20.7, sub:"250K likes · 1.2K comments · 854 shares", type:"facebook", url:"https://www.facebook.com/reel/1132088844743862/", categoryAr:"مسلسل · جريمة", categoryEn:"Crime"},
+  {rank:7, plat:"Facebook Reels · Vertical", seriesAr:"حدث بالفعل", seriesEn:"Hadath Belfel", title:"انت كدة جامد يعني 👊😗", titleEn:"Now that's impressive 👊😗", badge:"viral", views:20.7, sub:"250K likes · 1.2K comments · 854 shares", type:"facebook", url:"https://www.facebook.com/reel/1132088844743862/", categoryAr:"مسلسل · جريمة", categoryEn:"Crime", bitly:"https://bit.ly/hadas-belfeal"},
 
-  {rank:8, plat:"Facebook · Horizontal", seriesAr:"صاحبة السعادة", seriesEn:"Sahebet Elsaada", title:"لما تبقى لابس وخارج وبنتك تقول رأيها في شكلك 😂", titleEn:"When you're dressed and heading out and your daughter gives her opinion on your look", badge:"viral", views:17.0, sub:"371K+ likes · 8.5K comments · ~2K shares", type:"facebook", url:"https://www.facebook.com/watch/?v=306808134195281", categoryAr:"برنامج تلفزيوني · كوميدي", categoryEn:"Comedy"},
+  {rank:8, plat:"Facebook · Horizontal", seriesAr:"صاحبة السعادة", seriesEn:"Sahebet Elsaada", title:"لما تبقى لابس وخارج وبنتك تقول رأيها في شكلك 😂", titleEn:"When you're dressed and heading out and your daughter gives her opinion on your look 😂", badge:"viral", views:17.0, sub:"371K+ likes · 8.5K comments · ~2K shares", type:"facebook", url:"https://www.facebook.com/watch/?v=306808134195281", categoryAr:"برنامج تلفزيوني · كوميدي", categoryEn:"Comedy", bitly:"https://bit.ly/sahbet-el-saada"},
 
-  {rank:9, plat:"TikTok · Vertical", seriesAr:"شارك تانك", seriesEn:"Shark Tank", title:"أصغر مؤسسين شركة معملوش مقاسهم في Shark Tank فقرروا يأسسوا شركتهم بنفسهم 😍", titleEn:"The youngest founders no one took seriously on Shark Tank, so they built their own company", badge:"viral", views:9.4, sub:"530.6K likes · 6.8K comments · 93.6K shares", type:"tiktok", url:"https://vt.tiktok.com/ZS4hMAYr1/", categoryAr:"برنامج تلفزيوني · ريادة أعمال", categoryEn:"Entrepreneurship"},
+  {rank:9, plat:"TikTok · Vertical", seriesAr:"شارك تانك", seriesEn:"Shark Tank", title:"أصغر مؤسسين شركة معملوش مقاسهم في Shark Tank فقرروا يأسسوا شركتهم بنفسهم 😍", titleEn:"The youngest founders no one took seriously on Shark Tank, so they built their own company 😍", badge:"viral", views:9.4, sub:"530.6K likes · 6.8K comments · 93.6K shares", type:"tiktok", url:"https://vt.tiktok.com/ZS4hMAYr1/", categoryAr:"برنامج تلفزيوني · ريادة أعمال", categoryEn:"Entrepreneurship", bitly:"https://bit.ly/shark-tank-eg"},
 
-  {rank:10, plat:"Facebook · Horizontal", seriesAr:"إيجار قديم", seriesEn:"Eigar Adeem", title:"الشارع كله بيتفرج على رمزي ومش مصدقين اللي بيعمله 😳", titleEn:"The whole street is watching Ramzy, stunned by what he's doing", badge:"viral", views:8.7, sub:"219K likes · 990 comments · 1.1K shares", type:"facebook", url:"https://www.facebook.com/WatchiTMENA/videos/3399121410332710/", categoryAr:"مسلسل · كوميدي", categoryEn:"Comedy"},
+  {rank:10, plat:"Facebook · Horizontal", seriesAr:"إيجار قديم", seriesEn:"Eigar Adeem", title:"الشارع كله بيتفرج على رمزي ومش مصدقين اللي بيعمله 😳", titleEn:"The whole street is watching Ramzy, stunned by what he's doing 😳", badge:"viral", views:8.7, sub:"219K likes · 990 comments · 1.1K shares", type:"facebook", url:"https://www.facebook.com/WatchiTMENA/videos/3399121410332710/", categoryAr:"مسلسل · كوميدي", categoryEn:"Comedy", bitly:"https://bit.ly/egar-adim"},
 
-  {rank:11, plat:"YouTube · Horizontal", seriesAr:"ضربة معلم", seriesEn:"Darbet Maallem", title:"جابر عمل اللي عليه ودلوقتي وقت الفراق 😮", titleEn:"Gaber did what he had to do, and now it's time to part ways", badge:"trend", trendRank:1, views:8.6, sub:"5.8K likes · 58 comments · 1.2K shares", type:"youtube", url:"https://youtu.be/KFmapXn7Og8", categoryAr:"مسلسل · رومانسي", categoryEn:"Romance"},
+  {rank:11, plat:"YouTube · Horizontal", seriesAr:"ضربة معلم", seriesEn:"Darbet Maallem", title:"جابر عمل اللي عليه ودلوقتي وقت الفراق 😮", titleEn:"Gaber did what he had to do, and now it's time to part ways 😮", badge:"trend", trendRank:1, views:8.6, sub:"5.8K likes · 58 comments · 1.2K shares", type:"youtube", url:"https://youtu.be/KFmapXn7Og8", categoryAr:"مسلسل · رومانسي", categoryEn:"Romance", bitly:"https://bit.ly/darbt-maallem"},
 
-  {rank:12, plat:"YouTube · Horizontal", seriesAr:"فهد البطل", seriesEn:"Fahd Elbatal 4", title:"شامل باعت حملة كاملة عشان تجيب رقبة فهد 🔥💪", titleEn:"Shamel sent an entire squad just to bring Fahd in", badge:"trend", trendRank:1, views:8.2, sub:"48K likes · 1K comments · ~1.9K shares", type:"youtube", url:"https://youtu.be/6NTvdQRBM98", categoryAr:"مسلسل · آكشن", categoryEn:"Action"},
+  {rank:12, plat:"YouTube · Horizontal", seriesAr:"فهد البطل", seriesEn:"Fahd Elbatal 4", title:"شامل باعت حملة كاملة عشان تجيب رقبة فهد 🔥💪", titleEn:"Shamel sent an entire squad just to bring Fahd in 🔥💪", badge:"trend", trendRank:1, views:8.2, sub:"48K likes · 1K comments · ~1.9K shares", type:"youtube", url:"https://youtu.be/6NTvdQRBM98", categoryAr:"مسلسل · آكشن", categoryEn:"Action", bitly:"https://bit.ly/fahd-al-batal"},
 
-  {rank:13, plat:"TikTok · Vertical", seriesAr:"كركر", seriesEn:"Karkar", title:"لمّا يبقى ليك فلوس عند حد وتتصدم إنه مات 🤦😅", titleEn:"When someone owes you money and you're shocked to hear they died", badge:"viral", views:7.2, sub:"173.8K likes · 3.2K comments · 69.7K shares", type:"tiktok", url:"https://vt.tiktok.com/ZS4hh8jjr/", categoryAr:"فيلم · كوميدي", categoryEn:"Comedy"},
+  {rank:13, plat:"TikTok · Vertical", seriesAr:"كركر", seriesEn:"Karkar", title:"لمّا يبقى ليك فلوس عند حد وتتصدم إنه مات 🤦😅", titleEn:"When someone owes you money and you're shocked to hear they died 🤦😅", badge:"viral", views:7.2, sub:"173.8K likes · 3.2K comments · 69.7K shares", type:"tiktok", url:"https://vt.tiktok.com/ZS4hh8jjr/", categoryAr:"فيلم · كوميدي", categoryEn:"Comedy", bitly:"https://bit.ly/karrkar"},
 
-  {rank:14, plat:"TikTok · Vertical", seriesAr:"الوصفة السحرية", seriesEn:"Elwasfa Elsehreya", title:"فن اختيار الخلافات الزوجية 😂🫢", titleEn:"The art of picking your marital fights", badge:"viral", views:5.8, sub:"142.9K likes · 1.1K comments · 28.3K shares", type:"tiktok", url:"https://vt.tiktok.com/ZS4hBeGAp/", categoryAr:"مسلسل · كوميدي", categoryEn:"Comedy"},
+  {rank:14, plat:"TikTok · Vertical", seriesAr:"الوصفة السحرية", seriesEn:"Elwasfa Elsehreya", title:"فن اختيار الخلافات الزوجية 😂🫢", titleEn:"The art of picking your marital fights 😂🫢", badge:"viral", views:5.8, sub:"142.9K likes · 1.1K comments · 28.3K shares", type:"tiktok", url:"https://vt.tiktok.com/ZS4hBeGAp/", categoryAr:"مسلسل · كوميدي", categoryEn:"Comedy", bitly:"https://bit.ly/al-wasfa-al-sehreya"},
 
-  {rank:15, plat:"TikTok · Vertical", seriesAr:"بحبك", seriesEn:"Baheback", title:"أجيلك من شهرين كدة تخلّيني كدة؟ 🤦‍♀️", titleEn:"I came to you in this state two months ago, and you made me into this state?", badge:"viral", views:5.5, sub:"146.2K likes · 1.8K comments · 17.2K shares", type:"tiktok", url:"https://vt.tiktok.com/ZS4hkt6mb/", categoryAr:"فيلم · كوميدي", categoryEn:"Comedy"}
+  {rank:15, plat:"TikTok · Vertical", seriesAr:"بحبك", seriesEn:"Baheback", title:"أجيلك من شهرين كدة تخلّيني كدة؟ 🤦‍♀️", titleEn:"I came to you in this state two months ago, and you made me into this state? 🤦‍♀️", badge:"viral", views:5.5, sub:"146.2K likes · 1.8K comments · 17.2K shares", type:"tiktok", url:"https://vt.tiktok.com/ZS4hkt6mb/", categoryAr:"فيلم · كوميدي", categoryEn:"Comedy", bitly:"https://bit.ly/bahebbak"}
 ];
 
 const max = Math.max(...clips.map(c => c.views));
 const container = document.getElementById('chart');
 
-function buildEmbed(c){
-  if(c.type === 'youtube'){
-    const id = c.url.split('/').pop();
-    return `<div class="video-frame ratio-16-9"><iframe src="https://www.youtube.com/embed/${id}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-      <div class="embed-note">لو الفيديو مش ظاهر، صاحب الفيديو قافل خاصية الـ Embed على يوتيوب — دوس <a href="${c.url}" target="_blank" rel="noopener" style="color:var(--accent)">هنا</a> لمشاهدته على يوتيوب مباشرة.</div>`;
-  }
-  if(c.type === 'facebook'){
-    const href = encodeURIComponent(c.url);
-    const tall = c.plat.indexOf('Reels') !== -1;
-    const ratioClass = tall ? 'ratio-9-16' : 'ratio-16-9';
-    return `<div class="video-frame ${ratioClass}"><iframe src="https://www.facebook.com/plugins/video.php?href=${href}&show_text=false" scrolling="no" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
-      <div class="embed-note">لو الفيديو مش ظاهر، الصفحة المصدر خلّت الـ Embed مقفول — دوس <a href="${c.url}" target="_blank" rel="noopener" style="color:var(--accent)">هنا</a> لمشاهدته على فيسبوك مباشرة.</div>`;
-  }
-  return `<blockquote class="tiktok-embed" cite="${c.url}" style="max-width:325px;min-width:220px;margin:0;">
-      <section><a target="_blank" href="${c.url}"></a></section>
-    </blockquote>
-    <div class="embed-note">لو مركز الفيديو ماظهرش، دوس <a href="${c.url}" target="_blank" rel="noopener" style="color:var(--accent)">هنا</a> لمشاهدته على تيك توك مباشرة.</div>`;
-}
-
-function loadTikTokScript(){
+function loadGiscus(container, term){
   const s = document.createElement('script');
-  s.src = 'https://www.tiktok.com/embed.js';
+  s.src = 'https://giscus.app/client.js';
+  s.setAttribute('data-repo', 'mohamadhaggag-ai/haggag.portfolio');
+  s.setAttribute('data-repo-id', 'R_kgDOT2tl6A');
+  s.setAttribute('data-category', 'Announcements');
+  s.setAttribute('data-category-id', 'DIC_kwDOT2tl6M4DDQgP');
+  s.setAttribute('data-mapping', 'specific');
+  s.setAttribute('data-term', term);
+  s.setAttribute('data-strict', '0');
+  s.setAttribute('data-reactions-enabled', '1');
+  s.setAttribute('data-emit-metadata', '0');
+  s.setAttribute('data-input-position', 'bottom');
+  s.setAttribute('data-theme', 'preferred_color_scheme');
+  s.setAttribute('data-lang', 'ar');
+  s.setAttribute('crossorigin', 'anonymous');
   s.async = true;
-  document.body.appendChild(s);
+  container.appendChild(s);
 }
 
 const PLATFORM_ICONS = {
   youtube: '<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.5v-7L15.8 12z"/></svg>',
-  facebook: '<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 22v-8.4h2.8l.4-3.3h-3.2V8.1c0-1 .3-1.6 1.7-1.6h1.6V3.5c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.2v2.7H7.3v3.3h2.7V22z"/></svg>',
-  tiktok: '<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 3c.4 2.3 2 4 4.4 4.3V10a6.7 6.7 0 0 1-4.4-1.6v6.9a6.5 6.5 0 1 1-6.5-6.5c.3 0 .6 0 .9.1v2.7a3.8 3.8 0 1 0 2.7 3.6V3z"/></svg>',
+  facebook: '<svg width="13" height="13" viewBox="0 0 512 512" fill="currentColor"><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 383.8 92.9 489.8 214.9 508.8V330.9H150.3V256H214.9V198.9c0-63.7 37.9-98.9 96-98.9c27.8 0 56.9 5 56.9 5v62.5H336.6c-31.6 0-41.5 19.6-41.5 39.7V256h70.7l-11.3 74.9H295.1V508.8C417.1 489.8 512 383.8 512 256z"/></svg>',
+  tiktok: '<svg width="13" height="13" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="currentColor"/><path fill="#fff" d="M16.1 6.5c.3 1.8 1.5 3.1 3.4 3.3v2.1a5.2 5.2 0 0 1-3.4-1.2v5.3a5 5 0 1 1-5-5c.2 0 .4 0 .6.05v2.1a2.9 2.9 0 1 0 2.1 2.8V6.5z"/></svg>',
 };
 const MEDAL_CLASS = {1:'gold-m', 2:'silver-m', 3:'bronze-m'};
 const METRIC_ICONS = {
@@ -584,15 +595,68 @@ const METRIC_ICONS = {
   comments: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>',
   shares: '<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M14 9V5l7 7-7 7v-4.1c-5 0-8.5 1.6-11 5.1 1-5 4-10 11-11z"/></svg>',
 };
-function renderSub(sub){
+function renderSub(sub, clip, commentsId){
   return sub.split('·').map(part => {
     part = part.trim();
-    const m = part.match(/^([\d.,]+K?M?\+?~?)\s+(likes|comments|shares)/i);
+    const m = part.match(/^(~?[\d.,]+K?M?\+?)\s+(likes|comments|shares)/i);
     if(!m) return `<span class="metric">${part}</span>`;
-    const icon = METRIC_ICONS[m[2].toLowerCase()] || '';
+    const kind = m[2].toLowerCase();
+    const icon = METRIC_ICONS[kind] || '';
+    if(kind === 'shares' && clip && clip.bitly){
+      return `<button type="button" class="metric metric-share" data-share-url="${clip.bitly}" data-share-title="${(clip.seriesEn+' — '+clip.seriesAr).replace(/"/g,'&quot;')}">${icon}${m[1]} ${m[2]}</button>`;
+    }
+    if(kind === 'likes' && clip){
+      return `<button type="button" class="metric metric-like" data-clip-id="clip-${clip.rank}">${icon}${m[1]} ${m[2]}</button>`;
+    }
+    if(kind === 'comments' && commentsId){
+      const term = 'clip-' + clip.rank + '-' + clip.seriesEn.replace(/\s+/g,'-');
+      return `<button type="button" class="metric metric-comments" data-target="${commentsId}" data-term="${term}">${icon}${m[1]} ${m[2]}</button>`;
+    }
     return `<span class="metric">${icon}${m[1]} ${m[2]}</span>`;
   }).join('');
 }
+
+async function handleShareClick(url, title){
+  if(navigator.share){
+    try{ await navigator.share({ title, url }); return; }catch(e){ /* user cancelled or unsupported, fall through */ }
+  }
+  try{
+    await navigator.clipboard.writeText(url);
+    alert('تم نسخ رابط المشاركة:\n' + url);
+  }catch(e){
+    prompt('انسخ رابط المشاركة:', url);
+  }
+}
+document.addEventListener('click', (e) => {
+  const shareBtn = e.target.closest('.metric-share');
+  if(shareBtn) handleShareClick(shareBtn.dataset.shareUrl, shareBtn.dataset.shareTitle);
+
+  const likeBtn = e.target.closest('.metric-like');
+  if(likeBtn && !likeBtn.classList.contains('liked')){
+    const clipId = likeBtn.dataset.clipId;
+    likeBtn.classList.add('liked');
+    localStorage.setItem('liked-' + clipId, '1');
+    if(window.__firebaseLike) window.__firebaseLike(clipId);
+  }
+
+  const commentsBtn = e.target.closest('.metric-comments');
+  if(commentsBtn){
+    const panel = document.getElementById(commentsBtn.dataset.target);
+    if(!panel) return;
+    const isOpen = panel.classList.contains('open');
+    if(isOpen){
+      panel.classList.remove('open');
+      commentsBtn.classList.remove('open');
+      return;
+    }
+    if(!panel.dataset.loaded){
+      loadGiscus(panel, commentsBtn.dataset.term);
+      panel.dataset.loaded = '1';
+    }
+    panel.classList.add('open');
+    commentsBtn.classList.add('open');
+  }
+});
 
 clips.forEach(c => {
   const row = document.createElement('div');
@@ -601,7 +665,7 @@ clips.forEach(c => {
   const viewsLabel = c.views < 1
     ? (c.approx ? '~' : '') + (c.views * 1000).toFixed(1) + 'K'
     : (c.approx ? '~' : '') + c.views.toFixed(1) + 'M';
-  const panelId = 'panel-' + c.rank;
+  const commentsId = 'comments-' + c.rank;
   const rankHtml = c.rank <= 3
     ? `<div class="medal ${MEDAL_CLASS[c.rank]}">${c.rank}</div>`
     : `<div class="rank">${c.rank}</div>`;
@@ -613,14 +677,17 @@ clips.forEach(c => {
         <span class="badge ${c.badge}">${c.badge === 'trend' ? ('Trend' + (c.trendRank ? ' #' + c.trendRank : '')) : 'Viral'}</span>
       </div>
       <div class="headline">
-        <div class="views">${viewsLabel} <span class="views-label">Views</span></div>
+        <div class="views-row">
+          <div class="views">${viewsLabel} <span class="views-label">Views</span></div>
+          <a class="play-link" href="${c.bitly}" target="_blank" rel="noopener"><span class="play-icon">▶</span>Play</a>
+        </div>
         <div class="series-row">
           <span class="series-name">${c.seriesAr}</span>
           <span class="category-badge">${c.categoryAr}</span>
         </div>
       </div>
       <div class="subline">
-        <div class="subs">${renderSub(c.sub)}</div>
+        <div class="subs">${renderSub(c.sub, c, commentsId)}</div>
         <div class="series-translit">${c.seriesEn} · ${c.categoryEn}</div>
       </div>
       <div class="right-body">
@@ -630,34 +697,51 @@ clips.forEach(c => {
         <div class="title-en">${c.titleEn}</div>
       </div>
     </div>
-    <button class="watch-btn" type="button" aria-expanded="false" aria-controls="${panelId}"><span class="arrow">▸</span> Watch clip</button>
-    <div class="embed-panel" id="${panelId}"></div>
+    <div class="comments-panel" id="${commentsId}"></div>
     <div class="bar-track"><div class="bar-fill" style="width:${pct}%"></div></div>
   `;
   container.appendChild(row);
-
-  const btn = row.querySelector('.watch-btn');
-  const panel = row.querySelector('.embed-panel');
-  btn.addEventListener('click', () => {
-    const isOpen = panel.classList.contains('open');
-    if(isOpen){
-      panel.classList.remove('open');
-      btn.classList.remove('open');
-      btn.setAttribute('aria-expanded','false');
-      btn.innerHTML = '<span class="arrow">▸</span> Watch clip';
-      return;
-    }
-    if(!panel.dataset.loaded){
-      panel.innerHTML = buildEmbed(c);
-      panel.dataset.loaded = '1';
-      if(c.type === 'tiktok') loadTikTokScript();
-    }
-    panel.classList.add('open');
-    btn.classList.add('open');
-    btn.setAttribute('aria-expanded','true');
-    btn.innerHTML = '<span class="arrow">▾</span> Hide clip';
-  });
 });
+
+document.querySelectorAll('.metric-like').forEach(btn => {
+  if(localStorage.getItem('liked-' + btn.dataset.clipId) === '1'){
+    btn.classList.add('liked');
+  }
+});
+</script>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
+  import {
+    getFirestore, doc, getDoc, setDoc, updateDoc, increment
+  } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBwSp4rw-80QIr-IuPYaJr0wEZ4XDptAsc",
+    authDomain: "haggag-portfolio.firebaseapp.com",
+    projectId: "haggag-portfolio",
+    storageBucket: "haggag-portfolio.firebasestorage.app",
+    messagingSenderId: "349961688202",
+    appId: "1:349961688202:web:ffd618d79221c57e5e0973",
+    measurementId: "G-23Z2CNLHGS"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  window.__firebaseLike = async function(clipId){
+    const ref = doc(db, 'likes', clipId);
+    try {
+      const snap = await getDoc(ref);
+      if (snap.exists()) {
+        await updateDoc(ref, { count: increment(1) });
+      } else {
+        await setDoc(ref, { count: 1 });
+      }
+    } catch (e) {
+      console.error('like failed', e);
+    }
+  };
 </script>
 </body>
 </html>
