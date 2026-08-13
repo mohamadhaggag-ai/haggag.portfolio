@@ -92,8 +92,9 @@
 
   /* intro + about */
   .intro{
-    padding:2.4rem 0 1.4rem;
-    max-width:640px;
+    padding:1.2rem 0 1.8rem 0;
+    border-bottom:1px solid var(--line);
+    margin-bottom:0;
   }
   .intro .kicker{
     font-size:0.75rem;
@@ -106,7 +107,11 @@
   .intro p{
     font-size:1rem;
     color:var(--muted-dark);
-    line-height:1.6;
+    line-height:1.7;
+    margin-bottom:0.8rem;
+  }
+  .intro p:last-child{
+    margin-bottom:0;
   }
 
   /* about box (متوافق بصريا مع الصفحة) */
@@ -128,6 +133,9 @@
     color:var(--muted-dark);
     line-height:1.7;
     margin-bottom:0.8rem;
+  }
+  .about-box p:last-of-type{
+    margin-bottom:0;
   }
   /* النص العربي - محاذاة يمين */
   .about-box .arabic-text{
@@ -398,7 +406,7 @@
 <div class="intro">
   <div class="kicker">The trending chart</div>
   <p>Fifteen verified clips from an archive of 500+ titles and 2,000+ episodes across YouTube, Facebook and TikTok — every number below is a real, publicly viewable figure, ranked by lifetime views. Bar length shows scale relative to the #1 clip.</p>
-  <p style="margin-top:0.6rem;">This is a curated, format-diverse top 15 — not a strict ranking of the 15 highest-viewed clips in the archive.</p>
+  <p>This is a curated, format-diverse top 15 — not a strict ranking of the 15 highest-viewed clips in the archive.</p>
 </div>
 
 <div class="chart" id="chart"></div>
