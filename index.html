@@ -113,6 +113,15 @@
   .intro p:last-child{
     margin-bottom:0;
   }
+  /* النص العربي في الـ intro */
+  .intro .arabic-text{
+    direction:rtl;
+    text-align:right;
+    font-family:'Cairo',sans-serif;
+    font-size:0.95rem;
+    color:var(--muted-dark);
+    line-height:1.7;
+  }
 
   /* about box (متوافق بصريا مع الصفحة) */
   .about-box{
@@ -137,7 +146,7 @@
   .about-box p:last-of-type{
     margin-bottom:0;
   }
-  /* النص العربي - محاذاة يمين */
+  /* النص العربي في الـ about */
   .about-box .arabic-text{
     direction:rtl;
     text-align:right;
@@ -373,10 +382,23 @@
   </div>
 </header>
 
-<!-- ===== ABOUT ME ===== -->
+<!-- ===== ABOUT ME (الإنجليزية أولاً، ثم العربية) ===== -->
 <div class="about-box">
   <div class="about-kicker">About me</div>
-  <p class="arabic-text">
+
+  <!-- النص الإنجليزي -->
+  <p style="font-size:1rem; color:var(--muted-dark); line-height:1.7; margin-bottom:0.8rem;">
+    <strong style="color:var(--ink);">I specialize in Short-Form Creative Production</strong> — turning hours of long-form footage into scroll-stopping clips that generate millions of organic views. 
+    My expertise isn't measured in years alone; it's proven by <span class="highlight">10,000+ short-form videos</span> produced across <span class="highlight">500+ titles</span>, generating <span class="highlight">3 Billion organic views</span> with zero ad spend.
+  </p>
+  <p style="font-size:0.95rem; color:var(--muted-dark); margin-bottom:1.2rem;">
+    💡 I believe the success of short-form video lies in <strong style="color:var(--ink);">hooks, pacing, and retention</strong> — not in big budgets.
+  </p>
+
+  <hr class="divider-light">
+
+  <!-- النص العربي -->
+  <p class="arabic-text" style="margin-top:1rem;">
     متخصص في <strong style="color:var(--accent);">إنتاج الفيديو القصير الإبداعي</strong>، 
     أحوِّل الساعات الطويلة من المحتوى إلى مقاطع توقف التمرير وتحقق الملايين من المشاهدات العضوية. 
     خبرتي لا تُقاس بعدد السنوات، بل بـ <span class="highlight">١٠,٠٠٠+ مقطع فيديو قصير</span> أنتجتها لـ 
@@ -384,16 +406,6 @@
   </p>
   <p class="arabic-text" style="font-size:0.95rem; color:var(--muted-dark);">
     💡 أؤمن أن نجاح الفيديو القصير يكمن في <strong style="color:var(--ink);">الهوك، الإيقاع، والاحتفاظ</strong> – وليس في الميزانية الضخمة.
-  </p>
-
-  <hr class="divider-light">
-
-  <p style="font-size:1rem; color:var(--muted-dark); line-height:1.7; margin-bottom:0.8rem;">
-    <strong style="color:var(--ink);">I specialize in Short-Form Creative Production</strong> — turning hours of long-form footage into scroll-stopping clips that generate millions of organic views. 
-    My expertise isn't measured in years alone; it's proven by <span class="highlight">10,000+ short-form videos</span> produced across <span class="highlight">500+ titles</span>, generating <span class="highlight">3 Billion organic views</span> with zero ad spend.
-  </p>
-  <p style="font-size:0.95rem; color:var(--muted-dark);">
-    💡 I believe the success of short-form video lies in <strong style="color:var(--ink);">hooks, pacing, and retention</strong> — not in big budgets.
   </p>
 
   <div class="btn-group">
@@ -405,8 +417,18 @@
 <!-- ===== INTRO + CHART ===== -->
 <div class="intro">
   <div class="kicker">The trending chart</div>
+
+  <!-- النص الإنجليزي -->
   <p>Fifteen verified clips from an archive of 500+ titles and 2,000+ episodes across YouTube, Facebook and TikTok — every number below is a real, publicly viewable figure, ranked by lifetime views. Bar length shows scale relative to the #1 clip.</p>
-  <p>This is a curated, format-diverse top 15 — not a strict ranking of the 15 highest-viewed clips in the archive.</p>
+  <p style="margin-bottom:0.8rem;">This is a curated, format-diverse top 15 — not a strict ranking of the 15 highest-viewed clips in the archive.</p>
+
+  <!-- النص العربي (الترجمة) -->
+  <p class="arabic-text" style="margin-bottom:0;">
+    خمسة عشر مقطعاً موثّقاً من أرشيف يضمّ أكثر من ٥٠٠ عنوان و٢٠٠٠ حلقة عبر يوتيوب وفيسبوك وتيك توك — كل رقم أدناه هو رقم حقيقي وقابل للتحقّق، مُرتّب حسب إجمالي المشاهدات مدى الحياة. طول الشريط يُظهر الحجم النسبي مقارنة بالمقطع الأوّل.
+  </p>
+  <p class="arabic-text" style="margin-bottom:0; margin-top:0.2rem;">
+    هذه قائمة من ١٥ مقطعاً متنوّعة في الشكل وليست ترتيباً صارماً لأعلى ١٥ مقطع من حيث المشاهدات في الأرشيف.
+  </p>
 </div>
 
 <div class="chart" id="chart"></div>
