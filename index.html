@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>محمد حجاج — بورتفوليو المحتوى</title>
+<title>Mohamed Haggag — Content Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cairo:wght@400;600;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -30,7 +30,6 @@
   }
   .wrap{max-width:900px; margin:0 auto; padding:0 1.5rem;}
 
-  /* header */
   header{padding:3rem 0 2rem; border-bottom:1px solid var(--line);}
   .name{
     font-family:'Bebas Neue',sans-serif;
@@ -40,14 +39,14 @@
     color:var(--ink);
   }
   .role{
-    font-size:1.05rem;
+    font-size:0.95rem;
     font-weight:600;
     color:var(--accent);
     margin-top:0.4rem;
   }
   .contact{
     margin-top:0.8rem;
-    font-size:0.85rem;
+    font-size:0.95rem;
     color:var(--muted-dark);
     display:flex; flex-wrap:wrap; align-items:center; row-gap:0.4rem; column-gap:0.9rem;
   }
@@ -58,7 +57,6 @@
     .contact{ flex-direction:column; align-items:flex-start; row-gap:0.5rem; }
   }
 
-  /* stat strip */
   .stats{
     display:grid;
     grid-template-columns:repeat(4,1fr);
@@ -90,14 +88,13 @@
   }
   @media(max-width:640px){ .stats{grid-template-columns:repeat(2,1fr);} }
 
-  /* intro + about */
   .intro{
     padding:1.2rem 0 1.8rem 0;
     border-bottom:1px solid var(--line);
     margin-bottom:0;
   }
   .intro .kicker{
-    font-size:0.75rem;
+    font-size:0.68rem;
     text-transform:uppercase;
     letter-spacing:0.12em;
     color:var(--gold);
@@ -105,14 +102,12 @@
     margin-bottom:0.6rem;
   }
   .intro p{
-    font-size:1rem;
+    font-size:0.95rem;
     color:var(--muted-dark);
     line-height:1.7;
     margin-bottom:0.8rem;
   }
-  .intro p:last-child{
-    margin-bottom:0;
-  }
+  .intro p:last-child{ margin-bottom:0; }
   .intro .arabic-text{
     direction:rtl;
     text-align:right;
@@ -122,14 +117,13 @@
     line-height:1.7;
   }
 
-  /* about box */
   .about-box{
     padding:1.2rem 0 1.8rem 0;
     border-bottom:1px solid var(--line);
     margin-bottom:0;
   }
   .about-box .about-kicker{
-    font-size:0.75rem;
+    font-size:0.68rem;
     text-transform:uppercase;
     letter-spacing:0.12em;
     color:var(--gold);
@@ -137,14 +131,12 @@
     margin-bottom:0.6rem;
   }
   .about-box p{
-    font-size:1rem;
+    font-size:0.95rem;
     color:var(--muted-dark);
     line-height:1.7;
     margin-bottom:0.8rem;
   }
-  .about-box p:last-of-type{
-    margin-bottom:0;
-  }
+  .about-box p:last-of-type{ margin-bottom:0; }
   .about-box .arabic-text{
     direction:rtl;
     text-align:right;
@@ -178,7 +170,7 @@
     border-radius:40px;
     text-decoration:none;
     font-weight:600;
-    font-size:0.85rem;
+    font-size:0.78rem;
     transition:background 0.15s;
   }
   .about-box .btn:hover{ background:var(--ink); }
@@ -188,12 +180,10 @@
   }
   .about-box .btn-outline:hover{ background:var(--accent); color:#fff; }
 
-  /* chart */
   .chart{margin-top:1rem;}
   .row{
     display:grid;
-    grid-template-columns:56px 1fr auto;
-    align-items:center;
+    grid-template-columns:56px 1fr;
     gap:1rem;
     padding:1.1rem 0.9rem;
     border-bottom:1px solid var(--line);
@@ -220,7 +210,7 @@
     margin-top:0.6rem;
     display:inline-flex; align-items:center; gap:0.35rem;
     background:none; border:1px solid var(--accent); color:var(--accent);
-    font-family:'Inter',sans-serif; font-size:0.72rem; font-weight:600;
+    font-family:'Inter',sans-serif; font-size:0.78rem; font-weight:600;
     padding:0.3rem 0.75rem; border-radius:20px; cursor:pointer;
     transition:background 0.15s, color 0.15s;
   }
@@ -228,7 +218,7 @@
   .watch-btn .arrow{ transition:transform 0.2s; }
   .watch-btn.open .arrow{ transform:rotate(90deg); }
   .embed-panel{
-    grid-column:1/4;
+    grid-column:1/3;
     display:none;
     margin-top:1rem;
     padding-top:1rem;
@@ -245,7 +235,7 @@
   .video-frame iframe{
     position:absolute; inset:0; width:100%; height:100%; border:none;
   }
-  .embed-note{ font-size:0.7rem; color:var(--muted); margin-top:0.5rem; }
+  .embed-note{ font-size:0.78rem; color:var(--muted); margin-top:0.5rem; }
   .rank{
     width:34px; height:34px; border-radius:50%;
     display:flex; align-items:center; justify-content:center;
@@ -257,11 +247,151 @@
   }
   .row:nth-child(-n+3) .rank{ display:none; }
 
-  .body{min-width:0;}
-  .meta{
-    display:flex; align-items:center; gap:0.5rem;
-    font-size:0.72rem; text-transform:uppercase; letter-spacing:0.05em;
-    color:var(--muted-dark); margin-bottom:0.3rem; flex-wrap:wrap;
+  .body{
+    display:flex;
+    flex-direction:column;
+    width:100%;
+  }
+  .cols{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    width:100%;
+    gap:1rem;
+    flex-wrap:wrap;
+  }
+  .headline{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    width:100%;
+    gap:1rem;
+    flex-wrap:wrap;
+    margin:0.35rem 0 0.1rem;
+  }
+  .subline{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    width:100%;
+    gap:1rem;
+    flex-wrap:nowrap;
+    margin-top:0.45rem;
+  }
+  .left-body{
+    text-align:left;
+    flex:0 1 auto;
+  }
+  .right-body{
+    text-align:right;
+    flex:1 1 auto;
+    min-width:180px;
+  }
+  .caption-divider{
+    border:none;
+    border-top:1px solid var(--line);
+    margin:0.6rem 0 0.6rem;
+  }
+  .subline .subs{
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:0.85rem;
+    flex:1 1 auto;
+    min-width:0;
+  }
+  .headline .views{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:1.5rem;
+    font-weight:500;
+    color:var(--ink);
+    line-height:1;
+    letter-spacing:0.02em;
+  }
+  .headline .views-label{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:1.5rem;
+    font-weight:500;
+    color:var(--ink);
+    margin-left:0.35rem;
+  }
+  .subline .subs .metric{
+    display:inline-flex;
+    align-items:center;
+    gap:0.3rem;
+    font-size:0.78rem;
+    font-weight:600;
+    color:var(--muted-dark);
+    white-space:nowrap;
+  }
+  .subline .subs .metric svg{ opacity:0.7; flex:none; }
+
+  /* --- الهيكل الجديد: اسم العمل أقصى اليمين فوق الكابشن، بدون إزاحة --- */
+  .headline .series-row{
+    display:flex;
+    align-items:baseline;
+    gap:0.5rem;
+    justify-content:flex-start;
+    flex-wrap:wrap;
+    direction:rtl;
+    margin-bottom:0.1rem;
+  }
+  .headline .series-name{
+    font-family:'Cairo',sans-serif;
+    font-size:1.5rem;
+    font-weight:700;
+    color:var(--ink);
+    line-height:1;
+  }
+  .headline .category-badge{
+    font-size:0.68rem;
+    font-weight:700;
+    color:var(--accent);
+    background:var(--accent-soft);
+    padding:0.12rem 0.55rem;
+    border-radius:20px;
+    white-space:nowrap;
+    direction:rtl;
+  }
+  .subline .series-translit{
+    font-size:0.78rem;
+    color:var(--muted);
+    direction:ltr;
+    text-align:right;
+    font-weight:500;
+    flex:0 0 auto;
+    white-space:nowrap;
+  }
+  .right-body .title-ar{
+    font-family:'Cairo',sans-serif;
+    direction:rtl;
+    text-align:right;
+    font-size:0.95rem;
+    font-weight:600;
+    color:var(--ink);
+    line-height:1.5;
+    margin-top:0.1rem;
+  }
+  .right-body .title-en{
+    font-size:0.78rem;
+    color:var(--muted-dark);
+    direction:ltr;
+    text-align:right;
+    margin-top:0.15rem;
+    font-style:italic;
+  }
+
+  .body > .meta{
+    display:flex;
+    align-items:center;
+    gap:0.5rem;
+    font-size:0.68rem;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    color:var(--muted-dark);
+    flex-wrap:wrap;
+    margin-bottom:0.3rem;
   }
   .plat{font-weight:700; display:inline-flex; align-items:center; gap:0.3rem;}
   .plat.p-youtube{ color:#C0392B; }
@@ -269,81 +399,37 @@
   .plat.p-tiktok{ color:#111111; }
   .plat svg{ flex:none; }
   .badge{
-    font-size:0.65rem; font-weight:700; letter-spacing:0.04em;
-    padding:0.1rem 0.5rem; border-radius:20px;
+    font-size:0.68rem;
+    font-weight:700;
+    letter-spacing:0.04em;
+    padding:0.1rem 0.5rem;
+    border-radius:20px;
     text-transform:uppercase;
   }
   .badge.trend{ background:var(--accent-soft); color:var(--accent); }
   .badge.viral{ background:var(--gold-soft); color:#8A6A26; }
 
-  .title-ar{
-    font-family:'Cairo',sans-serif;
-    direction:rtl; text-align:right;
-    font-size:1rem; font-weight:600;
-    color:var(--ink);
-    line-height:1.5;
-  }
-  .title-en{
-    font-size:0.78rem; color:var(--muted-dark);
-    direction:ltr; text-align:right;
-    margin-top:0.15rem; font-style:italic;
-  }
-  .series-row{
-    display:flex; align-items:baseline; gap:0.5rem; justify-content:flex-end;
-    flex-wrap:wrap; direction:rtl;
-  }
-  .series-name{
-    font-family:'Cairo',sans-serif;
-    font-size:1.05rem; font-weight:600;
-    color:var(--ink);
-  }
-  .category-badge{
-    font-size:0.68rem; font-weight:700;
-    color:var(--accent); background:var(--accent-soft);
-    padding:0.12rem 0.55rem; border-radius:20px;
-    white-space:nowrap; direction:rtl;
-  }
-  .series-translit{
-    font-size:0.72rem; color:var(--muted);
-    margin-top:0.2rem;
-    direction:ltr; text-align:right;
-  }
-
-  .stats-col{ text-align:right; min-width:150px; }
-  .views{
-    font-family:'Bebas Neue',sans-serif;
-    font-size:1.5rem; font-weight:500; color:var(--ink); line-height:1;
-    letter-spacing:0.02em;
-  }
-  .views-label{
-    font-family:'Bebas Neue',sans-serif;
-    font-size:1.5rem; font-weight:500;
-    color:var(--ink);
-    margin-left:0.35rem;
-  }
-  .subs{
-    margin-top:0.45rem;
-    display:flex; flex-direction:column; align-items:flex-end; gap:0.25rem;
-  }
-  .subs .metric{
-    display:inline-flex; align-items:center; gap:0.3rem;
-    font-size:0.82rem; font-weight:600; color:var(--muted-dark);
-    white-space:nowrap;
-  }
-  .subs .metric svg{ opacity:0.7; flex:none; }
-
   .bar-track{
-    grid-column:2 / 4;
-    height:4px; background:var(--line); border-radius:2px; margin-top:0.7rem; overflow:hidden;
+    grid-column:1/3;
+    height:4px;
+    background:var(--line);
+    border-radius:2px;
+    margin-top:0.7rem;
+    overflow:hidden;
   }
-  .bar-fill{ height:100%; background:var(--accent); border-radius:2px; }
+  .bar-fill{
+    height:100%;
+    background:var(--accent);
+    border-radius:2px;
+  }
   .row:nth-child(-n+3) .bar-fill{ background:var(--gold); }
 
   @media(max-width:640px){
-    .row{grid-template-columns:40px 1fr; row-gap:0.6rem;}
-    .stats-col{grid-column:2; text-align:right; display:block;}
-    .subs{ align-items:flex-end; }
-    .bar-track{grid-column:1/3;}
+    .row{grid-template-columns:40px 1fr; gap:0.6rem;}
+    .subline{flex-direction:column; align-items:stretch;}
+    .left-body{text-align:left; flex:1;}
+    .right-body{text-align:right; flex:1; min-width:unset;}
+    .subline .subs{align-items:flex-start;}
     .rank{width:28px; height:28px; font-size:1rem;}
     .medal{width:28px; height:28px; font-size:1rem;}
   }
@@ -380,10 +466,9 @@
   </div>
 </header>
 
-<!-- ABOUT ME -->
 <div class="about-box">
   <div class="about-kicker">About me</div>
-  <p style="font-size:1rem; color:var(--muted-dark); line-height:1.7; margin-bottom:0.8rem;">
+  <p style="font-size:0.95rem; color:var(--muted-dark); line-height:1.7; margin-bottom:0.8rem;">
     <strong style="color:var(--ink);">I specialize in Short-Form Creative Production</strong> — turning hours of long-form footage into scroll-stopping clips that generate millions of organic views. 
     My expertise isn't measured in years alone; it's proven by <span class="highlight">10,000+ short-form videos</span> produced across <span class="highlight">500+ titles</span>, generating <span class="highlight">3 Billion organic views</span> with zero ad spend.
   </p>
@@ -406,252 +491,57 @@
   </div>
 </div>
 
-<!-- INTRO + CHART -->
 <div class="intro">
   <div class="kicker">The trending chart</div>
-  <p>خمسة عشر مقطعاً موثّقاً من أرشيف يضمّ أكثر من ٥٠٠ عنوان و٢٠٠٠ حلقة عبر يوتيوب وفيسبوك وتيك توك — كل رقم أدناه هو رقم حقيقي وقابل للتحقّق، مُرتّب حسب إجمالي المشاهدات مدى الحياة. طول الشريط يُظهر الحجم النسبي مقارنة بالمقطع الأوّل.</p>
-  <p style="margin-bottom:0.8rem;">هذه قائمة من ١٥ مقطعاً متنوّعة في الشكل وليست ترتيباً صارماً لأعلى ١٥ مقطع من حيث المشاهدات في الأرشيف.</p>
+  <p>Fifteen verified clips from an archive of 500+ titles and 2,000+ episodes across YouTube, Facebook and TikTok — every number below is a real, publicly viewable figure, ranked by lifetime views. Bar length shows scale relative to the #1 clip.</p>
+  <p style="margin-bottom:0.8rem;">This is a curated, format-diverse top 15 — not a strict ranking of the 15 highest-viewed clips in the archive.</p>
+  <p class="arabic-text" style="margin-bottom:0;">
+    خمسة عشر مقطعاً موثّقاً من أرشيف يضمّ أكثر من ٥٠٠ عنوان و٢٠٠٠ حلقة عبر يوتيوب وفيسبوك وتيك توك — كل رقم أدناه هو رقم حقيقي وقابل للتحقّق، مُرتّب حسب إجمالي المشاهدات مدى الحياة. طول الشريط يُظهر الحجم النسبي مقارنة بالمقطع الأوّل.
+  </p>
+  <p class="arabic-text" style="margin-bottom:0; margin-top:0.2rem;">
+    هذه قائمة من ١٥ مقطعاً متنوّعة في الشكل وليست ترتيباً صارماً لأعلى ١٥ مقطع من حيث المشاهدات في الأرشيف.
+  </p>
 </div>
 
 <div class="chart" id="chart"></div>
 
 <footer>
-  جميع الأرقام هي مشاهدات مدى الحياة، قابلة للتحقق من الروابط المرفقة. أرقام تيك توك المُشار إليها بـ "~" هي تقديرات مبنية على التفاعل. <span style="color:var(--accent); font-weight:600;">Trend</span> = تم تأكيده أو وضعه في ترند يوتيوب بناءً على حجم المشاهدات. <span style="color:#8A6A26; font-weight:600;">Viral</span> = نسبة مشاركات أعلى بكثير من المتوسط لمقطع مشابه.
+  All figures are lifetime view counts, publicly verifiable at the linked URLs. TikTok figures marked ~ are engagement-based estimates. <span style="color:var(--accent); font-weight:600;">Trend</span> = confirmed or view-volume based YouTube Trending placement. <span style="color:#8A6A26; font-weight:600;">Viral</span> = share rate substantially above average for a comparable clip.
 </footer>
 
 </div>
 
 <script>
 const clips = [
-  {
-    rank: 1,
-    plat: "Facebook · Horizontal",
-    seriesAr: "ضربة معلم",
-    seriesEn: "Darbet Maallem",
-    title: "جابر عرف إن ليلى نزلت بالمايوه، نزل لها بالجالبية",
-    titleEn: "Gaber finds out Laila went out in her swimsuit, shows up in his galabeya",
-    badge: "viral",
-    views: 60.0,
-    sub: "1M likes · 11K comments · 13K shares",
-    type: "facebook",
-    url: "https://www.facebook.com/watch/?v=471033977251763",
-    categoryAr: "مسلسل · كوميدي",
-    categoryEn: "Series · Comedy"
-  },
-  {
-    rank: 2,
-    plat: "YouTube · Horizontal",
-    seriesAr: "البرنس",
-    seriesEn: "Elprince",
-    title: "تحية البرنس لإخواته بمناسبة خروجه من السجن — علقة موت",
-    titleEn: "Elprince's tribute to his brothers on his release from prison — a solid beatdown",
-    badge: "trend",
-    trendRank: 1,
-    views: 35.9,
-    sub: "3.6K likes · 47 comments · 1.6K shares",
-    type: "youtube",
-    url: "https://youtu.be/1BVvZn3mlmc",
-    categoryAr: "مسلسل · جريمة",
-    categoryEn: "Series · Crime"
-  },
-  {
-    rank: 3,
-    plat: "Facebook · Horizontal",
-    seriesAr: "جعفر العمدة",
-    seriesEn: "Gaafar Elomda",
-    title: "حاول يعمل نمرة على جعفر، رد له النمرة مقلب قدّام أهل المنطقة",
-    titleEn: "He tried to prank Gaafar, so Gaafar pranked him back in front of the whole neighborhood",
-    badge: "viral",
-    views: 34.9,
-    sub: "1.05M likes · 3.6K comments · 7.1K shares",
-    type: "facebook",
-    url: "https://www.facebook.com/WatchiTMENA/videos/1166536187397635/",
-    categoryAr: "مسلسل · آكشن",
-    categoryEn: "Series · Action"
-  },
-  {
-    rank: 4,
-    plat: "TikTok · Vertical",
-    seriesAr: "حاحا وتفاحة",
-    seriesEn: "Haha w Tofaha",
-    title: "صاحبتك اللي بتخاف من الحسد زيادة عن اللازم",
-    titleEn: "That friend of yours who's way too paranoid about the evil eye",
-    badge: "viral",
-    views: 23.6,
-    approx: true,
-    sub: "56K likes · 864 comments · 22.4K shares",
-    type: "tiktok",
-    url: "https://vt.tiktok.com/ZS4hDnGEF/",
-    categoryAr: "فيلم · كوميدي",
-    categoryEn: "Film · Comedy"
-  },
-  {
-    rank: 5,
-    plat: "Facebook · Horizontal",
-    seriesAr: "حالة خاصة",
-    seriesEn: "Hala Khasa",
-    title: "نديم حوّل الشاهدة لمتهمة بسبب غلطة صغيرة محدش انتبه ليها غيره",
-    titleEn: "Nadeem turns the witness into a suspect over a tiny mistake only he noticed",
-    badge: "viral",
-    views: 23.3,
-    sub: "624.6K likes · 3.5K comments · 4.5K shares",
-    type: "facebook",
-    url: "https://www.facebook.com/watch/?v=1119313819206656",
-    categoryAr: "مسلسل · جريمة",
-    categoryEn: "Series · Crime"
-  },
-  {
-    rank: 6,
-    plat: "Facebook Reels · Vertical",
-    seriesAr: "حدث بالفعل",
-    seriesEn: "Hadath Belfel",
-    title: "انت كدة جامد يعني",
-    titleEn: "Now that's impressive",
-    badge: "viral",
-    views: 20.7,
-    sub: "250.5K likes · 1.2K comments · 854 shares",
-    type: "facebook",
-    url: "https://www.facebook.com/reel/1132088844743862/",
-    categoryAr: "مسلسل · جريمة",
-    categoryEn: "Series · Crime"
-  },
-  {
-    rank: 7,
-    plat: "Facebook · Horizontal",
-    seriesAr: "حق عرب",
-    seriesEn: "Haq Arab",
-    title: "سميحة ورباح خدوا جزاءهم، وأنغام ربنا تعويض لعرب",
-    titleEn: "Samiha and Rabah get what's coming to them, and Angham compensates Arab",
-    badge: "viral",
-    views: 10.9,
-    sub: "413K likes · 698 comments · 1.2K shares",
-    type: "facebook",
-    url: "https://www.facebook.com/WatchiTMENA/videos/759384259267999/",
-    categoryAr: "مسلسل · آكشن",
-    categoryEn: "Series · Action"
-  },
-  {
-    rank: 8,
-    plat: "TikTok · Vertical",
-    seriesAr: "شارك تانك",
-    seriesEn: "Shark Tank",
-    title: "أصغر مؤسسين شركة معملوش مقاسهم في Shark Tank فقرروا يأسسوا شركتهم بنفسهم",
-    titleEn: "The youngest founders no one took seriously on Shark Tank, so they built their own company",
-    badge: "viral",
-    views: 9.4,
-    sub: "530.6K likes · 6.8K comments · 93.6K shares",
-    type: "tiktok",
-    url: "https://vt.tiktok.com/ZS4hMAYr1/",
-    categoryAr: "برنامج تلفزيوني · ريادة أعمال",
-    categoryEn: "TV show · Entrepreneurship"
-  },
-  {
-    rank: 9,
-    plat: "Facebook · Horizontal",
-    seriesAr: "إيجار قديم",
-    seriesEn: "Eigar Adeem",
-    title: "الشارع كله بيتفرج على رمزي ومش مصدقين اللي بيعمله",
-    titleEn: "The whole street is watching Ramzy, stunned by what he's doing",
-    badge: "viral",
-    views: 8.7,
-    sub: "219K likes · 990 comments · 1.1K shares",
-    type: "facebook",
-    url: "https://www.facebook.com/WatchiTMENA/videos/3399121410332710/",
-    categoryAr: "مسلسل · كوميدي",
-    categoryEn: "Series · Comedy"
-  },
-  {
-    rank: 10,
-    plat: "YouTube · Horizontal",
-    seriesAr: "ضربة معلم",
-    seriesEn: "Darbet Maallem",
-    title: "جابر عمل اللي عليه ودلوقتي وقت الفراق",
-    titleEn: "Gaber did what he had to do, and now it's time to part ways",
-    badge: "trend",
-    trendRank: 1,
-    views: 8.6,
-    sub: "5.8K likes · 58 comments · 1.2K shares",
-    type: "youtube",
-    url: "https://youtu.be/KFmapXn7Og8",
-    categoryAr: "مسلسل · رومانسي",
-    categoryEn: "Series · Romance"
-  },
-  {
-    rank: 11,
-    plat: "YouTube · Horizontal",
-    seriesAr: "فهد البطل",
-    seriesEn: "Fahd Elbatal 4",
-    title: "شامل باعت حملة كاملة عشان تجيب رقبة فهد",
-    titleEn: "Shamel sent an entire squad just to bring Fahd in",
-    badge: "trend",
-    trendRank: 1,
-    views: 8.2,
-    sub: "N/A",
-    type: "youtube",
-    url: "https://youtu.be/6NTvdQRBM98",
-    categoryAr: "مسلسل · آكشن",
-    categoryEn: "Series · Action"
-  },
-  {
-    rank: 12,
-    plat: "Facebook · Horizontal",
-    seriesAr: "صاحبة السعادة",
-    seriesEn: "Sahebet Elsaada",
-    title: "لما تبقى لابس وخارج وبنتك تقول رأيها في شكلك",
-    titleEn: "When you're dressed and heading out and your daughter gives her opinion on your look",
-    badge: "viral",
-    views: 7.4,
-    sub: "N/A",
-    type: "facebook",
-    url: "https://www.facebook.com/watch/?v=306808134195281",
-    categoryAr: "برنامج تلفزيوني · كوميدي",
-    categoryEn: "TV show · Comedy"
-  },
-  {
-    rank: 13,
-    plat: "TikTok · Vertical",
-    seriesAr: "كركر",
-    seriesEn: "Karkar",
-    title: "لمّا يبقى ليك فلوس عند حد وتتصدم إنه مات",
-    titleEn: "When someone owes you money and you're shocked to hear they died",
-    badge: "viral",
-    views: 7.2,
-    sub: "162.7K likes · 2.3K comments · 2.5K shares",
-    type: "tiktok",
-    url: "https://vt.tiktok.com/ZS4hh8jjr/",
-    categoryAr: "فيلم · كوميدي",
-    categoryEn: "Film · Comedy"
-  },
-  {
-    rank: 14,
-    plat: "TikTok · Vertical",
-    seriesAr: "الوصفة السحرية",
-    seriesEn: "Elwasfa Elsehreya",
-    title: "فن اختيار الخلافات الزوجية",
-    titleEn: "The art of picking your marital fights",
-    badge: "viral",
-    views: 5.8,
-    sub: "142.9K likes · 1.1K comments · 28.3K shares",
-    type: "tiktok",
-    url: "https://vt.tiktok.com/ZS4hBeGAp/",
-    categoryAr: "مسلسل · كوميدي",
-    categoryEn: "Series · Comedy"
-  },
-  {
-    rank: 15,
-    plat: "TikTok · Vertical",
-    seriesAr: "بحبك",
-    seriesEn: "Baheback",
-    title: "أجيلك من شهرين كدة تخلّيني كدة؟",
-    titleEn: "I came to you in this state two months ago, and you made me into this state?",
-    badge: "viral",
-    views: 5.5,
-    sub: "146.2K likes · 1.8K comments · 17.2K shares",
-    type: "tiktok",
-    url: "https://vt.tiktok.com/ZS4hkt6mb/",
-    categoryAr: "فيلم · كوميدي",
-    categoryEn: "Film · Comedy"
-  }
+  {rank:1, plat:"Facebook · Horizontal", seriesAr:"ضربة معلم", seriesEn:"Darbet Maallem", title:"جابر عرف إن ليلى نزلت بالمايوه، نزل لها بالجالبية 😂", titleEn:"Gaber finds out Laila went out in her swimsuit, shows up in his galabeya", badge:"viral", views:60.0, sub:"1M likes · 11K comments · 13K shares", type:"facebook", url:"https://www.facebook.com/watch/?v=471033977251763", categoryAr:"مسلسل · كوميدي", categoryEn:"Comedy"},
+
+  {rank:2, plat:"Facebook · Horizontal", seriesAr:"جعفر العمدة", seriesEn:"Gaafar Elomda", title:"حاول يعمل نمرة على جعفر، رد له النمرة مقلب قدّام أهل المنطقة 😂", titleEn:"He tried to prank Gaafar, so Gaafar pranked him back in front of the whole neighborhood", badge:"viral", views:37.0, sub:"1.05M likes · 3.6K comments · 7.1K shares", type:"facebook", url:"https://www.facebook.com/WatchiTMENA/videos/1166536187397635/", categoryAr:"مسلسل · آكشن", categoryEn:"Action"},
+
+  {rank:3, plat:"YouTube · Horizontal", seriesAr:"البرنس", seriesEn:"Elprince", title:"تحية البرنس لإخواته بمناسبة خروجه من السجن — علقة موت 👊🔥", titleEn:"Elprince's tribute to his brothers on his release from prison — a solid beatdown", badge:"trend", trendRank:1, views:35.9, sub:"3.6K likes · 47 comments · 1.6K shares", type:"youtube", url:"https://youtu.be/1BVvZn3mlmc", categoryAr:"مسلسل · جريمة", categoryEn:"Crime"},
+
+  {rank:4, plat:"Facebook · Horizontal", seriesAr:"حالة خاصة", seriesEn:"Hala Khasa", title:"نديم حوّل الشاهدة لمتهمة بسبب غلطة صغيرة محدش انتبه ليها غيره 😎", titleEn:"Nadeem turns the witness into a suspect over a tiny mistake only he noticed", badge:"viral", views:26.0, sub:"624.6K likes · 3.5K comments · 4.5K shares", type:"facebook", url:"https://www.facebook.com/watch/?v=1119313819206656", categoryAr:"مسلسل · جريمة", categoryEn:"Crime"},
+
+  {rank:5, plat:"TikTok · Vertical", seriesAr:"حاحا وتفاحة", seriesEn:"Haha w Tofaha", title:"صاحبتك اللي بتخاف من الحسد زيادة عن اللازم 😂", titleEn:"That friend of yours who's way too paranoid about the evil eye", badge:"viral", views:23.6, approx:true, sub:"56K likes · 864 comments · 22.4K shares", type:"tiktok", url:"https://vt.tiktok.com/ZS4hDnGEF/", categoryAr:"فيلم · كوميدي", categoryEn:"Comedy"},
+
+  {rank:6, plat:"Facebook · Horizontal", seriesAr:"حق عرب", seriesEn:"Haq Arab", title:"سميحة ورباح خدوا جزاءهم، وأنغام ربنا تعويض لعرب 😌", titleEn:"Samiha and Rabah get what's coming to them, and Angham compensates Arab", badge:"viral", views:22.0, sub:"413K likes · 698 comments · 1.2K shares", type:"facebook", url:"https://www.facebook.com/WatchiTMENA/videos/759384259267999/", categoryAr:"مسلسل · آكشن", categoryEn:"Action"},
+
+  {rank:7, plat:"Facebook Reels · Vertical", seriesAr:"حدث بالفعل", seriesEn:"Hadath Belfel", title:"انت كدة جامد يعني 👊😗", titleEn:"Now that's impressive", badge:"viral", views:20.7, sub:"250K likes · 1.2K comments · 854 shares", type:"facebook", url:"https://www.facebook.com/reel/1132088844743862/", categoryAr:"مسلسل · جريمة", categoryEn:"Crime"},
+
+  {rank:8, plat:"Facebook · Horizontal", seriesAr:"صاحبة السعادة", seriesEn:"Sahebet Elsaada", title:"لما تبقى لابس وخارج وبنتك تقول رأيها في شكلك 😂", titleEn:"When you're dressed and heading out and your daughter gives her opinion on your look", badge:"viral", views:17.0, sub:"371K+ likes · 8.5K comments · ~2K shares", type:"facebook", url:"https://www.facebook.com/watch/?v=306808134195281", categoryAr:"برنامج تلفزيوني · كوميدي", categoryEn:"Comedy"},
+
+  {rank:9, plat:"TikTok · Vertical", seriesAr:"شارك تانك", seriesEn:"Shark Tank", title:"أصغر مؤسسين شركة معملوش مقاسهم في Shark Tank فقرروا يأسسوا شركتهم بنفسهم 😍", titleEn:"The youngest founders no one took seriously on Shark Tank, so they built their own company", badge:"viral", views:9.4, sub:"530.6K likes · 6.8K comments · 93.6K shares", type:"tiktok", url:"https://vt.tiktok.com/ZS4hMAYr1/", categoryAr:"برنامج تلفزيوني · ريادة أعمال", categoryEn:"Entrepreneurship"},
+
+  {rank:10, plat:"Facebook · Horizontal", seriesAr:"إيجار قديم", seriesEn:"Eigar Adeem", title:"الشارع كله بيتفرج على رمزي ومش مصدقين اللي بيعمله 😳", titleEn:"The whole street is watching Ramzy, stunned by what he's doing", badge:"viral", views:8.7, sub:"219K likes · 990 comments · 1.1K shares", type:"facebook", url:"https://www.facebook.com/WatchiTMENA/videos/3399121410332710/", categoryAr:"مسلسل · كوميدي", categoryEn:"Comedy"},
+
+  {rank:11, plat:"YouTube · Horizontal", seriesAr:"ضربة معلم", seriesEn:"Darbet Maallem", title:"جابر عمل اللي عليه ودلوقتي وقت الفراق 😮", titleEn:"Gaber did what he had to do, and now it's time to part ways", badge:"trend", trendRank:1, views:8.6, sub:"5.8K likes · 58 comments · 1.2K shares", type:"youtube", url:"https://youtu.be/KFmapXn7Og8", categoryAr:"مسلسل · رومانسي", categoryEn:"Romance"},
+
+  {rank:12, plat:"YouTube · Horizontal", seriesAr:"فهد البطل", seriesEn:"Fahd Elbatal 4", title:"شامل باعت حملة كاملة عشان تجيب رقبة فهد 🔥💪", titleEn:"Shamel sent an entire squad just to bring Fahd in", badge:"trend", trendRank:1, views:8.2, sub:"48K likes · 1K comments · ~1.9K shares", type:"youtube", url:"https://youtu.be/6NTvdQRBM98", categoryAr:"مسلسل · آكشن", categoryEn:"Action"},
+
+  {rank:13, plat:"TikTok · Vertical", seriesAr:"كركر", seriesEn:"Karkar", title:"لمّا يبقى ليك فلوس عند حد وتتصدم إنه مات 🤦😅", titleEn:"When someone owes you money and you're shocked to hear they died", badge:"viral", views:7.2, sub:"173.8K likes · 3.2K comments · 69.7K shares", type:"tiktok", url:"https://vt.tiktok.com/ZS4hh8jjr/", categoryAr:"فيلم · كوميدي", categoryEn:"Comedy"},
+
+  {rank:14, plat:"TikTok · Vertical", seriesAr:"الوصفة السحرية", seriesEn:"Elwasfa Elsehreya", title:"فن اختيار الخلافات الزوجية 😂🫢", titleEn:"The art of picking your marital fights", badge:"viral", views:5.8, sub:"142.9K likes · 1.1K comments · 28.3K shares", type:"tiktok", url:"https://vt.tiktok.com/ZS4hBeGAp/", categoryAr:"مسلسل · كوميدي", categoryEn:"Comedy"},
+
+  {rank:15, plat:"TikTok · Vertical", seriesAr:"بحبك", seriesEn:"Baheback", title:"أجيلك من شهرين كدة تخلّيني كدة؟ 🤦‍♀️", titleEn:"I came to you in this state two months ago, and you made me into this state?", badge:"viral", views:5.5, sub:"146.2K likes · 1.8K comments · 17.2K shares", type:"tiktok", url:"https://vt.tiktok.com/ZS4hkt6mb/", categoryAr:"فيلم · كوميدي", categoryEn:"Comedy"}
 ];
 
 const max = Math.max(...clips.map(c => c.views));
@@ -692,13 +582,12 @@ const MEDAL_CLASS = {1:'gold-m', 2:'silver-m', 3:'bronze-m'};
 const METRIC_ICONS = {
   likes: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>',
   comments: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>',
-  shares: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7M16 6l-4-4-4 4M12 2v13"/></svg>',
+  shares: '<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M14 9V5l7 7-7 7v-4.1c-5 0-8.5 1.6-11 5.1 1-5 4-10 11-11z"/></svg>',
 };
 function renderSub(sub){
-  if (sub === 'N/A') return '<span class="metric">N/A</span>';
   return sub.split('·').map(part => {
     part = part.trim();
-    const m = part.match(/^([\d.,]+K?M?\+?)\s+(likes|comments|shares)/i);
+    const m = part.match(/^([\d.,]+K?M?\+?~?)\s+(likes|comments|shares)/i);
     if(!m) return `<span class="metric">${part}</span>`;
     const icon = METRIC_ICONS[m[2].toLowerCase()] || '';
     return `<span class="metric">${icon}${m[1]} ${m[2]}</span>`;
@@ -723,19 +612,25 @@ clips.forEach(c => {
         <span class="plat p-${c.type}">${PLATFORM_ICONS[c.type] || ''}${c.plat}</span>
         <span class="badge ${c.badge}">${c.badge === 'trend' ? ('Trend' + (c.trendRank ? ' #' + c.trendRank : '')) : 'Viral'}</span>
       </div>
-      <div class="title-ar">${c.title}</div>
-      <div class="title-en">${c.titleEn}</div>
-      <div class="series-row">
-        <span class="category-badge">${c.categoryAr}</span>
-        <span class="series-name">${c.seriesAr}</span>
+      <div class="headline">
+        <div class="views">${viewsLabel} <span class="views-label">Views</span></div>
+        <div class="series-row">
+          <span class="series-name">${c.seriesAr}</span>
+          <span class="category-badge">${c.categoryAr}</span>
+        </div>
       </div>
-      <div class="series-translit">${c.seriesEn} · ${c.categoryEn}</div>
+      <div class="subline">
+        <div class="subs">${renderSub(c.sub)}</div>
+        <div class="series-translit">${c.seriesEn} · ${c.categoryEn}</div>
+      </div>
+      <div class="right-body">
+        <hr class="caption-divider">
+        <!-- الكابشن بالعربية والإنجليزية -->
+        <div class="title-ar">${c.title}</div>
+        <div class="title-en">${c.titleEn}</div>
+      </div>
     </div>
-    <div class="stats-col">
-      <div class="views">${viewsLabel} <span class="views-label">Views</span></div>
-      <div class="subs">${renderSub(c.sub)}</div>
-    </div>
-    <button class="watch-btn" type="button" aria-expanded="false" aria-controls="${panelId}"><span class="arrow">▸</span> شاهد المقطع</button>
+    <button class="watch-btn" type="button" aria-expanded="false" aria-controls="${panelId}"><span class="arrow">▸</span> Watch clip</button>
     <div class="embed-panel" id="${panelId}"></div>
     <div class="bar-track"><div class="bar-fill" style="width:${pct}%"></div></div>
   `;
@@ -749,7 +644,7 @@ clips.forEach(c => {
       panel.classList.remove('open');
       btn.classList.remove('open');
       btn.setAttribute('aria-expanded','false');
-      btn.innerHTML = '<span class="arrow">▸</span> شاهد المقطع';
+      btn.innerHTML = '<span class="arrow">▸</span> Watch clip';
       return;
     }
     if(!panel.dataset.loaded){
@@ -760,7 +655,7 @@ clips.forEach(c => {
     panel.classList.add('open');
     btn.classList.add('open');
     btn.setAttribute('aria-expanded','true');
-    btn.innerHTML = '<span class="arrow">▾</span> إخفاء المقطع';
+    btn.innerHTML = '<span class="arrow">▾</span> Hide clip';
   });
 });
 </script>
