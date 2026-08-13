@@ -106,6 +106,7 @@
   .intro p{
     font-size:1rem;
     color:var(--muted-dark);
+    line-height:1.6;
   }
 
   /* about box (متوافق بصريا مع الصفحة) */
@@ -128,7 +129,13 @@
     line-height:1.7;
     margin-bottom:0.8rem;
   }
-  .about-box .highlight{
+  /* النص العربي - محاذاة يمين */
+  .about-box .arabic-text{
+    direction:rtl;
+    text-align:right;
+    font-family:'Cairo',sans-serif;
+  }
+  .about-box .arabic-text .highlight{
     background:var(--accent-soft);
     padding:0.1rem 0.6rem;
     border-radius:20px;
@@ -358,16 +365,16 @@
   </div>
 </header>
 
-<!-- ===== ABOUT ME (عربي + إنجليزي) ===== -->
+<!-- ===== ABOUT ME ===== -->
 <div class="about-box">
   <div class="about-kicker">About me</div>
-  <p>
+  <p class="arabic-text">
     متخصص في <strong style="color:var(--accent);">إنتاج الفيديو القصير الإبداعي</strong>، 
     أحوِّل الساعات الطويلة من المحتوى إلى مقاطع توقف التمرير وتحقق الملايين من المشاهدات العضوية. 
     خبرتي لا تُقاس بعدد السنوات، بل بـ <span class="highlight">١٠,٠٠٠+ مقطع فيديو قصير</span> أنتجتها لـ 
     <span class="highlight">٥٠٠+ عنوان</span>، وحققت بها <span class="highlight">٣ مليار مشاهدة</span> بدون إنفاق على الإعلانات.
   </p>
-  <p style="font-size:0.95rem; color:var(--muted-dark);">
+  <p class="arabic-text" style="font-size:0.95rem; color:var(--muted-dark);">
     💡 أؤمن أن نجاح الفيديو القصير يكمن في <strong style="color:var(--ink);">الهوك، الإيقاع، والاحتفاظ</strong> – وليس في الميزانية الضخمة.
   </p>
 
@@ -387,6 +394,7 @@
   </div>
 </div>
 
+<!-- ===== INTRO + CHART ===== -->
 <div class="intro">
   <div class="kicker">The trending chart</div>
   <p>Fifteen verified clips from an archive of 500+ titles and 2,000+ episodes across YouTube, Facebook and TikTok — every number below is a real, publicly viewable figure, ranked by lifetime views. Bar length shows scale relative to the #1 clip.</p>
