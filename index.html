@@ -1,29 +1,533 @@
-<!-- ===== ABOUT ME (متوافق بصرياً مع الصفحة) ===== -->
-<div class="about-box" style="padding: 1.2rem 0 1.8rem 0; border-bottom: 1px solid var(--line); margin-bottom: 0;">
-  <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.12em; color:var(--gold); font-weight:700; margin-bottom:0.6rem;">About me</div>
-  
-  <p style="font-size:1rem; color:var(--muted-dark); line-height:1.7; margin-bottom:0.8rem;">
-    <strong style="color:var(--ink);">أنا محمد حجاج</strong> – متخصص في <strong style="color:var(--accent);">إنتاج الفيديو القصير الإبداعي (Short-Form Creative Production)</strong>، 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohamed Haggag — Content Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cairo:wght@400;600;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAF8F4;
+    --ink:#381A5C;
+    --accent:#8F57D4;
+    --accent-soft:#E9DCFA;
+    --muted:#96919F;
+    --muted-dark:#6E687A;
+    --line:#D7D3DB;
+    --gold:#CBA14D;
+    --gold-soft:#F3E7CE;
+    --card:#FFFFFF;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.5;
+    padding:0 0 5rem;
+  }
+  .wrap{max-width:900px; margin:0 auto; padding:0 1.5rem;}
+
+  /* header */
+  header{padding:3rem 0 2rem; border-bottom:1px solid var(--line);}
+  .name{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:clamp(2.6rem,7vw,4.2rem);
+    letter-spacing:0.02em;
+    line-height:0.95;
+    color:var(--ink);
+  }
+  .role{
+    font-size:1.05rem;
+    font-weight:600;
+    color:var(--accent);
+    margin-top:0.4rem;
+  }
+  .contact{
+    margin-top:0.8rem;
+    font-size:0.85rem;
+    color:var(--muted-dark);
+    display:flex; flex-wrap:wrap; align-items:center; row-gap:0.4rem; column-gap:0.9rem;
+  }
+  .contact span, .contact a{ display:inline-flex; align-items:center; gap:0.35rem; white-space:nowrap; }
+  .contact svg{ flex:none; opacity:0.7; }
+  .contact a{color:var(--muted-dark); text-decoration:none; border-bottom:1px dotted var(--muted);}
+  @media(max-width:480px){
+    .contact{ flex-direction:column; align-items:flex-start; row-gap:0.5rem; }
+  }
+
+  /* stat strip */
+  .stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    margin-top:2rem;
+  }
+  .stat{
+    background:var(--card);
+    padding:1rem 0.8rem;
+    text-align:center;
+  }
+  .stat svg{ opacity:0.55; margin-bottom:0.3rem; }
+  .stat.gold svg{ opacity:0.9; color:var(--gold); }
+  .stat .num{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:1.8rem;
+    color:var(--ink);
+    letter-spacing:0.01em;
+  }
+  .stat.gold .num{color:var(--gold);}
+  .stat .lbl{
+    font-size:0.68rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--muted-dark);
+    margin-top:0.15rem;
+  }
+  @media(max-width:640px){ .stats{grid-template-columns:repeat(2,1fr);} }
+
+  /* intro + about */
+  .intro{
+    padding:2.4rem 0 1.4rem;
+    max-width:640px;
+  }
+  .intro .kicker{
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    color:var(--gold);
+    font-weight:700;
+    margin-bottom:0.6rem;
+  }
+  .intro p{
+    font-size:1rem;
+    color:var(--muted-dark);
+  }
+
+  /* about box (متوافق بصريا مع الصفحة) */
+  .about-box{
+    padding:1.2rem 0 1.8rem 0;
+    border-bottom:1px solid var(--line);
+    margin-bottom:0;
+  }
+  .about-box .about-kicker{
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    color:var(--gold);
+    font-weight:700;
+    margin-bottom:0.6rem;
+  }
+  .about-box p{
+    font-size:1rem;
+    color:var(--muted-dark);
+    line-height:1.7;
+    margin-bottom:0.8rem;
+  }
+  .about-box .highlight{
+    background:var(--accent-soft);
+    padding:0.1rem 0.6rem;
+    border-radius:20px;
+    font-weight:600;
+    color:var(--accent);
+  }
+  .about-box .divider-light{
+    border:none;
+    border-top:1px dashed var(--line);
+    margin:1.2rem 0 1rem 0;
+  }
+  .about-box .btn-group{
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.8rem;
+    margin-top:1rem;
+  }
+  .about-box .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:0.4rem;
+    background:var(--accent);
+    color:#fff;
+    padding:0.4rem 1.2rem;
+    border-radius:40px;
+    text-decoration:none;
+    font-weight:600;
+    font-size:0.85rem;
+    transition:background 0.15s;
+  }
+  .about-box .btn:hover{ background:var(--ink); }
+  .about-box .btn-outline{
+    background:var(--accent-soft);
+    color:var(--accent);
+  }
+  .about-box .btn-outline:hover{ background:var(--accent); color:#fff; }
+
+  /* chart */
+  .chart{margin-top:1rem;}
+  .row{
+    display:grid;
+    grid-template-columns:56px 1fr auto;
+    align-items:center;
+    gap:1rem;
+    padding:1.1rem 0.9rem;
+    border-bottom:1px solid var(--line);
+    position:relative;
+    margin:0 -0.9rem;
+    border-radius:12px;
+    transition:background 0.15s;
+  }
+  .row.top3{
+    background:linear-gradient(180deg, var(--gold-soft) 0%, transparent 100%);
+    background-color:rgba(203,161,77,0.06);
+  }
+  .medal{
+    width:34px; height:34px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Bebas Neue',sans-serif; font-size:1.15rem;
+    color:#fff; line-height:1;
+  }
+  .medal.gold-m{ background:#CBA14D; }
+  .medal.silver-m{ background:#A8A8B0; }
+  .medal.bronze-m{ background:#B87A4E; }
+  .watch-btn{
+    grid-column:2/3; justify-self:start;
+    margin-top:0.6rem;
+    display:inline-flex; align-items:center; gap:0.35rem;
+    background:none; border:1px solid var(--accent); color:var(--accent);
+    font-family:'Inter',sans-serif; font-size:0.72rem; font-weight:600;
+    padding:0.3rem 0.75rem; border-radius:20px; cursor:pointer;
+    transition:background 0.15s, color 0.15s;
+  }
+  .watch-btn:hover{ background:var(--accent); color:#fff; }
+  .watch-btn .arrow{ transition:transform 0.2s; }
+  .watch-btn.open .arrow{ transform:rotate(90deg); }
+  .embed-panel{
+    grid-column:1/4;
+    display:none;
+    margin-top:1rem;
+    padding-top:1rem;
+    border-top:1px dashed var(--line);
+  }
+  .embed-panel.open{ display:block; }
+  .embed-panel iframe{ border:none; display:block; }
+  .video-frame{
+    position:relative; width:100%; max-width:480px;
+    background:#000; border-radius:8px; overflow:hidden;
+  }
+  .video-frame.ratio-16-9{ aspect-ratio:16/9; }
+  .video-frame.ratio-9-16{ aspect-ratio:9/16; max-width:270px; }
+  .video-frame iframe{
+    position:absolute; inset:0; width:100%; height:100%; border:none;
+  }
+  .embed-note{ font-size:0.7rem; color:var(--muted); margin-top:0.5rem; }
+  .rank{
+    width:34px; height:34px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    background:var(--accent-soft);
+    font-family:'Bebas Neue',sans-serif;
+    font-size:1.15rem;
+    color:var(--accent);
+    line-height:1;
+  }
+  .row:nth-child(-n+3) .rank{ display:none; }
+
+  .body{min-width:0;}
+  .meta{
+    display:flex; align-items:center; gap:0.5rem;
+    font-size:0.72rem; text-transform:uppercase; letter-spacing:0.05em;
+    color:var(--muted-dark); margin-bottom:0.3rem; flex-wrap:wrap;
+  }
+  .plat{font-weight:700; display:inline-flex; align-items:center; gap:0.3rem;}
+  .plat.p-youtube{ color:#C0392B; }
+  .plat.p-facebook{ color:#1877F2; }
+  .plat.p-tiktok{ color:#111111; }
+  .plat svg{ flex:none; }
+  .badge{
+    font-size:0.65rem; font-weight:700; letter-spacing:0.04em;
+    padding:0.1rem 0.5rem; border-radius:20px;
+    text-transform:uppercase;
+  }
+  .badge.trend{ background:var(--accent-soft); color:var(--accent); }
+  .badge.viral{ background:var(--gold-soft); color:#8A6A26; }
+
+  .title-ar{
+    font-family:'Cairo',sans-serif;
+    direction:rtl; text-align:right;
+    font-size:1rem; font-weight:600;
+    color:var(--ink);
+    line-height:1.5;
+  }
+  .title-en{
+    font-size:0.78rem; color:var(--muted-dark);
+    direction:ltr; text-align:right;
+    margin-top:0.15rem; font-style:italic;
+  }
+  .series-row{
+    display:flex; align-items:baseline; gap:0.5rem; justify-content:flex-end;
+    flex-wrap:wrap; direction:rtl;
+  }
+  .series-name{
+    font-family:'Cairo',sans-serif;
+    font-size:1.05rem; font-weight:600;
+    color:var(--ink);
+  }
+  .category-badge{
+    font-size:0.68rem; font-weight:700;
+    color:var(--accent); background:var(--accent-soft);
+    padding:0.12rem 0.55rem; border-radius:20px;
+    white-space:nowrap; direction:rtl;
+  }
+  .series-translit{
+    font-size:0.72rem; color:var(--muted);
+    margin-top:0.2rem;
+    direction:ltr; text-align:right;
+  }
+
+  .stats-col{ text-align:right; min-width:150px; }
+  .views{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:1.5rem; font-weight:500; color:var(--ink); line-height:1;
+    letter-spacing:0.02em;
+  }
+  .views-label{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:1.5rem; font-weight:500;
+    color:var(--ink);
+    margin-left:0.35rem;
+  }
+  .subs{
+    margin-top:0.45rem;
+    display:flex; flex-direction:column; align-items:flex-end; gap:0.25rem;
+  }
+  .subs .metric{
+    display:inline-flex; align-items:center; gap:0.3rem;
+    font-size:0.82rem; font-weight:600; color:var(--muted-dark);
+    white-space:nowrap;
+  }
+  .subs .metric svg{ opacity:0.7; flex:none; }
+
+  .bar-track{
+    grid-column:2 / 4;
+    height:4px; background:var(--line); border-radius:2px; margin-top:0.7rem; overflow:hidden;
+  }
+  .bar-fill{ height:100%; background:var(--accent); border-radius:2px; }
+  .row:nth-child(-n+3) .bar-fill{ background:var(--gold); }
+
+  @media(max-width:640px){
+    .row{grid-template-columns:40px 1fr; row-gap:0.6rem;}
+    .stats-col{grid-column:2; text-align:right; display:block;}
+    .subs{ align-items:flex-end; }
+    .bar-track{grid-column:1/3;}
+    .rank{width:28px; height:28px; font-size:1rem;}
+    .medal{width:28px; height:28px; font-size:1rem;}
+  }
+
+  footer{
+    margin-top:3rem; padding-top:1.6rem; border-top:1px solid var(--line);
+    font-size:0.78rem; color:var(--muted); line-height:1.7;
+  }
+  footer a{color:var(--accent);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="name">MOHAMED HAGGAG</div>
+  <div class="role">Content Strategist &amp; Creative Director</div>
+  <div class="contact">
+    <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.3"/></svg>Cairo, Egypt</span>
+    <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>+20 10 3363 3220</span>
+    <a href="mailto:mohamad.haggag@gmail.com"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>mohamad.haggag@gmail.com</a>
+    <a href="https://www.linkedin.com/in/mohamed-haggag-creative" target="_blank" rel="noopener"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/><path d="M10 9v12M10 13a4 4 0 0 1 8 0v8"/></svg>linkedin.com/in/mohamed-haggag-creative</a>
+  </div>
+
+  <div class="stats">
+    <div class="stat gold"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg><div class="num">3B+</div><div class="lbl">Total views</div></div>
+    <div class="stat"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg><div class="num">500+</div><div class="lbl">Titles</div></div>
+    <div class="stat"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 4v16"/></svg><div class="num">2,000+</div><div class="lbl">Episodes</div></div>
+    <div class="stat"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg><div class="num">50M+</div><div class="lbl">Reactions</div></div>
+    <div class="stat"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="15" height="12" rx="2"/><path d="m22 8-5 4 5 4z"/></svg><div class="num">10,000+</div><div class="lbl">Snippets</div></div>
+    <div class="stat gold"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 21h8M12 17v4M17 5v6a5 5 0 0 1-10 0V5z"/><path d="M7 5H3v2a4 4 0 0 0 4 4M17 5h4v2a4 4 0 0 1-4 4"/></svg><div class="num">60M</div><div class="lbl">Top FB post</div></div>
+    <div class="stat"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 21h8M12 17v4M17 5v6a5 5 0 0 1-10 0V5z"/><path d="M7 5H3v2a4 4 0 0 0 4 4M17 5h4v2a4 4 0 0 1-4 4"/></svg><div class="num">36M</div><div class="lbl">Top YT video</div></div>
+    <div class="stat"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18M7 15l4-5 3 3 5-7"/></svg><div class="num">3,000+</div><div class="lbl">Posts analyzed</div></div>
+  </div>
+</header>
+
+<!-- ===== ABOUT ME (عربي + إنجليزي) ===== -->
+<div class="about-box">
+  <div class="about-kicker">About me</div>
+  <p>
+    متخصص في <strong style="color:var(--accent);">إنتاج الفيديو القصير الإبداعي (Short-Form Creative Production)</strong>، 
     أحوِّل الساعات الطويلة من المحتوى إلى مقاطع توقف التمرير وتحقق الملايين من المشاهدات العضوية. 
-    خبرتي لا تُقاس بعدد السنوات، بل بـ <span style="background:var(--accent-soft); padding:0.1rem 0.6rem; border-radius:20px; font-weight:600; color:var(--accent);">١٠,٠٠٠+ مقطع فيديو قصير</span> أنتجتها لـ 
-    <span style="background:var(--accent-soft); padding:0.1rem 0.6rem; border-radius:20px; font-weight:600; color:var(--accent);">٥٠٠+ عنوان</span>، وحققت بها <span style="background:var(--accent-soft); padding:0.1rem 0.6rem; border-radius:20px; font-weight:600; color:var(--accent);">٣ مليار مشاهدة</span> بدون إنفاق على الإعلانات.
+    خبرتي لا تُقاس بعدد السنوات، بل بـ <span class="highlight">١٠,٠٠٠+ مقطع فيديو قصير</span> أنتجتها لـ 
+    <span class="highlight">٥٠٠+ عنوان</span>، وحققت بها <span class="highlight">٣ مليار مشاهدة</span> بدون إنفاق على الإعلانات.
   </p>
-  <p style="font-size:0.95rem; color:var(--muted-dark); margin-bottom:0.8rem;">
+  <p style="font-size:0.95rem; color:var(--muted-dark);">
     💡 أؤمن أن نجاح الفيديو القصير يكمن في <strong style="color:var(--ink);">الهوك، الإيقاع، والاحتفاظ</strong> – وليس في الميزانية الضخمة.
   </p>
 
-  <div style="border-top:1px dashed var(--line); margin:1.2rem 0 1rem 0;"></div>
+  <hr class="divider-light">
 
-  <p style="font-size:0.98rem; color:var(--muted-dark); line-height:1.7; margin-bottom:0.6rem;">
+  <p style="font-size:1rem; color:var(--muted-dark); line-height:1.7; margin-bottom:0.8rem;">
     <strong style="color:var(--ink);">I specialize in Short-Form Creative Production</strong> — turning hours of long-form footage into scroll-stopping clips that generate millions of organic views. 
-    My expertise isn't measured in years alone; it's proven by <span style="background:var(--accent-soft); padding:0.1rem 0.6rem; border-radius:20px; font-weight:600; color:var(--accent);">10,000+ short-form videos</span> produced across <span style="background:var(--accent-soft); padding:0.1rem 0.6rem; border-radius:20px; font-weight:600; color:var(--accent);">500+ titles</span>, generating <span style="background:var(--accent-soft); padding:0.1rem 0.6rem; border-radius:20px; font-weight:600; color:var(--accent);">3 Billion organic views</span> with zero ad spend.
+    My expertise isn't measured in years alone; it's proven by <span class="highlight">10,000+ short-form videos</span> produced across <span class="highlight">500+ titles</span>, generating <span class="highlight">3 Billion organic views</span> with zero ad spend.
   </p>
-  <p style="font-size:0.95rem; color:var(--muted-dark); margin-bottom:0.8rem;">
+  <p style="font-size:0.95rem; color:var(--muted-dark);">
     💡 I believe the success of short-form video lies in <strong style="color:var(--ink);">hooks, pacing, and retention</strong> — not in big budgets.
   </p>
 
-  <div style="display:flex; flex-wrap:wrap; gap:0.8rem; margin-top:1rem;">
-    <a href="https://www.linkedin.com/in/mohamed-haggag-creative" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; background:var(--accent); color:#fff; padding:0.4rem 1.2rem; border-radius:40px; text-decoration:none; font-weight:600; font-size:0.85rem; transition:background 0.15s;">🔗 LinkedIn</a>
-    <a href="mailto:mohamad.haggag@gmail.com" style="display:inline-flex; align-items:center; gap:0.4rem; background:var(--accent-soft); color:var(--accent); padding:0.4rem 1.2rem; border-radius:40px; text-decoration:none; font-weight:600; font-size:0.85rem; transition:background 0.15s;">✉️ Gmail</a>
+  <div class="btn-group">
+    <a href="https://www.linkedin.com/in/mohamed-haggag-creative" target="_blank" rel="noopener" class="btn">🔗 LinkedIn</a>
+    <a href="mailto:mohamad.haggag@gmail.com" class="btn btn-outline">✉️ Gmail</a>
   </div>
 </div>
+
+<div class="intro">
+  <div class="kicker">The trending chart</div>
+  <p>Fifteen verified clips from an archive of 500+ titles and 2,000+ episodes across YouTube, Facebook and TikTok — every number below is a real, publicly viewable figure, ranked by lifetime views. Bar length shows scale relative to the #1 clip.</p>
+  <p style="margin-top:0.6rem;">This is a curated, format-diverse top 15 — not a strict ranking of the 15 highest-viewed clips in the archive.</p>
+</div>
+
+<div class="chart" id="chart"></div>
+
+<footer>
+  All figures are lifetime view counts, publicly verifiable at the linked URLs. TikTok figures marked ~ are engagement-based estimates. <span style="color:var(--accent); font-weight:600;">Trend</span> = confirmed or view-volume based YouTube Trending placement. <span style="color:#8A6A26; font-weight:600;">Viral</span> = share rate substantially above average for a comparable clip.
+</footer>
+
+</div>
+
+<script>
+const clips = [
+  {rank:1, plat:"Facebook · Horizontal", seriesAr:"ضربة معلم", seriesEn:"Darbet Maallem", title:"جابر عرف إن ليلى نزلت بالمايوه، نزل لها بالجالبية", titleEn:"Gaber finds out Laila went out in her swimsuit, shows up in his galabeya", badge:"viral", views:60.0, sub:"1M likes · 11K comments · 13K shares", type:"facebook", url:"https://www.facebook.com/watch/?v=471033977251763", categoryAr:"مسلسل · كوميدي", categoryEn:"Series · Comedy"},
+  {rank:2, plat:"Facebook · Horizontal", seriesAr:"جعفر العمدة", seriesEn:"Gaafar Elomda", title:"حاول يعمل نمرة على جعفر، رد له النمرة مقلب قدّام أهل المنطقة", titleEn:"He tried to prank Gaafar, so Gaafar pranked him back in front of the whole neighborhood", badge:"viral", views:37.0, sub:"1M+ likes · 3.2K comments", type:"facebook", url:"https://www.facebook.com/WatchiTMENA/videos/1166536187397635/", categoryAr:"مسلسل · آكشن", categoryEn:"Series · Action"},
+  {rank:3, plat:"YouTube · Horizontal", seriesAr:"البرنس", seriesEn:"Elprince", title:"تحية البرنس لإخواته بمناسبة خروجه من السجن — علقة موت", titleEn:"Elprince's tribute to his brothers on his release from prison — a solid beatdown", badge:"trend", trendRank:1, views:35.9, sub:"324K likes · 7K comments", type:"youtube", url:"https://youtu.be/1BVvZn3mlmc", categoryAr:"مسلسل · جريمة", categoryEn:"Series · Crime"},
+  {rank:4, plat:"Facebook · Horizontal", seriesAr:"حالة خاصة", seriesEn:"Hala Khasa", title:"نديم حوّل الشاهدة لمتهمة بسبب غلطة صغيرة محدش انتبه ليها غيره", titleEn:"Nadeem turns the witness into a suspect over a tiny mistake only he noticed", badge:"viral", views:26.0, sub:"649K likes · 3.2K comments", type:"facebook", url:"https://www.facebook.com/watch/?v=1119313819206656", categoryAr:"مسلسل · جريمة", categoryEn:"Series · Crime"},
+  {rank:5, plat:"TikTok · Vertical", seriesAr:"حاحا وتفاحة", seriesEn:"Haha w Tofaha", title:"صاحبتك اللي بتخاف من الحسد زيادة عن اللازم", titleEn:"That friend of yours who's way too paranoid about the evil eye", badge:"viral", views:23.6, approx:true, sub:"56K likes · 864 comments · 22.4K shares", type:"tiktok", url:"https://vt.tiktok.com/ZS4hDnGEF/", categoryAr:"فيلم · كوميدي", categoryEn:"Film · Comedy"},
+  {rank:6, plat:"Facebook · Horizontal", seriesAr:"حق عرب", seriesEn:"Haq Arab", title:"سميحة ورباح خدوا جزاءهم، وأنغام ربنا تعويض لعرب", titleEn:"Samiha and Rabah get what's coming to them, and Angham compensates Arab", badge:"viral", views:22.0, sub:"431K likes · 716 comments", type:"facebook", url:"https://www.facebook.com/WatchiTMENA/videos/759384259267999/", categoryAr:"مسلسل · آكشن", categoryEn:"Series · Action"},
+  {rank:7, plat:"Facebook Reels · Vertical", seriesAr:"حدث بالفعل", seriesEn:"Hadath Belfel", title:"انت كدة جامد يعني", titleEn:"Now that's impressive", badge:"viral", views:20.7, sub:"207K likes · 967 comments · 775 shares", type:"facebook", url:"https://www.facebook.com/reel/1132088844743862/", categoryAr:"مسلسل · جريمة", categoryEn:"Series · Crime"},
+  {rank:8, plat:"Facebook · Horizontal", seriesAr:"صاحبة السعادة", seriesEn:"Sahebet Elsaada", title:"لما تبقى لابس وخارج وبنتك تقول رأيها في شكلك", titleEn:"When you're dressed and heading out and your daughter gives her opinion on your look", badge:"viral", views:17.0, sub:"371K+ likes · 8.5K comments", type:"facebook", url:"https://www.facebook.com/watch/?v=306808134195281", categoryAr:"برنامج تلفزيوني · كوميدي", categoryEn:"TV show · Comedy"},
+  {rank:9, plat:"TikTok · Vertical", seriesAr:"شارك تانك", seriesEn:"Shark Tank", title:"أصغر مؤسسين شركة معملوش مقاسهم في Shark Tank فقرروا يأسسوا شركتهم بنفسهم", titleEn:"The youngest founders no one took seriously on Shark Tank, so they built their own company", badge:"viral", views:9.4, sub:"530.6K likes · 6.8K comments · 93.6K shares", type:"tiktok", url:"https://vt.tiktok.com/ZS4hMAYr1/", categoryAr:"برنامج تلفزيوني · ريادة أعمال", categoryEn:"TV show · Entrepreneurship"},
+  {rank:10, plat:"Facebook · Horizontal", seriesAr:"إيجار قديم", seriesEn:"Eigar Adeem", title:"الشارع كله بيتفرج على رمزي ومش مصدقين اللي بيعمله", titleEn:"The whole street is watching Ramzy, stunned by what he's doing", badge:"viral", views:8.7, sub:"187K likes · 591 comments", type:"facebook", url:"https://www.facebook.com/WatchiTMENA/videos/3399121410332710/", categoryAr:"مسلسل · كوميدي", categoryEn:"Series · Comedy"},
+  {rank:11, plat:"YouTube · Horizontal", seriesAr:"ضربة معلم", seriesEn:"Darbet Maallem", title:"جابر عمل اللي عليه ودلوقتي وقت الفراق", titleEn:"Gaber did what he had to do, and now it's time to part ways", badge:"trend", trendRank:1, views:8.6, sub:"77K likes · 2K comments", type:"youtube", url:"https://youtu.be/KFmapXn7Og8", categoryAr:"مسلسل · رومانسي", categoryEn:"Series · Romance"},
+  {rank:12, plat:"YouTube · Horizontal", seriesAr:"فهد البطل", seriesEn:"Fahd Elbatal 4", title:"شامل باعت حملة كاملة عشان تجيب رقبة فهد", titleEn:"Shamel sent an entire squad just to bring Fahd in", badge:"trend", trendRank:1, views:8.2, sub:"48K likes · 1K comments", type:"youtube", url:"https://youtu.be/6NTvdQRBM98", categoryAr:"مسلسل · آكشن", categoryEn:"Series · Action"},
+  {rank:13, plat:"TikTok · Vertical", seriesAr:"كركر", seriesEn:"Karkar", title:"لمّا يبقى ليك فلوس عند حد وتتصدم إنه مات", titleEn:"When someone owes you money and you're shocked to hear they died", badge:"viral", views:7.2, sub:"173.8K likes · 3.2K comments · 69.7K shares", type:"tiktok", url:"https://vt.tiktok.com/ZS4hh8jjr/", categoryAr:"فيلم · كوميدي", categoryEn:"Film · Comedy"},
+  {rank:14, plat:"TikTok · Vertical", seriesAr:"الوصفة السحرية", seriesEn:"Elwasfa Elsehreya", title:"فن اختيار الخلافات الزوجية", titleEn:"The art of picking your marital fights", badge:"viral", views:5.8, sub:"142.9K likes · 1.1K comments · 28.3K shares", type:"tiktok", url:"https://vt.tiktok.com/ZS4hBeGAp/", categoryAr:"مسلسل · كوميدي", categoryEn:"Series · Comedy"},
+  {rank:15, plat:"TikTok · Vertical", seriesAr:"بحبك", seriesEn:"Baheback", title:"أجيلك من شهرين كدة تخلّيني كدة؟", titleEn:"I came to you in this state two months ago, and you made me into this state?", badge:"viral", views:5.5, sub:"146.2K likes · 1.8K comments · 17.2K shares", type:"tiktok", url:"https://vt.tiktok.com/ZS4hkt6mb/", categoryAr:"فيلم · كوميدي", categoryEn:"Film · Comedy"}
+];
+
+const max = Math.max(...clips.map(c => c.views));
+const container = document.getElementById('chart');
+
+function buildEmbed(c){
+  if(c.type === 'youtube'){
+    const id = c.url.split('/').pop();
+    return `<div class="video-frame ratio-16-9"><iframe src="https://www.youtube.com/embed/${id}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="embed-note">لو الفيديو مش ظاهر، صاحب الفيديو قافل خاصية الـ Embed على يوتيوب — دوس <a href="${c.url}" target="_blank" rel="noopener" style="color:var(--accent)">هنا</a> لمشاهدته على يوتيوب مباشرة.</div>`;
+  }
+  if(c.type === 'facebook'){
+    const href = encodeURIComponent(c.url);
+    const tall = c.plat.indexOf('Reels') !== -1;
+    const ratioClass = tall ? 'ratio-9-16' : 'ratio-16-9';
+    return `<div class="video-frame ${ratioClass}"><iframe src="https://www.facebook.com/plugins/video.php?href=${href}&show_text=false" scrolling="no" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
+      <div class="embed-note">لو الفيديو مش ظاهر، الصفحة المصدر خلّت الـ Embed مقفول — دوس <a href="${c.url}" target="_blank" rel="noopener" style="color:var(--accent)">هنا</a> لمشاهدته على فيسبوك مباشرة.</div>`;
+  }
+  return `<blockquote class="tiktok-embed" cite="${c.url}" style="max-width:325px;min-width:220px;margin:0;">
+      <section><a target="_blank" href="${c.url}"></a></section>
+    </blockquote>
+    <div class="embed-note">لو مركز الفيديو ماظهرش، دوس <a href="${c.url}" target="_blank" rel="noopener" style="color:var(--accent)">هنا</a> لمشاهدته على تيك توك مباشرة.</div>`;
+}
+
+function loadTikTokScript(){
+  const s = document.createElement('script');
+  s.src = 'https://www.tiktok.com/embed.js';
+  s.async = true;
+  document.body.appendChild(s);
+}
+
+const PLATFORM_ICONS = {
+  youtube: '<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.5v-7L15.8 12z"/></svg>',
+  facebook: '<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 22v-8.4h2.8l.4-3.3h-3.2V8.1c0-1 .3-1.6 1.7-1.6h1.6V3.5c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.2v2.7H7.3v3.3h2.7V22z"/></svg>',
+  tiktok: '<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 3c.4 2.3 2 4 4.4 4.3V10a6.7 6.7 0 0 1-4.4-1.6v6.9a6.5 6.5 0 1 1-6.5-6.5c.3 0 .6 0 .9.1v2.7a3.8 3.8 0 1 0 2.7 3.6V3z"/></svg>',
+};
+const MEDAL_CLASS = {1:'gold-m', 2:'silver-m', 3:'bronze-m'};
+const METRIC_ICONS = {
+  likes: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>',
+  comments: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>',
+  shares: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7M16 6l-4-4-4 4M12 2v13"/></svg>',
+};
+function renderSub(sub){
+  return sub.split('·').map(part => {
+    part = part.trim();
+    const m = part.match(/^([\d.,]+K?M?\+?)\s+(likes|comments|shares)/i);
+    if(!m) return `<span class="metric">${part}</span>`;
+    const icon = METRIC_ICONS[m[2].toLowerCase()] || '';
+    return `<span class="metric">${icon}${m[1]} ${m[2]}</span>`;
+  }).join('');
+}
+
+clips.forEach(c => {
+  const row = document.createElement('div');
+  row.className = 'row' + (c.rank <= 3 ? ' top3' : '');
+  const pct = (c.views / max * 100).toFixed(1);
+  const viewsLabel = c.views < 1
+    ? (c.approx ? '~' : '') + (c.views * 1000).toFixed(1) + 'K'
+    : (c.approx ? '~' : '') + c.views.toFixed(1) + 'M';
+  const panelId = 'panel-' + c.rank;
+  const rankHtml = c.rank <= 3
+    ? `<div class="medal ${MEDAL_CLASS[c.rank]}">${c.rank}</div>`
+    : `<div class="rank">${c.rank}</div>`;
+  row.innerHTML = `
+    ${rankHtml}
+    <div class="body">
+      <div class="meta">
+        <span class="plat p-${c.type}">${PLATFORM_ICONS[c.type] || ''}${c.plat}</span>
+        <span class="badge ${c.badge}">${c.badge === 'trend' ? ('Trend' + (c.trendRank ? ' #' + c.trendRank : '')) : 'Viral'}</span>
+      </div>
+      <div class="title-ar">${c.title}</div>
+      <div class="title-en">${c.titleEn}</div>
+      <div class="series-row">
+        <span class="category-badge">${c.categoryAr}</span>
+        <span class="series-name">${c.seriesAr}</span>
+      </div>
+      <div class="series-translit">${c.seriesEn} · ${c.categoryEn}</div>
+    </div>
+    <div class="stats-col">
+      <div class="views">${viewsLabel} <span class="views-label">Views</span></div>
+      <div class="subs">${renderSub(c.sub)}</div>
+    </div>
+    <button class="watch-btn" type="button" aria-expanded="false" aria-controls="${panelId}"><span class="arrow">▸</span> Watch clip</button>
+    <div class="embed-panel" id="${panelId}"></div>
+    <div class="bar-track"><div class="bar-fill" style="width:${pct}%"></div></div>
+  `;
+  container.appendChild(row);
+
+  const btn = row.querySelector('.watch-btn');
+  const panel = row.querySelector('.embed-panel');
+  btn.addEventListener('click', () => {
+    const isOpen = panel.classList.contains('open');
+    if(isOpen){
+      panel.classList.remove('open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded','false');
+      btn.innerHTML = '<span class="arrow">▸</span> Watch clip';
+      return;
+    }
+    if(!panel.dataset.loaded){
+      panel.innerHTML = buildEmbed(c);
+      panel.dataset.loaded = '1';
+      if(c.type === 'tiktok') loadTikTokScript();
+    }
+    panel.classList.add('open');
+    btn.classList.add('open');
+    btn.setAttribute('aria-expanded','true');
+    btn.innerHTML = '<span class="arrow">▾</span> Hide clip';
+  });
+});
+</script>
+</body>
+</html>
