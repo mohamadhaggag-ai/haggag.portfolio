@@ -219,6 +219,25 @@
     color:var(--muted-dark);
     font-size:0.78rem;
   }
+  .proof-caption{
+    display:block;
+    color:var(--muted-dark);
+    font-size:0.8rem;
+    line-height:1.5;
+    margin-top:0.5rem;
+    padding-top:0.5rem;
+    border-top:1px dashed var(--line);
+  }
+  .proof-caption .cap-ar{
+    display:block;
+    color:var(--ink);
+    margin-bottom:0.2rem;
+  }
+  .proof-caption .cap-en{
+    display:block;
+    font-style:italic;
+    color:var(--muted);
+  }
   .row{
     display:grid;
     grid-template-columns:1fr;
@@ -620,6 +639,7 @@ cards.forEach(c => {
       <span class="proof-show">${c.seriesAr} <span style="font-weight:400; color:var(--muted);">· ${c.seriesEn}</span></span>
       <span class="proof-stat">${c.noViews ? c.sub : viewsLabel + ' views · ' + c.sub}</span>
       <span class="proof-stat" style="color:var(--muted); font-size:0.72rem;">${c.categoryAr} · ${c.categoryEn}</span>
+      <span class="proof-caption"><span class="cap-ar">${c.title}</span><span class="cap-en">${c.titleEn}</span></span>
     </div>
   `;
   container.appendChild(a);
