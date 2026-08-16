@@ -181,9 +181,47 @@
   .about-box .btn-outline:hover{ background:var(--accent); color:#fff; }
 
   .chart{margin-top:1rem;}
+  .proof-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(230px, 1fr));
+    gap:1.1rem;
+    margin-top:1.2rem;
+  }
+  .proof-card{
+    display:block;
+    text-decoration:none;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    overflow:hidden;
+    transition:transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+  }
+  .proof-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 24px rgba(56,26,92,0.12);
+    border-color:var(--accent);
+  }
+  .proof-card img{
+    width:100%; height:auto; display:block;
+  }
+  .proof-cap{
+    padding:0.85rem 1rem 1rem;
+  }
+  .proof-show{
+    display:block;
+    font-weight:700;
+    color:var(--ink);
+    font-size:0.95rem;
+    margin-bottom:0.25rem;
+  }
+  .proof-stat{
+    display:block;
+    color:var(--muted-dark);
+    font-size:0.78rem;
+  }
   .row{
     display:grid;
-    grid-template-columns:56px 1fr;
+    grid-template-columns:1fr;
     gap:1rem;
     padding:1.1rem 0.9rem;
     border-bottom:1px solid var(--line);
@@ -510,17 +548,68 @@
 
 <div class="intro">
   <div class="kicker">The trending chart</div>
-  <p>Fifteen verified clips from an archive of 500+ titles and 2,000+ episodes across YouTube, Facebook and TikTok — every number below is a real, publicly viewable figure, ranked by lifetime views. Bar length shows scale relative to the #1 clip.</p>
-  <p style="margin-bottom:0.8rem;">This is a curated, format-diverse top 15 — not a strict ranking of the 15 highest-viewed clips in the archive.</p>
+  <p>Verified clips from an archive of 500+ titles and 2,000+ episodes across YouTube, Facebook and TikTok — every number below is a real, publicly viewable figure, ranked by lifetime views. Bar length shows scale relative to the #1 clip.</p>
+  <p style="margin-bottom:0.8rem;">This is a curated, format-diverse selection — not a strict ranking of the highest-viewed clips in the archive.</p>
   <p class="arabic-text" style="margin-bottom:0;">
-    خمسة عشر مقطعاً موثّقاً من أرشيف يضمّ أكثر من ٥٠٠ عنوان و٢٠٠٠ حلقة عبر يوتيوب وفيسبوك وتيك توك — كل رقم أدناه هو رقم حقيقي وقابل للتحقّق، مُرتّب حسب إجمالي المشاهدات مدى الحياة. طول الشريط يُظهر الحجم النسبي مقارنة بالمقطع الأوّل.
+    مقاطع موثّقة من أرشيف يضمّ أكثر من ٥٠٠ عنوان و٢٠٠٠ حلقة عبر يوتيوب وفيسبوك وتيك توك — كل رقم أدناه هو رقم حقيقي وقابل للتحقّق، مُرتّب حسب إجمالي المشاهدات مدى الحياة. طول الشريط يُظهر الحجم النسبي مقارنة بالمقطع الأوّل.
   </p>
   <p class="arabic-text" style="margin-bottom:0; margin-top:0.2rem;">
-    هذه قائمة من ١٥ مقطعاً متنوّعة في الشكل وليست ترتيباً صارماً لأعلى ١٥ مقطع من حيث المشاهدات في الأرشيف.
+    هذه قائمة متنوّعة في الشكل وليست ترتيباً صارماً لأعلى المقاطع من حيث المشاهدات في الأرشيف.
   </p>
 </div>
 
 <div class="chart" id="chart"></div>
+
+<div class="intro" style="margin-top:3.5rem;">
+  <div class="kicker">Verified performance — beyond the chart</div>
+  <p>Screenshots captured directly from each platform's own "Trending" and "Most Popular" surfaces — not self-reported numbers. Click any card to open the original post.</p>
+  <p class="arabic-text" style="margin-bottom:0;">
+    لقطات موثّقة مباشرة من واجهات "الترند" و"الأكثر مشاهدة" الرسمية للمنصات — مش أرقام مُدخلة يدويًا. اضغط على أي بطاقة لفتح المنشور الأصلي.
+  </p>
+</div>
+
+<div class="proof-grid">
+  <a class="proof-card" href="https://youtu.be/6NTvdQRBM98" target="_blank" rel="noopener">
+    <img src="assets/proof/fahd-elbatal.jpg" alt="Fahd Elbatal 4 — YouTube #1 Trending">
+    <div class="proof-cap"><span class="proof-show">Fahd Elbatal 4</span><span class="proof-stat">YouTube #1 Trending · 584K+ views within 19 hrs</span></div>
+  </a>
+  <a class="proof-card" href="https://youtu.be/BtaJcI2PJeE" target="_blank" rel="noopener">
+    <img src="assets/proof/darbet-maallem-2.jpg" alt="Darbet Maallem — YouTube #1 Trending">
+    <div class="proof-cap"><span class="proof-show">Darbet Maallem</span><span class="proof-stat">YouTube #1 Trending · 842K+ views</span></div>
+  </a>
+  <a class="proof-card" href="https://youtu.be/9GfnQkUecNE" target="_blank" rel="noopener">
+    <img src="assets/proof/elprince-2.jpg" alt="Elprince — YouTube #1 Trending">
+    <div class="proof-cap"><span class="proof-show">Elprince</span><span class="proof-stat">YouTube #1 Trending · 1.4M+ views</span></div>
+  </a>
+  <a class="proof-card" href="https://youtu.be/8rlZy0jzzzM" target="_blank" rel="noopener">
+    <img src="assets/proof/haq-arab-2.jpg" alt="Haq Arab — YouTube #4 Trending">
+    <div class="proof-cap"><span class="proof-show">Haq Arab</span><span class="proof-stat">YouTube #4 Trending · 466K+ views</span></div>
+  </a>
+  <a class="proof-card" href="https://www.facebook.com/share/v/1HdFy53y6p/" target="_blank" rel="noopener">
+    <img src="assets/proof/moaakom-boshra.jpg" alt="Moaakom — Facebook Most Popular">
+    <div class="proof-cap"><span class="proof-show">Moaakom</span><span class="proof-stat">Facebook Most Popular · 13K+ shares within 24 hrs</span></div>
+  </a>
+  <a class="proof-card" href="https://www.facebook.com/watch/?v=306808134195281" target="_blank" rel="noopener">
+    <img src="assets/proof/sahebet-elsaada-labs.jpg" alt="Sahebet Elsaada — Facebook Most Popular">
+    <div class="proof-cap"><span class="proof-show">Sahebet Elsaada</span><span class="proof-stat">Facebook Most Popular · 3.3K+ shares within 24 hrs</span></div>
+  </a>
+  <a class="proof-card" href="https://www.facebook.com/share/v/1BcPhUCeXn/" target="_blank" rel="noopener">
+    <img src="assets/proof/sahebet-elsaada-maryam.jpg" alt="Sahebet Elsaada — Facebook Most Popular">
+    <div class="proof-cap"><span class="proof-show">Sahebet Elsaada</span><span class="proof-stat">Facebook Most Popular · 6.4K+ shares within 24 hrs</span></div>
+  </a>
+  <a class="proof-card" href="https://www.facebook.com/WatchiTMENA/videos/865356894197044/" target="_blank" rel="noopener">
+    <img src="assets/proof/amin-w-shorakah.jpg" alt="Amin w Shorakah — Facebook Most Popular">
+    <div class="proof-cap"><span class="proof-show">Amin w Shorakah</span><span class="proof-stat">Facebook Most Popular · 4.4K+ shares within 24 hrs</span></div>
+  </a>
+  <a class="proof-card" href="https://www.facebook.com/share/v/1EdqLbS8d1/" target="_blank" rel="noopener">
+    <img src="assets/proof/wahed-men-elnas.jpg" alt="Wahed Men El Nas — Facebook Most Popular">
+    <div class="proof-cap"><span class="proof-show">Wahed Men El Nas</span><span class="proof-stat">Facebook Most Popular · 5K+ shares within 24 hrs</span></div>
+  </a>
+  <a class="proof-card" href="https://www.facebook.com/share/v/1EvWWLSAga/" target="_blank" rel="noopener">
+    <img src="assets/proof/sahranin.jpg" alt="Sahranin — Facebook Most Popular">
+    <div class="proof-cap"><span class="proof-show">Sahranin</span><span class="proof-stat">Facebook Most Popular · 466+ shares within 24 hrs</span></div>
+  </a>
+</div>
 
 <footer>
   All figures are lifetime view counts, publicly verifiable at the linked URLs. TikTok figures marked ~ are engagement-based estimates. <span style="color:var(--accent); font-weight:600;">Trend</span> = confirmed or view-volume based YouTube Trending placement. <span style="color:#8A6A26; font-weight:600;">Viral</span> = share rate substantially above average for a comparable clip.
@@ -558,7 +647,13 @@ const clips = [
 
   {rank:14, plat:"TikTok · Vertical", seriesAr:"الوصفة السحرية", seriesEn:"Elwasfa Elsehreya", title:"فن اختيار الخلافات الزوجية 😂🫢", titleEn:"The art of picking your marital fights 😂🫢", badge:"viral", views:5.8, sub:"142.9K likes · 1.1K comments · 28.3K shares", type:"tiktok", url:"https://vt.tiktok.com/ZS4hBeGAp/", categoryAr:"مسلسل · كوميدي", categoryEn:"Comedy", bitly:"https://bit.ly/al-wasfa-al-sehreya"},
 
-  {rank:15, plat:"TikTok · Vertical", seriesAr:"بحبك", seriesEn:"Baheback", title:"أجيلك من شهرين كدة تخلّيني كدة؟ 🤦‍♀️", titleEn:"I came to you in this state two months ago, and you made me into this state? 🤦‍♀️", badge:"viral", views:5.5, sub:"146.2K likes · 1.8K comments · 17.2K shares", type:"tiktok", url:"https://vt.tiktok.com/ZS4hkt6mb/", categoryAr:"فيلم · كوميدي", categoryEn:"Comedy", bitly:"https://bit.ly/bahebbak"}
+  {rank:15, plat:"TikTok · Vertical", seriesAr:"بحبك", seriesEn:"Baheback", title:"أجيلك من شهرين كدة تخلّيني كدة؟ 🤦‍♀️", titleEn:"I came to you in this state two months ago, and you made me into this state? 🤦‍♀️", badge:"viral", views:5.5, sub:"146.2K likes · 1.8K comments · 17.2K shares", type:"tiktok", url:"https://vt.tiktok.com/ZS4hkt6mb/", categoryAr:"فيلم · كوميدي", categoryEn:"Comedy", bitly:"https://bit.ly/bahebbak"},
+
+  {rank:16, plat:"YouTube · Horizontal", seriesAr:"البرنس", seriesEn:"Elprince", title:"رضوان بيشوف بنته بعد 5 سنين قهرة ووجع 😍😀", titleEn:"Radwan sees his daughter again after 5 years — bittersweet and painful 😍😀", badge:"trend", trendRank:1, views:1.4, sub:"20K likes · 1.2K comments · 325 shares", type:"youtube", url:"https://youtu.be/9GfnQkUecNE", categoryAr:"مسلسل · دراما", categoryEn:"Drama", bitly:"https://bit.ly/elprince_"},
+
+  {rank:17, plat:"YouTube · Horizontal", seriesAr:"ضربة معلم", seriesEn:"Darbet Maallem", title:"ليلة دخلة جابر وليلى ليلة كوميدية جداً 😂", titleEn:"Gaber and Laila's wedding night — an absolutely hilarious night 😂", badge:"trend", trendRank:1, views:0.842, sub:"13K likes · 421 comments · 195 shares", type:"youtube", url:"https://youtu.be/BtaJcI2PJeE", categoryAr:"مسلسل · كوميدي", categoryEn:"Comedy", bitly:"https://bit.ly/darbet-maalem"},
+
+  {rank:18, plat:"YouTube · Horizontal", seriesAr:"حق عرب", seriesEn:"Haq Arab", title:"رد فعل غريب من عرب لمّا سمحت له الفرصة يتهم عبدربه 😯", titleEn:"Arab's strange reaction when finally given the chance to accuse Abdrabo 😯", badge:"trend", trendRank:4, views:0.466, sub:"5.4K likes · 67 comments · 108 shares", type:"youtube", url:"https://youtu.be/8rlZy0jzzzM", categoryAr:"مسلسل · آكشن", categoryEn:"Action", bitly:"https://bit.ly/haq-arrab"}
 ];
 
 const max = Math.max(...clips.map(c => c.views));
@@ -666,11 +761,7 @@ clips.forEach(c => {
     ? (c.approx ? '~' : '') + (c.views * 1000).toFixed(1) + 'K'
     : (c.approx ? '~' : '') + c.views.toFixed(1) + 'M';
   const commentsId = 'comments-' + c.rank;
-  const rankHtml = c.rank <= 3
-    ? `<div class="medal ${MEDAL_CLASS[c.rank]}">${c.rank}</div>`
-    : `<div class="rank">${c.rank}</div>`;
   row.innerHTML = `
-    ${rankHtml}
     <div class="body">
       <div class="meta">
         <span class="plat p-${c.type}">${PLATFORM_ICONS[c.type] || ''}${c.plat}</span>
