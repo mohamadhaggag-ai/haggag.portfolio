@@ -202,7 +202,7 @@
     border-color:var(--accent);
   }
   .proof-card img{
-    width:100%; height:auto; display:block;
+    width:100%; height:220px; object-fit:cover; display:block;
   }
   .proof-cap{
     padding:0.85rem 1rem 1rem;
@@ -437,7 +437,7 @@
     font-style:italic;
   }
 
-  .body > .meta{
+  .meta{
     display:flex;
     align-items:center;
     gap:0.5rem;
@@ -547,258 +547,84 @@
 </div>
 
 <div class="intro">
-  <div class="kicker">The trending chart</div>
-  <p>Verified clips from an archive of 500+ titles and 2,000+ episodes across YouTube, Facebook and TikTok — every number below is a real, publicly viewable figure, ranked by lifetime views. Bar length shows scale relative to the #1 clip.</p>
-  <p style="margin-bottom:0.8rem;">This is a curated, format-diverse selection — not a strict ranking of the highest-viewed clips in the archive.</p>
+  <div class="kicker">Verified performance</div>
+  <p>Screenshots captured directly from each platform's own "Trending" and "Most Popular" surfaces — not self-reported numbers. From an archive of 500+ titles and 2,000+ episodes across YouTube, Facebook and TikTok. Click any card to open the original post.</p>
   <p class="arabic-text" style="margin-bottom:0;">
-    مقاطع موثّقة من أرشيف يضمّ أكثر من ٥٠٠ عنوان و٢٠٠٠ حلقة عبر يوتيوب وفيسبوك وتيك توك — كل رقم أدناه هو رقم حقيقي وقابل للتحقّق، مُرتّب حسب إجمالي المشاهدات مدى الحياة. طول الشريط يُظهر الحجم النسبي مقارنة بالمقطع الأوّل.
-  </p>
-  <p class="arabic-text" style="margin-bottom:0; margin-top:0.2rem;">
-    هذه قائمة متنوّعة في الشكل وليست ترتيباً صارماً لأعلى المقاطع من حيث المشاهدات في الأرشيف.
+    لقطات موثّقة مباشرة من واجهات "الترند" و"الأكثر مشاهدة" الرسمية للمنصات — مش أرقام مُدخلة يدويًا، من أرشيف يضمّ أكثر من ٥٠٠ عنوان و٢٠٠٠ حلقة. اضغط على أي بطاقة لفتح المنشور الأصلي.
   </p>
 </div>
 
-<div class="chart" id="chart"></div>
-
-<div class="intro" style="margin-top:3.5rem;">
-  <div class="kicker">Verified performance — beyond the chart</div>
-  <p>Screenshots captured directly from each platform's own "Trending" and "Most Popular" surfaces — not self-reported numbers. Click any card to open the original post.</p>
-  <p class="arabic-text" style="margin-bottom:0;">
-    لقطات موثّقة مباشرة من واجهات "الترند" و"الأكثر مشاهدة" الرسمية للمنصات — مش أرقام مُدخلة يدويًا. اضغط على أي بطاقة لفتح المنشور الأصلي.
-  </p>
-</div>
-
-<div class="proof-grid">
-  <a class="proof-card" href="https://youtu.be/6NTvdQRBM98" target="_blank" rel="noopener">
-    <img src="assets/proof/fahd-elbatal.jpg" alt="Fahd Elbatal 4 — YouTube #1 Trending">
-    <div class="proof-cap"><span class="proof-show">Fahd Elbatal 4</span><span class="proof-stat">YouTube #1 Trending · 584K+ views within 19 hrs</span></div>
-  </a>
-  <a class="proof-card" href="https://youtu.be/BtaJcI2PJeE" target="_blank" rel="noopener">
-    <img src="assets/proof/darbet-maallem-2.jpg" alt="Darbet Maallem — YouTube #1 Trending">
-    <div class="proof-cap"><span class="proof-show">Darbet Maallem</span><span class="proof-stat">YouTube #1 Trending · 842K+ views</span></div>
-  </a>
-  <a class="proof-card" href="https://youtu.be/9GfnQkUecNE" target="_blank" rel="noopener">
-    <img src="assets/proof/elprince-2.jpg" alt="Elprince — YouTube #1 Trending">
-    <div class="proof-cap"><span class="proof-show">Elprince</span><span class="proof-stat">YouTube #1 Trending · 1.4M+ views</span></div>
-  </a>
-  <a class="proof-card" href="https://youtu.be/8rlZy0jzzzM" target="_blank" rel="noopener">
-    <img src="assets/proof/haq-arab-2.jpg" alt="Haq Arab — YouTube #4 Trending">
-    <div class="proof-cap"><span class="proof-show">Haq Arab</span><span class="proof-stat">YouTube #4 Trending · 466K+ views</span></div>
-  </a>
-  <a class="proof-card" href="https://www.facebook.com/share/v/1HdFy53y6p/" target="_blank" rel="noopener">
-    <img src="assets/proof/moaakom-boshra.jpg" alt="Moaakom — Facebook Most Popular">
-    <div class="proof-cap"><span class="proof-show">Moaakom</span><span class="proof-stat">Facebook Most Popular · 13K+ shares within 24 hrs</span></div>
-  </a>
-  <a class="proof-card" href="https://www.facebook.com/watch/?v=306808134195281" target="_blank" rel="noopener">
-    <img src="assets/proof/sahebet-elsaada-labs.jpg" alt="Sahebet Elsaada — Facebook Most Popular">
-    <div class="proof-cap"><span class="proof-show">Sahebet Elsaada</span><span class="proof-stat">Facebook Most Popular · 3.3K+ shares within 24 hrs</span></div>
-  </a>
-  <a class="proof-card" href="https://www.facebook.com/share/v/1BcPhUCeXn/" target="_blank" rel="noopener">
-    <img src="assets/proof/sahebet-elsaada-maryam.jpg" alt="Sahebet Elsaada — Facebook Most Popular">
-    <div class="proof-cap"><span class="proof-show">Sahebet Elsaada</span><span class="proof-stat">Facebook Most Popular · 6.4K+ shares within 24 hrs</span></div>
-  </a>
-  <a class="proof-card" href="https://www.facebook.com/WatchiTMENA/videos/865356894197044/" target="_blank" rel="noopener">
-    <img src="assets/proof/amin-w-shorakah.jpg" alt="Amin w Shorakah — Facebook Most Popular">
-    <div class="proof-cap"><span class="proof-show">Amin w Shorakah</span><span class="proof-stat">Facebook Most Popular · 4.4K+ shares within 24 hrs</span></div>
-  </a>
-  <a class="proof-card" href="https://www.facebook.com/share/v/1EdqLbS8d1/" target="_blank" rel="noopener">
-    <img src="assets/proof/wahed-men-elnas.jpg" alt="Wahed Men El Nas — Facebook Most Popular">
-    <div class="proof-cap"><span class="proof-show">Wahed Men El Nas</span><span class="proof-stat">Facebook Most Popular · 5K+ shares within 24 hrs</span></div>
-  </a>
-  <a class="proof-card" href="https://www.facebook.com/share/v/1EvWWLSAga/" target="_blank" rel="noopener">
-    <img src="assets/proof/sahranin.jpg" alt="Sahranin — Facebook Most Popular">
-    <div class="proof-cap"><span class="proof-show">Sahranin</span><span class="proof-stat">Facebook Most Popular · 466+ shares within 24 hrs</span></div>
-  </a>
-</div>
+<div class="proof-grid" id="chart"></div>
 
 <footer>
-  All figures are lifetime view counts, publicly verifiable at the linked URLs. TikTok figures marked ~ are engagement-based estimates. <span style="color:var(--accent); font-weight:600;">Trend</span> = confirmed or view-volume based YouTube Trending placement. <span style="color:#8A6A26; font-weight:600;">Viral</span> = share rate substantially above average for a comparable clip.
+  All figures are publicly verifiable at the linked URLs. TikTok figures marked ~ are engagement-based estimates. <span style="color:var(--accent); font-weight:600;">Trend</span> = confirmed or view-volume based YouTube Trending placement. <span style="color:#8A6A26; font-weight:600;">Viral</span> = share/reaction rate substantially above average for a comparable post.
 </footer>
 
 </div>
 
 <script>
-const clips = [
-  {rank:1, plat:"Facebook · Horizontal", seriesAr:"ضربة معلم", seriesEn:"Darbet Maallem", title:"جابر عرف إن ليلى نزلت بالمايوه، نزل لها بالجالبية 😂", titleEn:"Gaber finds out Laila went out in her swimsuit, shows up in his galabeya 😂", badge:"viral", views:60.0, sub:"1M likes · 11K comments · 13K shares", type:"facebook", url:"https://www.facebook.com/watch/?v=471033977251763", categoryAr:"مسلسل · كوميدي", categoryEn:"Comedy", bitly:"https://bit.ly/darbt-maallem"},
-
-  {rank:2, plat:"Facebook · Horizontal", seriesAr:"جعفر العمدة", seriesEn:"Gaafar Elomda", title:"حاول يعمل نمرة على جعفر، رد له النمرة مقلب قدّام أهل المنطقة 😂", titleEn:"He tried to prank Gaafar, so Gaafar pranked him back in front of the whole neighborhood 😂", badge:"viral", views:37.0, sub:"1M+ likes · 3.2K comments · 7.1K shares", type:"facebook", url:"https://www.facebook.com/WatchiTMENA/videos/1166536187397635/", categoryAr:"مسلسل · آكشن", categoryEn:"Action", bitly:"https://bit.ly/gafar-elomda"},
-
-  {rank:3, plat:"YouTube · Horizontal", seriesAr:"البرنس", seriesEn:"Elprince", title:"تحية البرنس لإخواته بمناسبة خروجه من السجن — علقة موت 👊🔥", titleEn:"Elprince's tribute to his brothers on his release from prison — a solid beatdown 👊🔥", badge:"trend", trendRank:1, views:35.9, sub:"324K likes · 7K comments · 8.3K shares", type:"youtube", url:"https://youtu.be/1BVvZn3mlmc", categoryAr:"مسلسل · جريمة", categoryEn:"Crime", bitly:"https://bit.ly/ellprince"},
-
-  {rank:4, plat:"Facebook · Horizontal", seriesAr:"حالة خاصة", seriesEn:"Hala Khasa", title:"نديم حوّل الشاهدة لمتهمة بسبب غلطة صغيرة محدش انتبه ليها غيره 😎", titleEn:"Nadeem turns the witness into a suspect over a tiny mistake only he noticed 😎", badge:"viral", views:26.0, sub:"649K likes · 3.2K comments · 3.2K shares", type:"facebook", url:"https://www.facebook.com/watch/?v=1119313819206656", categoryAr:"مسلسل · جريمة", categoryEn:"Crime", bitly:"https://bit.ly/hala-khassa"},
-
-  {rank:5, plat:"TikTok · Vertical", seriesAr:"حاحا وتفاحة", seriesEn:"Haha w Tofaha", title:"صاحبتك اللي بتخاف من الحسد زيادة عن اللازم 😂", titleEn:"That friend of yours who's way too paranoid about the evil eye 😂", badge:"viral", views:23.6, approx:true, sub:"56K likes · 864 comments · 22.4K shares", type:"tiktok", url:"https://vt.tiktok.com/ZS4hDnGEF/", categoryAr:"فيلم · كوميدي", categoryEn:"Comedy", bitly:"https://bit.ly/haha-w-toffaha"},
-
-  {rank:6, plat:"Facebook · Horizontal", seriesAr:"حق عرب", seriesEn:"Haq Arab", title:"سميحة ورباح خدوا جزاءهم، وأنغام تعويض ربنا لعرب 😌", titleEn:"Samiha and Rabah get what's coming to them, and Angham compensates Arab 😌", badge:"viral", views:22.0, sub:"431K likes · 716 comments · 1.2K shares", type:"facebook", url:"https://www.facebook.com/WatchiTMENA/videos/759384259267999/", categoryAr:"مسلسل · آكشن", categoryEn:"Action", bitly:"https://bit.ly/haqq-arab"},
-
-  {rank:7, plat:"Facebook Reels · Vertical", seriesAr:"حدث بالفعل", seriesEn:"Hadath Belfel", title:"انت كدة جامد يعني 👊😗", titleEn:"Now that's impressive 👊😗", badge:"viral", views:20.7, sub:"207K likes · 967 comments · 775 shares", type:"facebook", url:"https://www.facebook.com/reel/1132088844743862/", categoryAr:"مسلسل · جريمة", categoryEn:"Crime", bitly:"https://bit.ly/hadas-belfeal"},
-
-  {rank:8, plat:"Facebook · Horizontal", seriesAr:"صاحبة السعادة", seriesEn:"Sahebet Elsaada", title:"لما تبقى لابس وخارج وبنتك تقول رأيها في شكلك 😂", titleEn:"When you're dressed and heading out and your daughter gives her opinion on your look 😂", badge:"viral", views:17.0, sub:"371K+ likes · 8.5K comments · 2K shares", type:"facebook", url:"https://www.facebook.com/watch/?v=306808134195281", categoryAr:"برنامج تلفزيوني · كوميدي", categoryEn:"Comedy", bitly:"https://bit.ly/sahbet-el-saada"},
-
-  {rank:9, plat:"TikTok · Vertical", seriesAr:"شارك تانك", seriesEn:"Shark Tank", title:"أصغر مؤسسين شركة معملوش مقاسهم في Shark Tank فقرروا يأسسوا شركتهم بنفسهم 😍", titleEn:"The youngest founders no one took seriously on Shark Tank, so they built their own company 😍", badge:"viral", views:9.4, sub:"530.6K likes · 6.8K comments · 93.6K shares", type:"tiktok", url:"https://vt.tiktok.com/ZS4hMAYr1/", categoryAr:"برنامج تلفزيوني · ريادة أعمال", categoryEn:"Entrepreneurship", bitly:"https://bit.ly/shark-tank-eg"},
-
-  {rank:10, plat:"Facebook · Horizontal", seriesAr:"إيجار قديم", seriesEn:"Eigar Adeem", title:"الشارع كله بيتفرج على رمزي ومش مصدقين اللي بيعمله 😳", titleEn:"The whole street is watching Ramzy, stunned by what he's doing 😳", badge:"viral", views:8.7, sub:"187K likes · 591 comments · 1.1K shares", type:"facebook", url:"https://www.facebook.com/WatchiTMENA/videos/3399121410332710/", categoryAr:"مسلسل · كوميدي", categoryEn:"Comedy", bitly:"https://bit.ly/egar-adim"},
-
-  {rank:11, plat:"YouTube · Horizontal", seriesAr:"ضربة معلم", seriesEn:"Darbet Maallem", title:"جابر عمل اللي عليه ودلوقتي وقت الفراق 😮", titleEn:"Gaber did what he had to do, and now it's time to part ways 😮", badge:"trend", trendRank:1, views:8.6, sub:"77K likes · 2K comments · 2K shares", type:"youtube", url:"https://youtu.be/KFmapXn7Og8", categoryAr:"مسلسل · رومانسي", categoryEn:"Romance", bitly:"https://bit.ly/darbt-maallem"},
-
-  {rank:12, plat:"YouTube · Horizontal", seriesAr:"فهد البطل", seriesEn:"Fahd Elbatal 4", title:"شامل باعت حملة كاملة عشان تجيب رقبة فهد 🔥💪", titleEn:"Shamel sent an entire squad just to bring Fahd in 🔥💪", badge:"trend", trendRank:1, views:8.2, sub:"48K likes · 1K comments · 1.9K shares", type:"youtube", url:"https://youtu.be/6NTvdQRBM98", categoryAr:"مسلسل · آكشن", categoryEn:"Action", bitly:"https://bit.ly/fahd-al-batal"},
-
-  {rank:13, plat:"TikTok · Vertical", seriesAr:"كركر", seriesEn:"Karkar", title:"لمّا يبقى ليك فلوس عند حد وتتصدم إنه مات 🤦😅", titleEn:"When someone owes you money and you're shocked to hear they died 🤦😅", badge:"viral", views:7.2, sub:"173.8K likes · 3.2K comments · 69.7K shares", type:"tiktok", url:"https://vt.tiktok.com/ZS4hh8jjr/", categoryAr:"فيلم · كوميدي", categoryEn:"Comedy", bitly:"https://bit.ly/karrkar"},
-
-  {rank:14, plat:"TikTok · Vertical", seriesAr:"الوصفة السحرية", seriesEn:"Elwasfa Elsehreya", title:"فن اختيار الخلافات الزوجية 😂🫢", titleEn:"The art of picking your marital fights 😂🫢", badge:"viral", views:5.8, sub:"142.9K likes · 1.1K comments · 28.3K shares", type:"tiktok", url:"https://vt.tiktok.com/ZS4hBeGAp/", categoryAr:"مسلسل · كوميدي", categoryEn:"Comedy", bitly:"https://bit.ly/al-wasfa-al-sehreya"},
-
-  {rank:15, plat:"TikTok · Vertical", seriesAr:"بحبك", seriesEn:"Baheback", title:"أجيلك من شهرين كدة تخلّيني كدة؟ 🤦‍♀️", titleEn:"I came to you in this state two months ago, and you made me into this state? 🤦‍♀️", badge:"viral", views:5.5, sub:"146.2K likes · 1.8K comments · 17.2K shares", type:"tiktok", url:"https://vt.tiktok.com/ZS4hkt6mb/", categoryAr:"فيلم · كوميدي", categoryEn:"Comedy", bitly:"https://bit.ly/bahebbak"},
-
-  {rank:16, plat:"YouTube · Horizontal", seriesAr:"البرنس", seriesEn:"Elprince", title:"رضوان بيشوف بنته بعد 5 سنين قهرة ووجع 😍😀", titleEn:"Radwan sees his daughter again after 5 years — bittersweet and painful 😍😀", badge:"trend", trendRank:1, views:1.4, sub:"20K likes · 1.2K comments · 325 shares", type:"youtube", url:"https://youtu.be/9GfnQkUecNE", categoryAr:"مسلسل · دراما", categoryEn:"Drama", bitly:"https://bit.ly/elprince_"},
-
-  {rank:17, plat:"YouTube · Horizontal", seriesAr:"ضربة معلم", seriesEn:"Darbet Maallem", title:"ليلة دخلة جابر وليلى ليلة كوميدية جداً 😂", titleEn:"Gaber and Laila's wedding night — an absolutely hilarious night 😂", badge:"trend", trendRank:1, views:0.842, sub:"13K likes · 421 comments · 195 shares", type:"youtube", url:"https://youtu.be/BtaJcI2PJeE", categoryAr:"مسلسل · كوميدي", categoryEn:"Comedy", bitly:"https://bit.ly/darbet-maalem"},
-
-  {rank:18, plat:"YouTube · Horizontal", seriesAr:"حق عرب", seriesEn:"Haq Arab", title:"رد فعل غريب من عرب لمّا سمحت له الفرصة يتهم عبدربه 😯", titleEn:"Arab's strange reaction when finally given the chance to accuse Abdrabo 😯", badge:"trend", trendRank:4, views:0.466, sub:"5.4K likes · 67 comments · 108 shares", type:"youtube", url:"https://youtu.be/8rlZy0jzzzM", categoryAr:"مسلسل · آكشن", categoryEn:"Action", bitly:"https://bit.ly/haq-arrab"}
+const cards = [
+  {seriesAr:"ضربة معلم", seriesEn:"Darbet Maallem", title:"جابر عرف إن ليلى نزلت بالمايوه، نزل لها بالجالبية 😂", titleEn:"Gaber finds out Laila went out in her swimsuit, shows up in his galabeya 😂", badge:"viral", views:60.0, sub:"1M likes · 11K comments · 13K shares", type:"facebook", source:"Facebook", url:"https://www.facebook.com/watch/?v=471033977251763", categoryAr:"مسلسل · كوميدي", categoryEn:"Comedy", img:"assets/proof/darbet-maallem-1.png"},
+  {seriesAr:"جعفر العمدة", seriesEn:"Gaafar Elomda", title:"حاول يعمل نمرة على جعفر، رد له النمرة مقلب قدّام أهل المنطقة 😂", titleEn:"He tried to prank Gaafar, so Gaafar pranked him back in front of the whole neighborhood 😂", badge:"viral", views:37.0, sub:"1M+ likes · 3.2K comments · 7.1K shares", type:"facebook", source:"Facebook", url:"https://www.facebook.com/WatchiTMENA/videos/1166536187397635/", categoryAr:"مسلسل · آكشن", categoryEn:"Action", img:"assets/proof/gaafar-elomda.png"},
+  {seriesAr:"البرنس", seriesEn:"Elprince", title:"تحية البرنس لإخواته بمناسبة خروجه من السجن — علقة موت 👊🔥", titleEn:"Elprince's tribute to his brothers on his release from prison — a solid beatdown 👊🔥", badge:"trend", trendRank:1, views:35.9, sub:"324K likes · 7K comments · 8.3K shares", type:"youtube", source:"YouTube", url:"https://youtu.be/1BVvZn3mlmc", categoryAr:"مسلسل · جريمة", categoryEn:"Crime", img:"assets/proof/elprince-1.png"},
+  {seriesAr:"حالة خاصة", seriesEn:"Hala Khasa", title:"نديم حوّل الشاهدة لمتهمة بسبب غلطة صغيرة محدش انتبه ليها غيره 😎", titleEn:"Nadeem turns the witness into a suspect over a tiny mistake only he noticed 😎", badge:"viral", views:26.0, sub:"649K likes · 3.2K comments · 3.2K shares", type:"facebook", source:"Facebook", url:"https://www.facebook.com/watch/?v=1119313819206656", categoryAr:"مسلسل · جريمة", categoryEn:"Crime", img:"assets/proof/hala-khasa.png"},
+  {seriesAr:"حاحا وتفاحة", seriesEn:"Haha w Tofaha", title:"صاحبتك اللي بتخاف من الحسد زيادة عن اللازم 😂", titleEn:"That friend of yours who's way too paranoid about the evil eye 😂", badge:"viral", views:23.6, approx:true, sub:"56K likes · 864 comments · 22.4K shares", type:"tiktok", source:"TikTok", url:"https://vt.tiktok.com/ZS4hDnGEF/", categoryAr:"فيلم · كوميدي", categoryEn:"Comedy", img:"assets/proof/haha-w-tofaha.png"},
+  {seriesAr:"حق عرب", seriesEn:"Haq Arab", title:"سميحة ورباح خدوا جزاءهم، وأنغام تعويض ربنا لعرب 😌", titleEn:"Samiha and Rabah get what's coming to them, and Angham compensates Arab 😌", badge:"viral", views:22.0, sub:"431K likes · 716 comments · 1.2K shares", type:"facebook", source:"Facebook", url:"https://www.facebook.com/WatchiTMENA/videos/759384259267999/", categoryAr:"مسلسل · آكشن", categoryEn:"Action", img:"assets/proof/haq-arab-1.png"},
+  {seriesAr:"حدث بالفعل", seriesEn:"Hadath Belfel", title:"انت كدة جامد يعني 👊😗", titleEn:"Now that's impressive 👊😗", badge:"viral", views:20.7, sub:"207K likes · 967 comments · 775 shares", type:"facebook", source:"Facebook", url:"https://www.facebook.com/reel/1132088844743862/", categoryAr:"مسلسل · جريمة", categoryEn:"Crime", img:"assets/proof/hadath-belfel.png"},
+  {seriesAr:"صاحبة السعادة", seriesEn:"Sahebet Elsaada", title:"لما تبقى لابس وخارج وبنتك تقول رأيها في شكلك 😂", titleEn:"When you're dressed and heading out and your daughter gives her opinion on your look 😂", badge:"viral", views:17.0, sub:"371K+ likes · 8.5K comments · 2K shares", type:"facebook", source:"Facebook", url:"https://www.facebook.com/watch/?v=306808134195281", categoryAr:"برنامج تلفزيوني · كوميدي", categoryEn:"TV Show · Comedy", img:"assets/proof/sahebet-elsaada.png"},
+  {seriesAr:"شارك تانك", seriesEn:"Shark Tank", title:"أصغر مؤسسين شركة معملوش مقاسهم في Shark Tank فقرروا يأسسوا شركتهم بنفسهم 😍", titleEn:"The youngest founders no one took seriously on Shark Tank, so they built their own company 😍", badge:"viral", views:9.4, sub:"530.6K likes · 6.8K comments · 93.6K shares", type:"tiktok", source:"TikTok", url:"https://vt.tiktok.com/ZS4hMAYr1/", categoryAr:"برنامج تلفزيوني · ريادة أعمال", categoryEn:"TV Show · Entrepreneurship", img:"assets/proof/shark-tank.png"},
+  {seriesAr:"إيجار قديم", seriesEn:"Eigar Adeem", title:"الشارع كله بيتفرج على رمزي ومش مصدقين اللي بيعمله 😳", titleEn:"The whole street is watching Ramzy, stunned by what he's doing 😳", badge:"viral", views:8.7, sub:"187K likes · 591 comments · 1.1K shares", type:"facebook", source:"Facebook", url:"https://www.facebook.com/WatchiTMENA/videos/3399121410332710/", categoryAr:"مسلسل · كوميدي", categoryEn:"Comedy", img:"assets/proof/eigar-adeem.png"},
+  {seriesAr:"ضربة معلم", seriesEn:"Darbet Maallem", title:"جابر عمل اللي عليه ودلوقتي وقت الفراق 😮", titleEn:"Gaber did what he had to do, and now it's time to part ways 😮", badge:"trend", trendRank:1, views:8.6, sub:"77K likes · 2K comments · 2K shares", type:"youtube", source:"YouTube", url:"https://youtu.be/KFmapXn7Og8", categoryAr:"مسلسل · رومانسي", categoryEn:"Romance", img:"assets/proof/darbet-maallem-parting.png"},
+  {seriesAr:"فهد البطل", seriesEn:"Fahd Elbatal 4", title:"شامل باعت حملة كاملة عشان تجيب رقبة فهد 🔥💪", titleEn:"Shamel sent an entire squad just to bring Fahd in 🔥💪", badge:"trend", trendRank:1, views:8.2, sub:"48K likes · 1K comments · 1.9K shares", type:"youtube", source:"YouTube", url:"https://youtu.be/6NTvdQRBM98", categoryAr:"مسلسل · آكشن", categoryEn:"Action", img:"assets/proof/fahd-elbatal.jpg"},
+  {seriesAr:"كركر", seriesEn:"Karkar", title:"لمّا يبقى ليك فلوس عند حد وتتصدم إنه مات 🤦😅", titleEn:"When someone owes you money and you're shocked to hear they died 🤦😅", badge:"viral", views:7.2, sub:"173.8K likes · 3.2K comments · 69.7K shares", type:"tiktok", source:"TikTok", url:"https://vt.tiktok.com/ZS4hh8jjr/", categoryAr:"فيلم · كوميدي", categoryEn:"Comedy", img:"assets/proof/karkar.png"},
+  {seriesAr:"الوصفة السحرية", seriesEn:"Elwasfa Elsehreya", title:"فن اختيار الخلافات الزوجية 😂🫢", titleEn:"The art of picking your marital fights 😂🫢", badge:"viral", views:5.8, sub:"142.9K likes · 1.1K comments · 28.3K shares", type:"tiktok", source:"TikTok", url:"https://vt.tiktok.com/ZS4hBeGAp/", categoryAr:"مسلسل · كوميدي", categoryEn:"Comedy", img:"assets/proof/elwasfa-elsehreya.png"},
+  {seriesAr:"بحبك", seriesEn:"Baheback", title:"أجيلك من شهرين كدة تخلّيني كدة؟ 🤦‍♀️", titleEn:"I came to you in this state two months ago, and you made me into this state? 🤦‍♀️", badge:"viral", views:5.5, sub:"146.2K likes · 1.8K comments · 17.2K shares", type:"tiktok", source:"TikTok", url:"https://vt.tiktok.com/ZS4hkt6mb/", categoryAr:"فيلم · كوميدي", categoryEn:"Comedy", img:"assets/proof/baheback.png"},
+  {seriesAr:"البرنس", seriesEn:"Elprince", title:"رضوان بيشوف بنته بعد 5 سنين قهرة ووجع 😍😀", titleEn:"Radwan sees his daughter again after 5 years — bittersweet and painful 😍😀", badge:"trend", trendRank:1, views:1.4, sub:"20K likes · 1.2K comments · 325 shares", type:"youtube", source:"YouTube", url:"https://youtu.be/9GfnQkUecNE", categoryAr:"مسلسل · دراما", categoryEn:"Drama", img:"assets/proof/elprince-2.jpg"},
+  {seriesAr:"ضربة معلم", seriesEn:"Darbet Maallem", title:"ليلة دخلة جابر وليلى ليلة كوميدية جداً 😂", titleEn:"Gaber and Laila's wedding night — an absolutely hilarious night 😂", badge:"trend", trendRank:1, views:0.842, sub:"13K likes · 421 comments · 195 shares", type:"youtube", source:"YouTube", url:"https://youtu.be/BtaJcI2PJeE", categoryAr:"مسلسل · كوميدي", categoryEn:"Comedy", img:"assets/proof/darbet-maallem-wedding.jpg"},
+  {seriesAr:"حق عرب", seriesEn:"Haq Arab", title:"رد فعل غريب من عرب لمّا سمحت له الفرصة يتهم عبدربه 😯", titleEn:"Arab's strange reaction when finally given the chance to accuse Abdrabo 😯", badge:"trend", trendRank:4, views:0.466, sub:"5.4K likes · 67 comments · 108 shares", type:"youtube", source:"YouTube", url:"https://youtu.be/8rlZy0jzzzM", categoryAr:"مسلسل · آكشن", categoryEn:"Action", img:"assets/proof/haq-arab-2.jpg"},
+  {seriesAr:"معكم", seriesEn:"Moaakom", title:"معكم | بشرى دمعت من التأثر ما اتوقعتش المفاجأة الحلوة دي 😍", titleEn:"Moaakom | Boshra teared up from the surprise she never saw coming 😍", badge:"viral", views:0.459, sub:"459K likes · 15K comments · 13K shares", type:"facebook", source:"Facebook · Most Popular", noViews:true, url:"https://www.facebook.com/share/v/1HdFy53y6p/", categoryAr:"برنامج تلفزيوني · حواري", categoryEn:"TV Show · Talk", img:"assets/proof/moaakom-boshra.jpg"},
+  {seriesAr:"صاحبة السعادة", seriesEn:"Sahebet Elsaada", title:"صاحبة السعادة | مريم الخشت مبتغنيش لكنها صاحبة أشهر صوت في مصر 😉", titleEn:"Sahebet Elsaada | Mariam Elkasht doesn't sing, but she owns the most famous voice in Egypt 😉", badge:"viral", views:0.092, sub:"92K likes · 4.3K comments · 6.4K shares", type:"facebook", source:"Facebook · Most Popular", noViews:true, url:"https://www.facebook.com/share/v/1BcPhUCeXn/", categoryAr:"برنامج تلفزيوني · كوميدي", categoryEn:"TV Show · Comedy", img:"assets/proof/sahebet-elsaada-maryam.jpg"},
+  {seriesAr:"أمين وشركاه", seriesEn:"Amin w Shorakah", title:"أمين وشركاه | لما تبقوا خبرة في الجواز وتزوروا صحابكم اللي لسه متجوزين جديد 😂", titleEn:"Amin w Shorakah | When you're a marriage expert and crash your newly-married friends 😂", badge:"viral", views:0.071, sub:"71K likes · 5.9K comments · 4.4K shares", type:"facebook", source:"Facebook · Most Popular", noViews:true, url:"https://www.facebook.com/WatchiTMENA/videos/865356894197044/", categoryAr:"برنامج تلفزيوني · كوميدي", categoryEn:"TV Show · Comedy", img:"assets/proof/amin-w-shorakah.jpg"},
+  {seriesAr:"واحد من الناس", seriesEn:"Wahed Men El Nas", title:"واحد من الناس | محمد يلتقي بأمه بعد 13 سنة من تخلي أبوه عنها.. ما فارقش حضنها طول الحلقة ❤️", titleEn:"Wahed Men El Nas | Mohamed reunites with his mother after 13 years — he never let go of her the entire episode ❤️", badge:"viral", views:0.059, sub:"59K likes · 2.5K comments · 5K shares", type:"facebook", source:"Facebook · Most Popular", noViews:true, url:"https://www.facebook.com/share/v/1EdqLbS8d1/", categoryAr:"برنامج تلفزيوني · إنساني", categoryEn:"TV Show · Human Interest", img:"assets/proof/wahed-men-elnas.jpg"},
+  {seriesAr:"سهرانين", seriesEn:"Sahranin", title:"سهرانين | كلهم كانوا متكحرتين ما عدا أحمد الشامي أجنبي.. كوميديا بسبب الألماني 😂", titleEn:"Sahranin | Everyone else was 'faking it' except Ahmed Elshamy, the foreigner — comedy over the German guy 😂", badge:"viral", views:0.047, sub:"47K likes · 384 comments · 466 shares", type:"facebook", source:"Facebook · Most Popular", noViews:true, url:"https://www.facebook.com/share/v/1EvWWLSAga/", categoryAr:"برنامج تلفزيوني · كوميدي", categoryEn:"TV Show · Comedy", img:"assets/proof/sahranin.jpg"}
 ];
 
-const max = Math.max(...clips.map(c => c.views));
+cards.sort((a, b) => b.views - a.views);
+
 const container = document.getElementById('chart');
 
-function loadGiscus(container, term){
-  const s = document.createElement('script');
-  s.src = 'https://giscus.app/client.js';
-  s.setAttribute('data-repo', 'mohamadhaggag-ai/haggag.portfolio');
-  s.setAttribute('data-repo-id', 'R_kgDOT2tl6A');
-  s.setAttribute('data-category', 'Announcements');
-  s.setAttribute('data-category-id', 'DIC_kwDOT2tl6M4DDQgP');
-  s.setAttribute('data-mapping', 'specific');
-  s.setAttribute('data-term', term);
-  s.setAttribute('data-strict', '0');
-  s.setAttribute('data-reactions-enabled', '1');
-  s.setAttribute('data-emit-metadata', '0');
-  s.setAttribute('data-input-position', 'bottom');
-  s.setAttribute('data-theme', 'preferred_color_scheme');
-  s.setAttribute('data-lang', 'ar');
-  s.setAttribute('crossorigin', 'anonymous');
-  s.async = true;
-  container.appendChild(s);
-}
-
 const PLATFORM_ICONS = {
-  youtube: '<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.5v-7L15.8 12z"/></svg>',
-  facebook: '<svg width="13" height="13" viewBox="0 0 512 512" fill="currentColor"><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 383.8 92.9 489.8 214.9 508.8V330.9H150.3V256H214.9V198.9c0-63.7 37.9-98.9 96-98.9c27.8 0 56.9 5 56.9 5v62.5H336.6c-31.6 0-41.5 19.6-41.5 39.7V256h70.7l-11.3 74.9H295.1V508.8C417.1 489.8 512 383.8 512 256z"/></svg>',
-  tiktok: '<svg width="13" height="13" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="currentColor"/><path fill="#fff" d="M16.1 6.5c.3 1.8 1.5 3.1 3.4 3.3v2.1a5.2 5.2 0 0 1-3.4-1.2v5.3a5 5 0 1 1-5-5c.2 0 .4 0 .6.05v2.1a2.9 2.9 0 1 0 2.1 2.8V6.5z"/></svg>',
+  youtube: '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px; margin-inline-end:4px;"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.5v-7L15.8 12z"/></svg>',
+  facebook: '<svg width="12" height="12" viewBox="0 0 512 512" fill="currentColor" style="vertical-align:-2px; margin-inline-end:4px;"><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 383.8 92.9 489.8 214.9 508.8V330.9H150.3V256H214.9V198.9c0-63.7 37.9-98.9 96-98.9c27.8 0 56.9 5 56.9 5v62.5H336.6c-31.6 0-41.5 19.6-41.5 39.7V256h70.7l-11.3 74.9H295.1V508.8C417.1 489.8 512 383.8 512 256z"/></svg>',
+  tiktok: '<svg width="12" height="12" viewBox="0 0 24 24" style="vertical-align:-2px; margin-inline-end:4px;"><circle cx="12" cy="12" r="12" fill="currentColor"/><path fill="#fff" d="M16.1 6.5c.3 1.8 1.5 3.1 3.4 3.3v2.1a5.2 5.2 0 0 1-3.4-1.2v5.3a5 5 0 1 1-5-5c.2 0 .4 0 .6.05v2.1a2.9 2.9 0 1 0 2.1 2.8V6.5z"/></svg>',
 };
-const MEDAL_CLASS = {1:'gold-m', 2:'silver-m', 3:'bronze-m'};
-const METRIC_ICONS = {
-  likes: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>',
-  comments: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>',
-  shares: '<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M14 9V5l7 7-7 7v-4.1c-5 0-8.5 1.6-11 5.1 1-5 4-10 11-11z"/></svg>',
-};
-function renderSub(sub, clip, commentsId){
-  return sub.split('·').map(part => {
-    part = part.trim();
-    const m = part.match(/^(~?[\d.,]+K?M?\+?)\s+(likes|comments|shares)/i);
-    if(!m) return `<span class="metric">${part}</span>`;
-    const kind = m[2].toLowerCase();
-    const icon = METRIC_ICONS[kind] || '';
-    if(kind === 'shares' && clip && clip.bitly){
-      return `<button type="button" class="metric metric-share" data-share-url="${clip.bitly}" data-share-title="${(clip.seriesEn+' — '+clip.seriesAr).replace(/"/g,'&quot;')}">${icon}${m[1]} ${m[2]}</button>`;
-    }
-    if(kind === 'likes' && clip){
-      return `<button type="button" class="metric metric-like" data-clip-id="clip-${clip.rank}">${icon}${m[1]} ${m[2]}</button>`;
-    }
-    if(kind === 'comments' && commentsId){
-      const term = 'clip-' + clip.rank + '-' + clip.seriesEn.replace(/\s+/g,'-');
-      return `<button type="button" class="metric metric-comments" data-target="${commentsId}" data-term="${term}">${icon}${m[1]} ${m[2]}</button>`;
-    }
-    return `<span class="metric">${icon}${m[1]} ${m[2]}</span>`;
-  }).join('');
-}
 
-async function handleShareClick(url, title){
-  if(navigator.share){
-    try{ await navigator.share({ title, url }); return; }catch(e){ /* user cancelled or unsupported, fall through */ }
-  }
-  try{
-    await navigator.clipboard.writeText(url);
-    alert('تم نسخ رابط المشاركة:\n' + url);
-  }catch(e){
-    prompt('انسخ رابط المشاركة:', url);
-  }
-}
-document.addEventListener('click', (e) => {
-  const shareBtn = e.target.closest('.metric-share');
-  if(shareBtn) handleShareClick(shareBtn.dataset.shareUrl, shareBtn.dataset.shareTitle);
-
-  const likeBtn = e.target.closest('.metric-like');
-  if(likeBtn && !likeBtn.classList.contains('liked')){
-    const clipId = likeBtn.dataset.clipId;
-    likeBtn.classList.add('liked');
-    localStorage.setItem('liked-' + clipId, '1');
-    if(window.__firebaseLike) window.__firebaseLike(clipId);
-  }
-
-  const commentsBtn = e.target.closest('.metric-comments');
-  if(commentsBtn){
-    const panel = document.getElementById(commentsBtn.dataset.target);
-    if(!panel) return;
-    const isOpen = panel.classList.contains('open');
-    if(isOpen){
-      panel.classList.remove('open');
-      commentsBtn.classList.remove('open');
-      return;
-    }
-    if(!panel.dataset.loaded){
-      loadGiscus(panel, commentsBtn.dataset.term);
-      panel.dataset.loaded = '1';
-    }
-    panel.classList.add('open');
-    commentsBtn.classList.add('open');
-  }
-});
-
-clips.forEach(c => {
-  const row = document.createElement('div');
-  row.className = 'row' + (c.rank <= 3 ? ' top3' : '');
-  const pct = (c.views / max * 100).toFixed(1);
+cards.forEach(c => {
+  const a = document.createElement('a');
+  a.className = 'proof-card';
+  a.href = c.url;
+  a.target = '_blank';
+  a.rel = 'noopener';
   const viewsLabel = c.views < 1
-    ? (c.approx ? '~' : '') + (c.views * 1000).toFixed(1) + 'K'
+    ? (c.approx ? '~' : '') + (c.views * 1000).toFixed(0) + 'K'
     : (c.approx ? '~' : '') + c.views.toFixed(1) + 'M';
-  const commentsId = 'comments-' + c.rank;
-  row.innerHTML = `
-    <div class="body">
-      <div class="meta">
-        <span class="plat p-${c.type}">${PLATFORM_ICONS[c.type] || ''}${c.plat}</span>
-        <span class="badge ${c.badge}">${c.badge === 'trend' ? ('Trend' + (c.trendRank ? ' #' + c.trendRank : '')) : 'Viral'}</span>
+  const badgeLabel = c.badge === 'trend' ? ('Trend' + (c.trendRank ? ' #' + c.trendRank : '')) : 'Viral';
+  const badgeColor = c.badge === 'trend' ? 'var(--accent)' : '#8A6A26';
+  a.innerHTML = `
+    <img src="${c.img}" alt="${c.seriesEn} — ${c.source}" loading="lazy">
+    <div class="proof-cap">
+      <div class="meta" style="margin-bottom:0.4rem;">
+        <span class="plat p-${c.type}">${PLATFORM_ICONS[c.type] || ''}${c.source}</span>
+        <span class="badge ${c.badge}">${badgeLabel}</span>
       </div>
-      <div class="headline">
-        <div class="views-row">
-          <div class="views">${viewsLabel} <span class="views-label">Views</span></div>
-          <a class="play-link" href="${c.bitly}" target="_blank" rel="noopener"><span class="play-icon">▶</span>Play</a>
-        </div>
-        <div class="series-row">
-          <span class="series-name">${c.seriesAr}</span>
-          <span class="category-badge">${c.categoryAr}</span>
-        </div>
-      </div>
-      <div class="subline">
-        <div class="subs">${renderSub(c.sub, c, commentsId)}</div>
-        <div class="series-translit">${c.seriesEn} · ${c.categoryEn}</div>
-      </div>
-      <div class="right-body">
-        <hr class="caption-divider">
-        <!-- الكابشن بالعربية والإنجليزية -->
-        <div class="title-ar">${c.title}</div>
-        <div class="title-en">${c.titleEn}</div>
-      </div>
+      <span class="proof-show">${c.seriesAr} <span style="font-weight:400; color:var(--muted);">· ${c.seriesEn}</span></span>
+      <span class="proof-stat">${c.noViews ? c.sub : viewsLabel + ' views · ' + c.sub}</span>
+      <span class="proof-stat" style="color:var(--muted); font-size:0.72rem;">${c.categoryAr} · ${c.categoryEn}</span>
     </div>
-    <div class="comments-panel" id="${commentsId}"></div>
-    <div class="bar-track"><div class="bar-fill" style="width:${pct}%"></div></div>
   `;
-  container.appendChild(row);
+  container.appendChild(a);
 });
 
-document.querySelectorAll('.metric-like').forEach(btn => {
-  if(localStorage.getItem('liked-' + btn.dataset.clipId) === '1'){
-    btn.classList.add('liked');
-  }
-});
 </script>
 
 <script type="module">
