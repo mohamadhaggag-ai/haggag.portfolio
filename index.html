@@ -279,17 +279,19 @@
     margin-bottom:0.1rem;
   }
   .proof-show .series-en{
-    font-weight:400;
-    color:var(--muted);
+    font-weight:700;
+    color:var(--ink);
     direction:ltr;
     text-align:left;
     flex:0 1 auto;
   }
   .proof-show .series-ar{
     font-family:'Cairo',sans-serif;
+    font-weight:700;
     direction:ltr;
     text-align:right;
     flex:1 1 auto;
+    color:var(--ink);
   }
 
   .category-row{
@@ -484,11 +486,6 @@ function formatViews(val) {
     if (Number.isInteger(val)) return val + 'M';
     return val + 'M';
   }
-}
-
-function formatSubWithIcons(subStr) {
-  if (!subStr) return '';
-  return subStr;
 }
 
 cards.sort((a, b) => b.views - a.views);
