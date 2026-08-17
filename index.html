@@ -86,7 +86,6 @@
     color:var(--muted-dark);
     margin-top:0.15rem;
   }
-  /* تعديل الأيقونات الملونة في الجدول العلوي */
   .stat .lbl .icon-inline{
     display:inline-flex;
     align-items:center;
@@ -221,6 +220,9 @@
   }
   .proof-cap-bottom{
     padding:0.5rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap:0.2rem;
   }
 
   .proof-card .image-wrap{
@@ -265,6 +267,7 @@
   .badge.trend{ background:var(--accent-soft); color:var(--accent); }
   .badge.viral{ background:var(--gold-soft); color:#8A6A26; }
 
+  /* New structure: English on left, Arabic on right with their own categories */
   .proof-show{
     display: flex;
     justify-content: space-between;
@@ -274,6 +277,7 @@
     font-size:0.95rem;
     gap:0.5rem;
     flex-wrap:wrap;
+    margin-bottom:0.1rem;
   }
   .proof-show .series-en{
     font-weight:400;
@@ -288,11 +292,34 @@
     text-align:right;
     flex:1 1 auto;
   }
+
+  .category-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size:0.72rem;
+    color:var(--muted);
+    gap:0.5rem;
+    flex-wrap:wrap;
+    margin-bottom:0.2rem;
+  }
+  .category-row .category-en{
+    direction:ltr;
+    text-align:left;
+    flex:0 1 auto;
+  }
+  .category-row .category-ar{
+    font-family:'Cairo',sans-serif;
+    direction:ltr;
+    text-align:right;
+    flex:1 1 auto;
+  }
+
   .proof-stat{
     display:block;
     color:var(--muted-dark);
     font-size:0.78rem;
-    margin-top:0.3rem;
+    margin-top:0.2rem;
   }
   .proof-caption{
     display:block;
@@ -317,6 +344,23 @@
     color:var(--muted);
     direction:ltr;
     text-align:left;
+  }
+
+  .proof-stats-icons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.8rem;
+    font-size:0.78rem;
+    color:var(--muted-dark);
+  }
+  .proof-stats-icons .stat-item{
+    display:inline-flex;
+    align-items:center;
+    gap:0.2rem;
+  }
+  .proof-stats-icons .stat-item .icon{
+    font-size:0.85rem;
+    line-height:1;
   }
 
   footer{
@@ -345,7 +389,6 @@
     <div class="stat"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 4v16"/></svg><div class="num">2,000+</div><div class="lbl">Episodes</div></div>
     <div class="stat"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg><div class="num">50M+</div><div class="lbl">Reactions</div></div>
     <div class="stat"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="15" height="12" rx="2"/><path d="m22 8-5 4 5 4z"/></svg><div class="num">10,000+</div><div class="lbl">Snippets</div></div>
-    <!-- Top FB post with Facebook icon -->
     <div class="stat gold">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 21h8M12 17v4M17 5v6a5 5 0 0 1-10 0V5z"/><path d="M7 5H3v2a4 4 0 0 0 4 4M17 5h4v2a4 4 0 0 1-4 4"/></svg>
       <div class="num">60M</div>
@@ -356,7 +399,6 @@
         </span>
       </div>
     </div>
-    <!-- Top YT post with YouTube icon -->
     <div class="stat">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 21h8M12 17v4M17 5v6a5 5 0 0 1-10 0V5z"/><path d="M7 5H3v2a4 4 0 0 0 4 4M17 5h4v2a4 4 0 0 1-4 4"/></svg>
       <div class="num">36M</div>
@@ -440,6 +482,32 @@ const cards = [
   {seriesAr:"سهرانين", seriesEn:"Sahranin", title:"سهرانين | كلهم كانوا متكحرتين ما عدا أحمد الشامي أجنبي.. كوميديا بسبب الألماني 😂", titleEn:"Sahranin | Everyone else was 'faking it' except Ahmed Elshamy, the foreigner — comedy over the German guy 😂", badge:"viral", views:0.047, sub:"47K likes · 384 comments · 466 shares", type:"facebook", source:"Facebook · Most Popular", noViews:true, url:"https://www.facebook.com/share/v/1EvWWLSAga/", categoryAr:"برنامج تلفزيوني · كوميدي", categoryEn:"TV Show · Comedy", img:"assets/proof/sahranin", ext:"jpg"}
 ];
 
+// Helper: format number to remove .0 if integer
+function formatViews(val) {
+  let num = val;
+  if (num < 1) {
+    let k = (num * 1000);
+    if (Number.isInteger(k)) return k + 'K';
+    else return k.toFixed(1) + 'K';
+  } else {
+    if (Number.isInteger(num)) return num + 'M';
+    else return num + 'M';
+  }
+}
+
+// Helper: format sub string with icons and remove .0 in numbers
+function formatSubWithIcons(subStr) {
+  if (!subStr) return '';
+  // Replace 'likes', 'comments', 'shares' with icons
+  let formatted = subStr
+    .replace(/\blikes\b/g, '👍')
+    .replace(/\bcomments\b/g, '💬')
+    .replace(/\bshares\b/g, '🔄');
+  // Remove .0 in numbers like 1.0K -> 1K, 5.0M -> 5M (but keep 1.4K, 23.6M)
+  formatted = formatted.replace(/(\d+)\.0([KMB])/g, '$1$2');
+  return formatted;
+}
+
 cards.sort((a, b) => b.views - a.views);
 
 const container = document.getElementById('chart');
@@ -456,11 +524,18 @@ cards.forEach(c => {
   a.href = c.url;
   a.target = '_blank';
   a.rel = 'noopener';
-  const viewsLabel = c.views < 1
-    ? (c.approx ? '~' : '') + (c.views * 1000).toFixed(0) + 'K'
-    : (c.approx ? '~' : '') + c.views.toFixed(1) + 'M';
+  const viewsLabel = formatViews(c.views);
   const badgeLabel = c.badge === 'trend' ? ('Trend' + (c.trendRank ? ' #' + c.trendRank : '')) : 'Viral';
   
+  // Build formatted stats with icons
+  let statsHTML = '';
+  if (c.noViews) {
+    statsHTML = formatSubWithIcons(c.sub);
+  } else {
+    let subFormatted = formatSubWithIcons(c.sub);
+    statsHTML = `👁️ ${viewsLabel} · ${subFormatted}`;
+  }
+
   let imgSrc = c.img + (c.ext ? '.' + c.ext : '.png');
 
   a.innerHTML = `
@@ -475,7 +550,10 @@ cards.forEach(c => {
         <span class="series-ar">${c.seriesAr}</span>
       </div>
 
-      <span class="proof-stat" style="color:var(--muted); font-size:0.72rem;">${c.categoryAr} · ${c.categoryEn}</span>
+      <div class="category-row">
+        <span class="category-en">${c.categoryEn}</span>
+        <span class="category-ar">${c.categoryAr}</span>
+      </div>
 
       <div class="proof-caption">
         <span class="cap-ar">${c.title}</span>
@@ -488,7 +566,7 @@ cards.forEach(c => {
     </div>
 
     <div class="proof-cap-bottom">
-      <span class="proof-stat">${c.noViews ? c.sub : viewsLabel + ' views · ' + c.sub}</span>
+      <span class="proof-stats-icons">${statsHTML}</span>
     </div>
   `;
   container.appendChild(a);
