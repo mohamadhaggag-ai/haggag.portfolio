@@ -267,7 +267,6 @@
   .badge.trend{ background:var(--accent-soft); color:var(--accent); }
   .badge.viral{ background:var(--gold-soft); color:#8A6A26; }
 
-  /* New structure: English on left, Arabic on right with their own categories */
   .proof-show{
     display: flex;
     justify-content: space-between;
@@ -498,7 +497,6 @@ function formatViews(val) {
 // Helper: format sub string with icons and remove .0 in numbers
 function formatSubWithIcons(subStr) {
   if (!subStr) return '';
-  // Replace 'likes', 'comments', 'shares' with icons
   let formatted = subStr
     .replace(/\blikes\b/g, '👍')
     .replace(/\bcomments\b/g, '💬')
@@ -527,7 +525,7 @@ cards.forEach(c => {
   const viewsLabel = formatViews(c.views);
   const badgeLabel = c.badge === 'trend' ? ('Trend' + (c.trendRank ? ' #' + c.trendRank : '')) : 'Viral';
   
-  // Build formatted stats with icons
+  // Build formatted stats with icons and no .0
   let statsHTML = '';
   if (c.noViews) {
     statsHTML = formatSubWithIcons(c.sub);
