@@ -494,16 +494,26 @@ function formatViews(val) {
   }
 }
 
-// Helper: format sub string with icons and remove .0 in numbers
+// Helper: format sub string with icons BEFORE the number
 function formatSubWithIcons(subStr) {
   if (!subStr) return '';
-  let formatted = subStr
-    .replace(/\blikes\b/g, '👍')
-    .replace(/\bcomments\b/g, '💬')
-    .replace(/\bshares\b/g, '🔄');
-  // Remove .0 in numbers like 1.0K -> 1K, 5.0M -> 5M (but keep 1.4K, 23.6M)
-  formatted = formatted.replace(/(\d+)\.0([KMB])/g, '$1$2');
-  return formatted;
+  
+  // Split by "·" to get parts like "1M likes", "11K comments", "13K shares"
+  const parts = subStr.split('·').map(s => s.trim());
+  const formattedParts = parts.map(part => {
+    // Match number and unit (like 1M, 11K, 13K) and the word (likes, comments, shares)
+    const match = part.match(/^([\d.]+[KM]?)\s+(\w+)$/);
+    if (!match) return part;
+    const number = match[1];
+    const word = match[2];
+    let icon = '';
+    if (word.includes('like')) icon = '👍';
+    else if (word.includes('comment')) icon = '💬';
+    else if (word.includes('share')) icon = '🔄';
+    else return part;
+    return `${icon} ${number}`;
+  });
+  return formattedParts.join(' · ');
 }
 
 cards.sort((a, b) => b.views - a.views);
@@ -525,7 +535,7 @@ cards.forEach(c => {
   const viewsLabel = formatViews(c.views);
   const badgeLabel = c.badge === 'trend' ? ('Trend' + (c.trendRank ? ' #' + c.trendRank : '')) : 'Viral';
   
-  // Build formatted stats with icons and no .0
+  // Build formatted stats with icons BEFORE numbers
   let statsHTML = '';
   if (c.noViews) {
     statsHTML = formatSubWithIcons(c.sub);
