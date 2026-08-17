@@ -212,7 +212,7 @@
     padding:0.5rem 1rem 1rem;
   }
 
-  /* -- Image container: fixed width, flexible height, maintain aspect ratio -- */
+  /* Image container: fixed width, flexible height, maintain aspect ratio */
   .proof-card .image-wrap{
     width:100%;
     background:var(--card);
@@ -255,6 +255,7 @@
   .badge.trend{ background:var(--accent-soft); color:var(--accent); }
   .badge.viral{ background:var(--gold-soft); color:#8A6A26; }
 
+  /* Swapped: English left, Arabic right */
   .proof-show{
     display: flex;
     justify-content: space-between;
@@ -265,15 +266,15 @@
     gap:0.5rem;
     flex-wrap:wrap;
   }
-  .proof-show .series-ar{
-    font-family:'Cairo',sans-serif;
+  .proof-show .series-en{
+    font-weight:400;
+    color:var(--muted);
     direction:ltr;
     text-align:left;
     flex:0 1 auto;
   }
-  .proof-show .series-en{
-    font-weight:400;
-    color:var(--muted);
+  .proof-show .series-ar{
+    font-family:'Cairo',sans-serif;
     direction:ltr;
     text-align:right;
     flex:1 1 auto;
@@ -414,7 +415,7 @@ cards.sort((a, b) => b.views - a.views);
 
 const container = document.getElementById('chart');
 
-// أيقونات SVG ملونة بحجم 16px
+// Colored platform icons
 const PLATFORM_ICONS = {
   youtube: `<svg width="16" height="16" viewBox="0 0 24 24" fill="#FF0000" style="vertical-align:middle"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.5v-7L15.8 12z"/></svg>`,
   facebook: `<svg width="16" height="16" viewBox="0 0 512 512" fill="#1877F2" style="vertical-align:middle"><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 383.8 92.9 489.8 214.9 508.8V330.9H150.3V256H214.9V198.9c0-63.7 37.9-98.9 96-98.9c27.8 0 56.9 5 56.9 5v62.5H336.6c-31.6 0-41.5 19.6-41.5 39.7V256h70.7l-11.3 74.9H295.1V508.8C417.1 489.8 512 383.8 512 256z"/></svg>`,
@@ -442,10 +443,10 @@ cards.forEach(c => {
         <span class="badge ${c.badge}">${badgeLabel}</span>
       </div>
 
-      <!-- 2. Series: Arabic left, English right -->
+      <!-- 2. Series: English left, Arabic right (swapped) -->
       <div class="proof-show">
-        <span class="series-ar">${c.seriesAr}</span>
         <span class="series-en">${c.seriesEn}</span>
+        <span class="series-ar">${c.seriesAr}</span>
       </div>
 
       <!-- 3. Category -->
